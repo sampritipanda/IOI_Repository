@@ -1,35 +1,31 @@
 // Table Sum
 
 #include <stdio.h>
+#include <algorithm>
 
-inline int max(int a, int b){
-  return (a > b) ? a : b;
-}
+using namespace std;
 
 int main() {
   int N; scanf("%d", &N);
-  int row[N];
+  int A[N + 2];
 
-  int max_index = 0, max_2_index = 0;
-  int max_1 = -1, max_2 = -2;
-  for(int i = 0; i < N; i++) {
-    scanf("%d", &row[i]);
-    if(row[i] > max_1){
-      max_index = i;
-      max_1 = row[i];
-    }
-    else if(row[i] > max_2_index){
-      max_2_index = i;
-      max_2 = row[i];
-    }
+  A[0] = A[N + 1] = 0;
+
+  for(int i = 1; i <= N; i++){
+    scanf("%d", &A[i]);
+    A[i] += i;
+    A[i] = max(A[i], A[i - 1]);
   }
 
-  for(int i = 0; i < N; i++){
-    int bottom_1 = (i + max_index + 1) % N;
-    int bottom_2 = (i + max_2_index + 1) % N;
-    if(bottom_1 == 0) bottom_1 = 4;
-    if(bottom_2 == 0) bottom_2 = 4;
-    printf("%d ", max(row[max_index] + bottom_1, row[max_2_index] + bottom_2));
+  printf("%d ", A[N]);
+
+  for(int i = N; i > 1; i--){
+    A[i] -= N;
+    A[i] = max(A[i], A[i + 1]) + 1;
+    A[i - 1] += N - i + 1;
+
+    printf("%d ", max(A[i], A[i - 1]));
   }
+
   printf("\n");
 }

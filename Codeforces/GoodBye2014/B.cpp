@@ -1,34 +1,55 @@
 // New Year Permutation
 
 #include <stdio.h>
+#include <vector>
+#include <algorithm>
 
-int main () {
-  int N; scanf("%d", &N);
-  int A[N];
+using namespace std;
 
-  for(int i = 0; i < N; i++) scanf("%d", &A[i]);
+bool graph[300][300];
+int A[300];
+bool visited[300];
+int N;
 
-  int matrix[N][N];
+void dfs(int curr, vector<int>& indexes, vector<int>& values){
+  visited[curr] = true;
+  indexes.push_back(curr);
+  values.push_back(A[curr]);
   for(int i = 0; i < N; i++){
+    if(graph[curr][i] && !visited[i]){
+      dfs(i, indexes, values);
+    }
+  }
+}
+
+int main() {
+  scanf("%d", &N);
+
+  for(int i = 0; i < N; i++) {
+    scanf("%d", &A[i]);
+    visited[i] = false;
+  }
+  for(int i = 0; i < N; i++) {
     for(int j = 0; j < N; j++){
-      char a; scanf(" %c", &a);
-      if(a == '1') matrix[i][j] = 1;
-      else matrix[i][j] = 0;
+      char x; scanf(" %c", &x);
+      graph[i][j] = (x == '1');
     }
   }
 
-  for (int c = 0 ; c < ( N - 1 ); c++)  {
-    for (int d = 0 ; d < N - c - 1; d++) {
-      if (A[d] > A[d+1] && matrix[d][d + 1])
-      {
-        int swap       = A[d];
-        A[d]   = A[d+1];
-        A[d+1] = swap;
+  for(int i = 0; i < N; i++){
+    if(!visited[i]){
+      vector<int> indexes, values;
+      dfs(i, indexes, values);
+      sort(indexes.begin(), indexes.end());
+      sort(values.begin(), values.end());
+      for(int j = 0; j < indexes.size(); j++){
+        A[indexes[j]] = values[j];
       }
     }
   }
 
-  for(int i = 0; i < N; i++) printf("%d ", A[i]);
-
-  printf("\n");
+  for(int i = 0; i < N; i++){
+    printf("%d%c", A[i], " \n"[i == N - 1]);
+  }
 }
+
