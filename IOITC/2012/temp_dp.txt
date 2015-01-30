@@ -1,0 +1,19 @@
+    dragons.push_back(make_pair(0, 0));
+
+    long long dp[D + 1][K + 1];
+    for(int i = 0; i < D + 1; i++){
+        for(int k = 0; k <= K; k++){
+            dp[i][j] = LLONG_MAX;
+        }
+    }
+
+    for(int i = 0; i < D + 1; i++) dp[i][0] = 0;
+    for(int i = 0; i <= K; i++) dp[0][i] = 0;
+
+    for(int i = 1; i < D + 1; i++){
+        for(int k = 1; k < K; k++){
+            for(int j = 0; j < i; j++){
+                dp[i][k] = min(dp[i][k], dp[j][k + 1] + find_distance(dragons[j], dragons[i]));
+            }
+        }
+    }
