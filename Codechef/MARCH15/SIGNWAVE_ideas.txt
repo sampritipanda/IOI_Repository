@@ -1,0 +1,39 @@
+sin x = 0, when x = (1/1) * (pi * n)
+sin 2x = 0, when x = (1/2) * (pi * n)
+sin 4x = 0, when x = (1/4) * (pi * n)
+sin 8x = 0, when x = (1/8) * (pi * n)
+.
+.
+.
+
+cos x = 0, when x = (1/1) * ((pi * n) - (pi/2))
+cos 2x = 0, when x = (1/2) * ((pi * n) - (pi/2))
+cos 4x = 0, when x = (1/4) * ((pi * n) - (pi/2))
+cos 8x = 0, when x = (1/8) * ((pi * n) - (pi/2))
+.
+.
+.
+
+
+sin 2^i => (1/2^i) * (pi * n)
+cos 2^i => (1/2^1) * (pi/2 * (2*n - 1))
+
+pi, 2pi
+pi/2, pi, 3pi/2, 2pi
+pi/4, pi/2, 3pi/4, pi, 5pi/4, 3pi/2, 7pi/4, 2pi
+pi/8, pi/4, 3pi/8, pi/2, 5pi/8, 3pi/4, 7pi/8, pi, 9pi/8, 5pi/4, 11pi/8, 3pi/2, 13pi/8, 7pi/4, 15pi/8, 2pi
+
+pi/2, 3pi/2
+pi/4, 3pi/4, 5pi/4, 7pi/4
+pi/8, 3pi/8, 5pi/8, 7pi/8, 9pi/8, 11pi/8, 13pi/8, 15pi/8
+pi/16, 3pi/16, 5pi/16, 7pi/16, 11pi/16, 13pi/16, 15pi/16, 17pi/16, 19pi/16, 21pi/16, 23pi/16, 25pi/16, 27pi/16, 29pi/16, 31pi/16
+
+S = 3, C = 2, K = 3
+
+pi, 2pi							-> 3
+pi/2, pi, 3pi/2, 2pi					-> 2
+pi/4, pi/2, 3pi/4, pi, 5pi/4, 3pi/2, 7pi/4, 2pi		-> 1
+
+pi/2, 3pi/2
+pi/4, 3pi/4, 5pi/4, 7pi/4
+pi/8, 3pi/8, 5pi/8, 7pi/8, 9pi/8, 11pi/8, 13pi/8, 15pi/8
