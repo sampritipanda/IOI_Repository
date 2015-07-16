@@ -21,7 +21,7 @@ void propagate(int i) {
   lazy[i] = INT_MAX/2;
 }
 
-void update(int seg_start, int seg_end, int i, int L, int R, long long val) {
+void update(int seg_start, int seg_end, int i, int L, int R, int val) {
   if(seg_start > seg_end) return;
   if(L > seg_end || R < seg_start) return;
 
@@ -41,7 +41,7 @@ void update(int seg_start, int seg_end, int i, int L, int R, long long val) {
   segtree[i] = min(segtree[2*i + 1], segtree[2*i + 2]);
 }
 
-long long query(int seg_start, int seg_end, int i, int L, int R) {
+int query(int seg_start, int seg_end, int i, int L, int R) {
   if(seg_start > seg_end) return INT_MAX/2;
   if(L > seg_end || R < seg_start) return INT_MAX/2;
 
@@ -60,7 +60,7 @@ int main() {
   int T; cin >> T;
 
   while(T--) {
-    long long N, K, M; cin >> N >> K >> M;
+    int N, K, M; cin >> N >> K >> M;
 
     for(int i = 0; i <= 4*(N + 1); i++) {
       segtree[i] = INT_MAX/2;
@@ -88,7 +88,7 @@ int main() {
       for(int j = 0; j <= K; j++) dp[0][j] = 0;
 
       for(int i = 1; i <= N; i++) {
-        for(long long j = 0; j <= K; j++) {
+        for(int j = 0; j <= K; j++) {
           if(min_cost[i] <= j) {
             dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - min_cost[i]] + A[i]);
           }
@@ -101,7 +101,7 @@ int main() {
       total_sum += dp[N][K];
     }
     else {
-      vector<pair<long long, long long> > knapsack;
+      vector<pair<int, int> > knapsack;
       knapsack.push_back({0, 0});
       for(int i = 1; i <= N; i++) {
         if(A[i] > 0) knapsack.push_back({A[i], min_cost[i]});
@@ -112,7 +112,7 @@ int main() {
       for(int j = 0; j <= K; j++) dp[0][j] = 0;
 
       for(int i = 1; i <= K_N; i++) {
-        for(long long j = 0; j <= K; j++) {
+        for(int j = 0; j <= K; j++) {
           if(knapsack[i].second <= j) {
             dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - knapsack[i].second] + knapsack[i].first);
           }

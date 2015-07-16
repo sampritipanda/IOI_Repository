@@ -1,0 +1,167 @@
+module regular_constr.
+import cp, sat.
+
+/************************************************************************* 
+    regular(L,Q,S,M,Q0,Fs)
+
+  L : A sentence (an IntVar array or list)
+  Q : number of states
+  S : input_max, inputs are from 1 to S
+  M : transition matrix (the entry M[I,J] is a list of outgoing states for NFA)
+  Q0: initial state
+  Fs : accepting states
+
+  This is a translation of MiniZinc's regular constraint (defined in
+  lib/zinc/globals.mzn), via the Comet code refered above.
+  by Hakan Kjellerstrand, 2014, improved by N.F. Zhou
+
+  The following comments are adapted from the MiniZinc code:
+
+  regular(array[int] of var int: L, int: Q, int: S, array[int,int] of int: M, int: Q0, set of int: F)
+  The sequence of values in array L (which must all be in the range 1..S)
+  is accepted by the FA of Q states with input 1..S and transition
+  M (which maps (1..Q, 1..S) -> 0..Q)) and initial state Q0
+  (which must be in 1..Q) and accepting states 'Fs' (which all must be in
+  1..Q).  State 0 is reserved for the failing state.
+***************************************************************************/
+regular(L,Q,S,M,Q0,Fs,Solver) =>
+    % If L has index set 1..n-1, then A[1] holds the initial state
+    % (Q0), and A[i+1] holds the state we're in after  processing
+    % L[i].  If A[n] is in Fs, then we succeed (ie. accept the string).
+    
+    N2 = L.length+1,
+    StateVect = new_array(N2),   % states
+    StateVect :: 1..Q,
+    L :: 1..S,                   % Do this in case it's a var.
+
+    StateVect[1] = Q0,           % initial state
+    (list(M) ->bp.list_matrix_to_array_matrix(M,Matrix); Matrix=M),
+    (cp_check_matrix(Matrix,NRows,NCols) -> true; throw($invalid_matrix(M,regular))),
+    (ground(Matrix) -> true; throw($non_ground_matrix(M,regular))),
+    (ground(Fs) -> true; throw($non_ground_final(Fs,regular))),
+
+    StateVect[N2] :: Fs,
+
+    preprocess_regular(Q,S,Matrix,Q0,Fs,StateVect),
+
+    foreach(I in 1..L.length)  
+       % Here is MiniZinc's infamous matrix element
+       % which I try to translate here:
+       %     a[i+1] = d[a[i], x[i]]
+       matrix_element(Matrix,NRows,NCols,StateVect[I],L[I],StateVect[I+1],Solver)
+    end,
+    
+     if Solver==cp then 
+         bp.wait_to_check_regular(Matrix,Q0,Fs,L)      % needed for NFA
+     end.  
+
+cp_check_matrix(M,NRows,NCols) =>
+    NRows = M.length,
+    NCols = M[1].length,
+    foreach(R in 2..NRows) 
+        M[R].length==NCols 
+    end.
+
+matrix_element(M,NRows,NCols,I,J,Val,Solver) =>
+    I :: 1..NRows,
+    J :: 1..NCols,
+    Table = [],
+    foreach(R in NRows..-1..1, C in NCols..-1..1)
+        Entry = M[R,C],
+        (list(Entry) ->
+            foreach(E in Entry)
+                Table := [{R,C,E}|Table]
+            end
+        ;Entry!==0 ->
+            Table := [{R,C,Entry}|Table]
+        ;
+            true
+        )
+    end,
+    VarTuple = {I,J,Val},
+    (Solver==cp ->
+        cp.table_in(VarTuple,Table)
+    ;        
+        sat.table_in(VarTuple,Table)
+    ).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% StateVect is a vector of state variables created for the automaton. For each 
+% state variable StateVect[I], a state State cannot be a possible value if 
+% it cannot be reached from Q0 in I-1 steps or it cannot reach a final state 
+% in N-I steps (N is the number of states).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+preprocess_regular(Q,S,Matrix,Q0,Fs,StateVect) =>
+    N = length(StateVect),
+
+    % Reach0[State] is a list of numbers of steps that State can be reached from Q0
+    Reach0 = new_array(N),  
+    foreach (I in 1..N)
+        Reach0[I] = []
+    end,
+    reachable0(Q0,0,N,S,Matrix,Reach0),
+
+    % Reach1[State] is a list of numbers of steps that a final state can be reached from State.
+    Reach1 = new_array(N),  
+    foreach (I in 1..N)
+        Reach1[I] = []
+    end,
+    foreach (State in 1..Q)
+        reachable1(State,0,N,S,Matrix,Fs,Reach1)
+    end,
+
+    foreach (I in 2..N, State in 1..Q)
+        (member(I-1,Reach0[I]), member(N-I,Reach1[I]) ->   % can be reached from Q0 in I-1 steps 
+            true                                           % and can reach F in N-I steps
+        ;
+            cp.fd_set_false(StateVect[I],State)
+        )
+    end.
+
+% reachable from the initial state
+reachable0(_State,NSteps,N,_S,_Matrix,_Reach),NSteps>N => true.
+reachable0(State,NSteps,N,S,Matrix,Reach) =>
+    List = Reach[State],
+    (member(NSteps,List) ->
+        true
+    ;
+        Reach[State] := [NSteps|List]
+    ),
+    NSteps1 = NSteps+1,
+    foreach (Input in 1..S)
+        Entry = Matrix[State,Input],
+        (list(Entry) ->
+            foreach (NextState in Entry)
+                reachable0(NextState,NSteps1,N,S,Matrix,Reach)
+            end
+        ; Entry !== 0 -> 
+            reachable0(Entry,NSteps1,N,S,Matrix,Reach)
+        ; 
+            true
+        )
+    end.
+
+% reachable to a final state
+reachable1(_State,NSteps,N,_S,_Matrix,_Fs,_Reach),NSteps>N => true.
+reachable1(State,NSteps,N,S,Matrix,Fs,Reach) =>
+    List = Reach[State],
+    (member(State,Fs), not member(NSteps,List) ->
+        Reach[State] := [NSteps|List]
+    ;
+        true
+    ),
+    NSteps1 = NSteps+1,
+    foreach (Input in 1..S)
+        Entry = Matrix[State,Input],
+        (list(Entry) ->
+            foreach (NextState in Entry)
+                reachable1(NextState,NSteps1,N,S,Matrix,Fs,Reach)
+            end
+        ; Entry !== 0 -> 
+            reachable1(Entry,NSteps1,N,S,Matrix,Fs,Reach)
+        ;
+            true
+        )
+    end.
+    
+

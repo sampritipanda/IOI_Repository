@@ -1,0 +1,4423 @@
+label(('$damon_load',0)).
+label(('$damon_load',0,-1)).
+    allocate_det(0,4,([],0),4).
+label(('$damon_load',0,1)).
+    para_c(c(cp)).
+    call0(('$picat_ensure_loaded',1),4).
+    last_call(1,('$picat_ensure_loaded',1),c(planner),4).
+    return_det.
+label(('$damon_load',0,3)).
+    fail.
+label(('$damon_load',0,4)).
+    fail0.
+label(('$damon_load',0,5)).
+    cut_fail.
+label(('e$$glb$$fibp',2)).
+label(('e$$glb$$fibp',2,-1)).
+    allocate_det(2,10,([],0),4).
+label(('e$$glb$$fibp',2,1)).
+label(('e$$glb$$fibp',2,2)).
+    hash(2,0,0,('e$$glb$$fibp',2,5)).
+    pred(('e$$glb$$fibp',2,2),2,2,('e$$glb$$fibp',2,5)).
+    arglabel(i,0,('e$$glb$$fibp',2,3)).
+    arglabel(i,1,('e$$glb$$fibp',2,4)).
+label(('e$$glb$$fibp',2,3)).
+    hash_jmpn_constant(c(0),('e$$glb$$fibp',2,5)).
+    unify_constant_return_det(1,c(1)).
+label(('e$$glb$$fibp',2,4)).
+    hash_jmpn_constant(c(1),('e$$glb$$fibp',2,5)).
+    unify_constant_return_det(1,c(1)).
+label(('e$$glb$$fibp',2,5)).
+    jmpn_gt_ui(2,1,('e$$glb$$fibp',2,6)).
+    sub_u1v(2,-4).
+    move_value(-5,-4).
+    para_uv(-5,-4).
+    call0(('e$$glb$$fibp',2),6).
+    sub_uiv(2,2,-5).
+    move_value(-6,-5).
+    para_uv(-6,-7).
+    call0(('e$$glb$$fibp',2),8).
+    add_uuv(-4,-7,-8).
+    move_value(-9,-8).
+    unify_value_return_det(1,-9).
+    return_det.
+label(('e$$glb$$fibp',2,6)).
+    fail.
+label(('e$$glb$$fibp',2,7)).
+    fail0.
+label(('e$$glb$$fibp',2,8)).
+    cut_fail.
+label(('e$$glb$$f$$fibf',2)).
+label(('e$$glb$$f$$fibf',2,-1)).
+    allocate_det(2,10,([],0),4).
+label(('e$$glb$$f$$fibf',2,1)).
+label(('e$$glb$$f$$fibf',2,2)).
+    hash(1,0,0,('e$$glb$$f$$fibf',2,5)).
+    pred(('e$$glb$$f$$fibf',2,2),1,2,('e$$glb$$f$$fibf',2,5)).
+    arglabel(i,0,('e$$glb$$f$$fibf',2,3)).
+    arglabel(i,1,('e$$glb$$f$$fibf',2,4)).
+label(('e$$glb$$f$$fibf',2,3)).
+    hash_jmpn_constant(c(0),('e$$glb$$f$$fibf',2,5)).
+    unify_constant_return_det(2,c(1)).
+label(('e$$glb$$f$$fibf',2,4)).
+    hash_jmpn_constant(c(1),('e$$glb$$f$$fibf',2,5)).
+    unify_constant_return_det(2,c(1)).
+label(('e$$glb$$f$$fibf',2,5)).
+    jmpn_gt_ui(1,1,('e$$glb$$f$$fibf',2,6)).
+    sub_u1v(1,-4).
+    move_value(-5,-4).
+    para_v(-4).
+    para_u(-5).
+    call0(('e$$glb$$f$$fibf',2),6).
+    sub_uiv(1,2,-5).
+    move_value(-6,-5).
+    para_v(-7).
+    para_u(-6).
+    call0(('e$$glb$$f$$fibf',2),8).
+    add_uuv(-4,-7,-8).
+    move_value(-9,-8).
+    unify_value_return_det(2,-9).
+    return_det.
+label(('e$$glb$$f$$fibf',2,6)).
+    move_struct0(-4,(fibf,1)).
+    build_arg_u(1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$fibf',2,8)).
+    fail.
+label(('e$$glb$$f$$fibf',2,9)).
+    fail0.
+label(('e$$glb$$f$$fibf',2,10)).
+    cut_fail.
+label(('e$$glb$$f$$fibfa',2)).
+label(('e$$glb$$f$$fibfa',2,-1)).
+    allocate_det(2,9,([],0),4).
+label(('e$$glb$$f$$fibfa',2,1)).
+label(('e$$glb$$f$$fibfa',2,2)).
+    hash(1,0,0,('e$$glb$$f$$fibfa',2,5)).
+    pred(('e$$glb$$f$$fibfa',2,2),1,2,('e$$glb$$f$$fibfa',2,5)).
+    arglabel(i,0,('e$$glb$$f$$fibfa',2,3)).
+    arglabel(i,1,('e$$glb$$f$$fibfa',2,4)).
+label(('e$$glb$$f$$fibfa',2,3)).
+    hash_jmpn_constant(c(0),('e$$glb$$f$$fibfa',2,5)).
+    unify_constant_return_det(2,c(1)).
+label(('e$$glb$$f$$fibfa',2,4)).
+    hash_jmpn_constant(c(1),('e$$glb$$f$$fibfa',2,5)).
+    unify_constant_return_det(2,c(1)).
+label(('e$$glb$$f$$fibfa',2,5)).
+    sub_u1v(1,-4).
+    move_value(-5,-4).
+    para_v(-4).
+    para_u(-5).
+    call0(('e$$glb$$f$$fibfa',2),6).
+    sub_uiv(1,2,-5).
+    move_value(-6,-5).
+    para_v(-7).
+    para_u(-6).
+    call0(('e$$glb$$f$$fibfa',2),8).
+    add_uuv(-4,-7,-8).
+    unify_value_return_det(2,-8).
+    return_det.
+label(('e$$glb$$f$$fibfa',2,6)).
+    move_struct0(-4,(fibfa,1)).
+    build_arg_u(1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$fibfa',2,8)).
+    fail.
+label(('e$$glb$$f$$fibfa',2,9)).
+    fail0.
+label(('e$$glb$$f$$fibfa',2,10)).
+    cut_fail.
+label(('e$$glb$$f$$fibi',2)).
+label(('e$$glb$$f$$fibi',2,-1)).
+    allocate_det(2,10,([],0),4).
+label(('e$$glb$$f$$fibi',2,1)).
+    jmpn_id_uc(1,c(0),('e$$glb$$f$$fibi',2,2)).
+    unify_constant_return_det(2,c(1)).
+    jmp(('e$$glb$$f$$fibi',2,3)).
+label(('e$$glb$$f$$fibi',2,2)).
+    jmpn_id_uc(1,c(1),('e$$glb$$f$$fibi',2,4)).
+    unify_constant_return_det(2,c(1)).
+    jmp(('e$$glb$$f$$fibi',2,5)).
+label(('e$$glb$$f$$fibi',2,4)).
+    sub_u1v(1,-4).
+    move_value(-5,-4).
+    para_v(-4).
+    para_u(-5).
+    call0(('e$$glb$$f$$fibg',2),6).
+    sub_uiv(1,2,-5).
+    move_value(-6,-5).
+    para_v(-7).
+    para_u(-6).
+    call0(('e$$glb$$f$$fibg',2),8).
+    add_uuv(-4,-7,-8).
+    move_value(-9,-8).
+    unify_value_return_det(2,-9).
+    return_det.
+label(('e$$glb$$f$$fibi',2,5)).
+    return_det.
+label(('e$$glb$$f$$fibi',2,3)).
+    return_det.
+label(('e$$glb$$f$$fibi',2,6)).
+    move_struct0(-4,(fibi,1)).
+    build_arg_u(1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$fibi',2,8)).
+    fail.
+label(('e$$glb$$f$$fibi',2,9)).
+    fail0.
+label(('e$$glb$$f$$fibi',2,10)).
+    cut_fail.
+label(('e$$glb$$f$$fibg',2)).
+label(('e$$glb$$f$$fibg',2,-1)).
+    allocate_det(2,10,([],0),4).
+label(('e$$glb$$f$$fibg',2,1)).
+    jmpn_id_uc(1,c(0),('e$$glb$$f$$fibg',2,2)).
+    unify_constant_return_det(2,c(1)).
+    jmp(('e$$glb$$f$$fibg',2,3)).
+label(('e$$glb$$f$$fibg',2,2)).
+    jmpn_id_uc(1,c(1),('e$$glb$$f$$fibg',2,4)).
+    unify_constant_return_det(2,c(1)).
+    jmp(('e$$glb$$f$$fibg',2,5)).
+label(('e$$glb$$f$$fibg',2,4)).
+    sub_u1v(1,-4).
+    move_value(-5,-4).
+    para_v(-4).
+    para_u(-5).
+    call0(('e$$glb$$f$$fibg',2),6).
+    sub_uiv(1,2,-5).
+    move_value(-6,-5).
+    para_v(-7).
+    para_u(-6).
+    call0(('e$$glb$$f$$fibg',2),8).
+    add_uuv(-4,-7,-8).
+    move_value(-9,-8).
+    unify_value_return_det(2,-9).
+    return_det.
+label(('e$$glb$$f$$fibg',2,5)).
+    return_det.
+label(('e$$glb$$f$$fibg',2,3)).
+    return_det.
+label(('e$$glb$$f$$fibg',2,6)).
+    move_struct0(-4,(fibg,1)).
+    build_arg_u(1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$fibg',2,8)).
+    fail.
+label(('e$$glb$$f$$fibg',2,9)).
+    fail0.
+label(('e$$glb$$f$$fibg',2,10)).
+    cut_fail.
+label(('e$$glb$$f$$fibc',2)).
+label(('e$$glb$$f$$fibc',2,-1)).
+    allocate_det(2,13,([],0),4).
+label(('e$$glb$$f$$fibc',2,1)).
+    para_v(-4).
+    para_u(1).
+    call0(('de$$glb$$f$$fibc_2_0__1',2),5).
+    jmp_var_y(-4,('e$$glb$$f$$fibc',2,2)).
+    unify_constant_return_det(2,c(1)).
+    jmp(('e$$glb$$f$$fibc',2,3)).
+label(('e$$glb$$f$$fibc',2,2)).
+    sub_u1v(1,-5).
+    move_value(-6,-5).
+    para_v(-7).
+    para_u(-6).
+    call0(('e$$glb$$f$$fibc',2),8).
+    sub_uiv(1,2,-8).
+    move_value(-9,-8).
+    para_v(-10).
+    para_u(-9).
+    call0(('e$$glb$$f$$fibc',2),11).
+    add_uuv(-7,-10,-11).
+    move_value(-12,-11).
+    unify_value_return_det(2,-12).
+    return_det.
+label(('e$$glb$$f$$fibc',2,3)).
+    return_det.
+label(('e$$glb$$f$$fibc',2,4)).
+    move_struct0(-4,(fibc,1)).
+    build_arg_u(1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$fibc',2,6)).
+    fail.
+label(('e$$glb$$f$$fibc',2,7)).
+    fail0.
+label(('e$$glb$$f$$fibc',2,8)).
+    cut_fail.
+label(('e$$glb$$f$$fibt',2)).
+label(('e$$glb$$f$$fibt',2,-1)).
+    table_allocate(2,20,('e$$glb$$f$$fibt',2),13).
+    table_mode(0,0,0).
+label(('e$$glb$$f$$fibt',2,0)).
+label(('e$$glb$$f$$fibt',2,1)).
+label(('e$$glb$$f$$fibt',2,2)).
+    hash(1,0,0,('e$$glb$$f$$fibt',2,5)).
+    pred(('e$$glb$$f$$fibt',2,2),1,2,('e$$glb$$f$$fibt',2,5)).
+    arglabel(i,0,('e$$glb$$f$$fibt',2,3)).
+    arglabel(i,1,('e$$glb$$f$$fibt',2,4)).
+label(('e$$glb$$f$$fibt',2,3)).
+    hash_jmpn_constant(c(0),('e$$glb$$f$$fibt',2,5)).
+    fork_unify_constant(('e$$glb$$f$$fibt',2,999999),2,c(1)).
+    table_produce.
+    noop1(13).
+label(('e$$glb$$f$$fibt',2,4)).
+    hash_jmpn_constant(c(1),('e$$glb$$f$$fibt',2,5)).
+    fork_unify_constant(('e$$glb$$f$$fibt',2,999999),2,c(1)).
+    table_produce.
+    noop1(13).
+label(('e$$glb$$f$$fibt',2,5)).
+    bp_fork(('e$$glb$$f$$fibt',2,999999)).
+    sub_u1v(1,-13).
+    move_value(-14,-13).
+    para_v(-15).
+    para_u(-14).
+    call0(('e$$glb$$f$$fibt',2),16).
+    sub_uiv(1,2,-16).
+    move_value(-17,-16).
+    para_v(-18).
+    para_u(-17).
+    call0(('e$$glb$$f$$fibt',2),19).
+    add_uuv(-15,-18,-19).
+    unify_value(2,-19).
+    table_produce.
+    noop1(20).
+label(('e$$glb$$f$$fibt',2,6)).
+    bp_fork(('e$$glb$$f$$fibt',2,999999)).
+    move_struct0(-13,(fibt,1)).
+    build_arg_u(1).
+    move_struct0(-14,(unresolved_function_call,1)).
+    build_arg_u(-13).
+    para_u(-14).
+    call0((throw,1),15).
+    table_produce.
+    noop1(15).
+    noop1(13).
+label(('e$$glb$$f$$fibt',2,999999)).
+    table_check_completion(('e$$glb$$f$$fibt',2,0)).
+label(('e$$glb$$f$$fibt',2,8)).
+    fail.
+label(('e$$glb$$f$$fibt',2,9)).
+    fail0.
+label(('e$$glb$$f$$fibt',2,10)).
+    cut_fail.
+label(('e$$glb$$my_member',2)).
+label(('e$$glb$$my_member',2,-1)).
+    allocate_nondet(2,11,([],0),9).
+label(('e$$glb$$my_member',2,0)).
+    nondet(2).
+label(('e$$glb$$my_member',2,1)).
+    memb_el(('e$$glb$$my_member',2,6)).
+    switch_cons_910(1,('e$$glb$$my_member',2,6),('e$$glb$$my_member',2,6),('e$$glb$$my_member',2,6)).
+    fork_unify_value(('e$$glb$$my_member',2,2),2,-9).
+    return_nondet.
+    noop1(11).
+label(('e$$glb$$my_member',2,2)).
+    cut0.
+    tr_nondet_call1_au(('e$$glb$$my_member',2,1),2,2,2,-10,11).
+    return_det.
+label(('e$$glb$$my_member',2,4)).
+    fail.
+label(('e$$glb$$my_member',2,5)).
+    fail0.
+label(('e$$glb$$my_member',2,6)).
+    cut_fail.
+label(('e$$glb$$my_between',3)).
+label(('e$$glb$$my_between',3,-1)).
+    allocate_det(3,4,([],0),4).
+label(('e$$glb$$my_between',3,1)).
+    jmpn_id_uu(3,2,('e$$glb$$my_between',3,2)).
+    unify_value_return_det(1,3).
+    return_det.
+label(('e$$glb$$my_between',3,2)).
+    jmpn_gt_uu(2,3,('e$$glb$$my_between',3,4)).
+    last_call(33,('de$$glb$$my_between_3_0__1',3),u(2),u(3),u(1),4).
+    return_det.
+label(('e$$glb$$my_between',3,4)).
+    fail.
+label(('e$$glb$$my_between',3,5)).
+    fail0.
+label(('e$$glb$$my_between',3,6)).
+    cut_fail.
+label(('e$$glb$$edge',2)).
+label(('e$$glb$$edge',2,-1)).
+    allocate_nondet(2,9,([],0),9).
+label(('e$$glb$$edge',2,0)).
+    nondet(2).
+label(('e$$glb$$edge',2,1)).
+label(('e$$glb$$edge',2,2)).
+    hash(1,0,0,('e$$glb$$edge',2,7)).
+    pred(('e$$glb$$edge',2,2),1,2,('e$$glb$$edge',2,7)).
+    arglabel(i,2,('e$$glb$$edge',2,3)).
+    arglabel(i,3,('e$$glb$$edge',2,4)).
+label(('e$$glb$$edge',2,3)).
+    hash_jmpn_constant(c(2),('e$$glb$$edge',2,7)).
+    fork_unify_constant_return_nondet(('e$$glb$$edge',2,5),2,c(1)).
+    noop1(9).
+label(('e$$glb$$edge',2,5)).
+    jmpn_eq_constant(1,c(2),('e$$glb$$edge',2,7),('e$$glb$$edge',2,7)).
+    cut0.
+    unify_constant_return_det(2,c(3)).
+label(('e$$glb$$edge',2,4)).
+    hash_jmpn_constant(c(3),('e$$glb$$edge',2,7)).
+    fork_unify_constant_return_nondet(('e$$glb$$edge',2,6),2,c(1)).
+    noop1(9).
+label(('e$$glb$$edge',2,6)).
+    cut0.
+    unify_constant_return_det(2,c(2)).
+label(('e$$glb$$edge',2,7)).
+label(('e$$glb$$edge',2,8)).
+    hash(2,0,0,('e$$glb$$edge',2,15)).
+    pred(('e$$glb$$edge',2,8),2,3,('e$$glb$$edge',2,15)).
+    arglabel(i,1,('e$$glb$$edge',2,9)).
+    arglabel(i,2,('e$$glb$$edge',2,10)).
+    arglabel(i,3,('e$$glb$$edge',2,11)).
+label(('e$$glb$$edge',2,9)).
+    hash_jmpn_constant(c(1),('e$$glb$$edge',2,15)).
+    fork_unify_constant_return_nondet(('e$$glb$$edge',2,12),1,c(2)).
+    noop1(9).
+label(('e$$glb$$edge',2,12)).
+    cut0.
+    unify_constant_return_det(1,c(3)).
+label(('e$$glb$$edge',2,10)).
+    hash_jmpn_constant(c(2),('e$$glb$$edge',2,15)).
+    cut0.
+    unify_constant_return_det(1,c(3)).
+label(('e$$glb$$edge',2,11)).
+    hash_jmpn_constant(c(3),('e$$glb$$edge',2,15)).
+    cut0.
+    unify_constant_return_det(1,c(2)).
+label(('e$$glb$$edge',2,13)).
+    fail.
+label(('e$$glb$$edge',2,14)).
+    fail0.
+label(('e$$glb$$edge',2,15)).
+    cut_fail.
+label(('e$$glb$$f$$merge_sort',2)).
+label(('e$$glb$$f$$merge_sort',2,-1)).
+    allocate_det(2,9,([],0),4).
+label(('e$$glb$$f$$merge_sort',2,1)).
+    switch_cons_vv(1,('e$$glb$$f$$merge_sort',2,2),('e$$glb$$f$$merge_sort',2,3),('e$$glb$$f$$merge_sort',2,3),-4,-5).
+    jmpn_nil(-5,('e$$glb$$f$$merge_sort',2,3),('e$$glb$$f$$merge_sort',2,3)).
+    unify_cons_uc(2,-4,c([])).
+    unify_arg_c(c([])).
+    return_det.
+label(('e$$glb$$f$$merge_sort',2,2)).
+    unify_nil(2).
+    return_det.
+label(('e$$glb$$f$$merge_sort',2,3)).
+    para_uv(1,-4).
+    para_v(-5).
+    call0(('e$$glb$$split',3),6).
+    para_v(-6).
+    para_u(-4).
+    call0(('e$$glb$$f$$merge_sort',2),7).
+    para_v(-7).
+    para_u(-5).
+    call0(('e$$glb$$f$$merge_sort',2),8).
+    para_v(-8).
+    para_uu(-6,-7).
+    call0(('e$$glb$$f$$merge',3),9).
+    unify_value_return_det(2,-8).
+    return_det.
+label(('e$$glb$$f$$merge_sort',2,4)).
+    move_struct0(-4,(merge_sort,1)).
+    build_arg_u(1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$merge_sort',2,6)).
+    fail.
+label(('e$$glb$$f$$merge_sort',2,7)).
+    fail0.
+label(('e$$glb$$f$$merge_sort',2,8)).
+    cut_fail.
+label(('e$$glb$$split',3)).
+label(('e$$glb$$split',3,-1)).
+    allocate_det(3,8,([],0),4).
+label(('e$$glb$$split',3,1)).
+    switch_cons_vv(3,('e$$glb$$split',3,3),('e$$glb$$split',3,3),('e$$glb$$split',3,3),-4,-5).
+    switch_cons_vv(-5,('e$$glb$$split',3,3),('e$$glb$$split',3,3),('e$$glb$$split',3,3),-5,-6).
+    unify_cons_uv0(2,-4,-7).
+    unify_cons_uv0(1,-5,-4).
+    tr_det_call_au(('e$$glb$$split',3,1),801,3,-6,-7,-4,8).
+    return_det.
+label(('e$$glb$$split',3,3)).
+    unify_value(2,3).
+    unify_nil(1).
+    return_det.
+label(('e$$glb$$split',3,4)).
+    fail.
+label(('e$$glb$$split',3,5)).
+    fail0.
+label(('e$$glb$$split',3,6)).
+    cut_fail.
+label(('e$$glb$$f$$merge',3)).
+label(('e$$glb$$f$$merge',3,-1)).
+    allocate_det(3,7,([],0),4).
+label(('e$$glb$$f$$merge',3,1)).
+    jmpn_nil(2,('e$$glb$$f$$merge',3,2),('e$$glb$$f$$merge',3,2)).
+    unify_value_return_det(3,1).
+    return_det.
+label(('e$$glb$$f$$merge',3,2)).
+    jmpn_nil(1,('e$$glb$$f$$merge',3,3),('e$$glb$$f$$merge',3,3)).
+    unify_value_return_det(3,2).
+    return_det.
+label(('e$$glb$$f$$merge',3,3)).
+    switch_cons_vv(2,('e$$glb$$f$$merge',3,4),('e$$glb$$f$$merge',3,4),('e$$glb$$f$$merge',3,4),-4,-5).
+    switch_cons(1,('e$$glb$$f$$merge',3,4),('e$$glb$$f$$merge',3,4),('e$$glb$$f$$merge',3,4),-6,0).
+    jmpn_gt_uu(-6,-4,('e$$glb$$f$$merge',3,4)).
+    unify_cons_uv0(3,-4,-6).
+    para_v(-4).
+    para_uu(-5,1).
+    call0(('e$$glb$$f$$merge',3),7).
+    unify_value_return_det(-6,-4).
+    return_det.
+label(('e$$glb$$f$$merge',3,4)).
+    switch_cons_vv(1,('e$$glb$$f$$merge',3,5),('e$$glb$$f$$merge',3,5),('e$$glb$$f$$merge',3,5),-4,-5).
+    unify_cons_uv0(3,-4,-6).
+    para_v(-4).
+    para_uu(2,-5).
+    call0(('e$$glb$$f$$merge',3),7).
+    unify_value_return_det(-6,-4).
+    return_det.
+label(('e$$glb$$f$$merge',3,5)).
+    move_struct0(-4,(merge,2)).
+    build_arg_2u(2,1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$merge',3,7)).
+    fail.
+label(('e$$glb$$f$$merge',3,8)).
+    fail0.
+label(('e$$glb$$f$$merge',3,9)).
+    cut_fail.
+label(('e$$glb$$f$$insert_sort',2)).
+label(('e$$glb$$f$$insert_sort',2,-1)).
+    allocate_det(2,7,([],0),4).
+label(('e$$glb$$f$$insert_sort',2,1)).
+    switch_cons_vv(1,('e$$glb$$f$$insert_sort',2,3),('e$$glb$$f$$insert_sort',2,4),('e$$glb$$f$$insert_sort',2,4),-4,-5).
+    para_v(-6).
+    para_u(-5).
+    call0(('e$$glb$$f$$insert_sort',2),7).
+    last_call(50,('i$$glb$$f$$insert',3),u(2),u(-4),u(-6),7).
+    return_det.
+label(('e$$glb$$f$$insert_sort',2,3)).
+    unify_nil(2).
+    return_det.
+label(('e$$glb$$f$$insert_sort',2,4)).
+    move_struct0(-4,(insert_sort,1)).
+    build_arg_u(1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$insert_sort',2,6)).
+    fail.
+label(('e$$glb$$f$$insert_sort',2,7)).
+    fail0.
+label(('e$$glb$$f$$insert_sort',2,8)).
+    cut_fail.
+label(('i$$glb$$f$$insert',3)).
+label(('i$$glb$$f$$insert',3,-1)).
+    allocate_det(3,6,([],0),4).
+label(('i$$glb$$f$$insert',3,1)).
+    switch_cons_vv(1,('i$$glb$$f$$insert',3,4),('i$$glb$$f$$insert',3,5),('i$$glb$$f$$insert',3,5),-4,-5).
+    jmpn_ge_uu(-4,2,('i$$glb$$f$$insert',3,2)).
+    unify_cons_uu(3,2,1).
+    unify_arg_read_u(1).
+    return_det.
+label(('i$$glb$$f$$insert',3,2)).
+    unify_cons_u(3,-4).
+    tr_det_call1_au(('i$$glb$$f$$insert',3,1),3,3,3,2,-5,6).
+    return_det.
+label(('i$$glb$$f$$insert',3,4)).
+    unify_cons_uc(3,2,c([])).
+    unify_arg_c(c([])).
+    return_det.
+label(('i$$glb$$f$$insert',3,5)).
+    move_struct0(-4,(insert,2)).
+    build_arg_2u(2,1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('i$$glb$$f$$insert',3,7)).
+    fail.
+label(('i$$glb$$f$$insert',3,8)).
+    fail0.
+label(('i$$glb$$f$$insert',3,9)).
+    cut_fail.
+label(('e$$glb$$min_max_p',3)).
+label(('e$$glb$$min_max_p',3,-1)).
+    allocate_det(3,5,([],0),4).
+label(('e$$glb$$min_max_p',3,1)).
+    switch_cons_car(3,('e$$glb$$min_max_p',3,3),('e$$glb$$min_max_p',3,3),('e$$glb$$min_max_p',3,3),-4).
+    last_call(21554,('i$$glb$$min_max_p_aux',5),u(3),u(-4),u(2),u(-4),u(1),5).
+    return_det.
+label(('e$$glb$$min_max_p',3,3)).
+    fail.
+label(('e$$glb$$min_max_p',3,4)).
+    fail0.
+label(('e$$glb$$min_max_p',3,5)).
+    cut_fail.
+label(('i$$glb$$min_max_p_aux',5)).
+label(('i$$glb$$min_max_p_aux',5,-1)).
+    allocate_det(5,6,([],0),4).
+label(('i$$glb$$min_max_p_aux',5,1)).
+    switch_cons_car(5,('i$$glb$$min_max_p_aux',5,3),('i$$glb$$min_max_p_aux',5,4),('i$$glb$$min_max_p_aux',5,4),-4).
+    builtin3(109,('i$$glb$$min_max_p_aux',5,4),u(4),u(-4),v(-5)).
+    move_value(4,-5).
+    builtin3(108,('i$$glb$$min_max_p_aux',5,4),u(2),u(-4),v(-5)).
+    move_value(2,-5).
+    tr_det_call0(('i$$glb$$min_max_p_aux',5,1),6).
+    return_det.
+label(('i$$glb$$min_max_p_aux',5,3)).
+    unify_value(4,3).
+    unify_value_return_det(2,1).
+    return_det.
+label(('i$$glb$$min_max_p_aux',5,4)).
+    fail.
+label(('i$$glb$$min_max_p_aux',5,5)).
+    fail0.
+label(('i$$glb$$min_max_p_aux',5,6)).
+    cut_fail.
+label(('e$$glb$$f$$min_max',2)).
+label(('e$$glb$$f$$min_max',2,-1)).
+    allocate_det(2,6,([],0),4).
+label(('e$$glb$$f$$min_max',2,1)).
+    switch_cons_vv(1,('e$$glb$$f$$min_max',2,3),('e$$glb$$f$$min_max',2,3),('e$$glb$$f$$min_max',2,3),-4,-5).
+    last_call(1074,('i$$glb$$f$$min_max_aux',4),u(2),u(-5),u(-4),u(-4),6).
+    return_det.
+label(('e$$glb$$f$$min_max',2,3)).
+    move_struct0(-4,(min_max,1)).
+    build_arg_u(1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$min_max',2,5)).
+    fail.
+label(('e$$glb$$f$$min_max',2,6)).
+    fail0.
+label(('e$$glb$$f$$min_max',2,7)).
+    cut_fail.
+label(('i$$glb$$f$$min_max_aux',4)).
+label(('i$$glb$$f$$min_max_aux',4,-1)).
+    allocate_det(4,8,([],0),4).
+label(('i$$glb$$f$$min_max_aux',4,1)).
+    switch_cons_vv(3,('i$$glb$$f$$min_max_aux',4,3),('i$$glb$$f$$min_max_aux',4,4),('i$$glb$$f$$min_max_aux',4,4),-4,-5).
+    builtin3(109,('i$$glb$$f$$min_max_aux',4,6),u(2),u(-4),v(-6)).
+    move_value(-7,-6).
+    builtin3(108,('i$$glb$$f$$min_max_aux',4,6),u(1),u(-4),v(-6)).
+    move_value(-4,-6).
+    tr_det_call_au(('i$$glb$$f$$min_max_aux',4,1),1074,4,4,-5,-7,-4,8).
+    return_det.
+label(('i$$glb$$f$$min_max_aux',4,3)).
+    unify_struct_arg_2u(4,(',',2),1,2).
+    unify_arg_read_u(1).
+    return_det.
+label(('i$$glb$$f$$min_max_aux',4,4)).
+    move_struct0(-4,(min_max_aux,3)).
+    build_arg_3u(3,2,1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('i$$glb$$f$$min_max_aux',4,6)).
+    fail.
+label(('i$$glb$$f$$min_max_aux',4,7)).
+    fail0.
+label(('i$$glb$$f$$min_max_aux',4,8)).
+    cut_fail.
+label(('e$$glb$$f$$sum_list',2)).
+label(('e$$glb$$f$$sum_list',2,-1)).
+    allocate_det(2,6,([],0),4).
+label(('e$$glb$$f$$sum_list',2,1)).
+    last_call(801,('i$$glb$$sum_list_aux',3),u(1),c(0),u(2),4).
+    return_det.
+label(('e$$glb$$f$$sum_list',2,3)).
+    move_struct0(-4,(sum_list,1)).
+    build_arg_u(1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$sum_list',2,5)).
+    fail.
+label(('e$$glb$$f$$sum_list',2,6)).
+    fail0.
+label(('e$$glb$$f$$sum_list',2,7)).
+    cut_fail.
+label(('i$$glb$$sum_list_aux',3)).
+label(('i$$glb$$sum_list_aux',3,-1)).
+    allocate_det(3,5,([],0),4).
+label(('i$$glb$$sum_list_aux',3,1)).
+    switch_cons_car(3,('i$$glb$$sum_list_aux',3,3),('i$$glb$$sum_list_aux',3,4),('i$$glb$$sum_list_aux',3,4),-4).
+    add_uuv(2,-4,-4).
+    move_value(2,-4).
+    tr_det_call0(('i$$glb$$sum_list_aux',3,1),5).
+    return_det.
+label(('i$$glb$$sum_list_aux',3,3)).
+    unify_value_return_det(1,2).
+    return_det.
+label(('i$$glb$$sum_list_aux',3,4)).
+    fail.
+label(('i$$glb$$sum_list_aux',3,5)).
+    fail0.
+label(('i$$glb$$sum_list_aux',3,6)).
+    cut_fail.
+label(('e$$glb$$struct_equal',2)).
+label(('e$$glb$$struct_equal',2,-1)).
+    allocate_det(2,6,([],0),4).
+label(('e$$glb$$struct_equal',2,1)).
+    jmpn_atomic_y(2,('e$$glb$$struct_equal',2,2)).
+    jmpn_id_uu(2,1,('e$$glb$$struct_equal',2,4)).
+    return_det.
+label(('e$$glb$$struct_equal',2,2)).
+    switch_cons_car(2,('e$$glb$$struct_equal',2,4),('e$$glb$$struct_equal',2,4),('e$$glb$$struct_equal',2,4),-4).
+    switch_cons_car(1,('e$$glb$$struct_equal',2,4),('e$$glb$$struct_equal',2,4),('e$$glb$$struct_equal',2,4),-5).
+    para_uu(-4,-5).
+    call0(('e$$glb$$struct_equal',2),6).
+    tr_det_call0(('e$$glb$$struct_equal',2,1),6).
+    return_det.
+label(('e$$glb$$struct_equal',2,4)).
+    fail.
+label(('e$$glb$$struct_equal',2,5)).
+    fail0.
+label(('e$$glb$$struct_equal',2,6)).
+    cut_fail.
+label(('e$$glb$$is_sorted',1)).
+label(('e$$glb$$is_sorted',1,-1)).
+    allocate_det(1,8,([],0),4).
+label(('e$$glb$$is_sorted',1,1)).
+    switch_cons_vv(1,('e$$glb$$is_sorted',1,4),('e$$glb$$is_sorted',1,5),('e$$glb$$is_sorted',1,5),-4,-5).
+    switch_cons(-5,('e$$glb$$is_sorted',1,3),('e$$glb$$is_sorted',1,5),('e$$glb$$is_sorted',1,5),-6,0).
+    builtin3(13,('e$$glb$$is_sorted',1,5),v(-7),u(-4),u(-6)).
+    jmp_id_uc(-7,c(>),('e$$glb$$is_sorted',1,5)).
+    tr_det_call1_au(('e$$glb$$is_sorted',1,1),1,1,-5,8).
+    return_det.
+label(('e$$glb$$is_sorted',1,3)).
+    return_det.
+label(('e$$glb$$is_sorted',1,4)).
+    return_det.
+label(('e$$glb$$is_sorted',1,5)).
+    fail.
+label(('e$$glb$$is_sorted',1,6)).
+    fail0.
+label(('e$$glb$$is_sorted',1,7)).
+    cut_fail.
+label(('e$$glb$$is_btree',1)).
+label(('e$$glb$$is_btree',1,-1)).
+    allocate_det(1,5,([],0),4).
+label(('e$$glb$$is_btree',1,1)).
+label(('e$$glb$$is_btree',1,2)).
+    hash(1,0,0,('e$$glb$$is_btree',1,6)).
+    pred(('e$$glb$$is_btree',1,2),1,2,('e$$glb$$is_btree',1,6)).
+    arglabel(c,{},('e$$glb$$is_btree',1,3)).
+    arglabel(s,({},3),('e$$glb$$is_btree',1,4)).
+label(('e$$glb$$is_btree',1,3)).
+    hash_jmpn_constant(c({}),('e$$glb$$is_btree',1,6)).
+    return_det.
+label(('e$$glb$$is_btree',1,4)).
+    hash_jmpn_struct(({},3),('e$$glb$$is_btree',1,6)).
+    fetch_w.
+    fetch_2v(-4,1).
+    para_u(-4).
+    call0(('e$$glb$$is_btree',1),5).
+    tr_det_call0(('e$$glb$$is_btree',1,1),5).
+    return_det.
+label(('e$$glb$$is_btree',1,6)).
+    fail.
+label(('e$$glb$$is_btree',1,7)).
+    fail0.
+label(('e$$glb$$is_btree',1,8)).
+    cut_fail.
+label(('e$$glb$$f$$inorder',2)).
+label(('e$$glb$$f$$inorder',2,-1)).
+    allocate_det(2,10,([],0),4).
+label(('e$$glb$$f$$inorder',2,1)).
+label(('e$$glb$$f$$inorder',2,2)).
+    hash(1,0,0,('e$$glb$$f$$inorder',2,6)).
+    pred(('e$$glb$$f$$inorder',2,2),1,2,('e$$glb$$f$$inorder',2,6)).
+    arglabel(c,{},('e$$glb$$f$$inorder',2,3)).
+    arglabel(s,({},3),('e$$glb$$f$$inorder',2,4)).
+label(('e$$glb$$f$$inorder',2,3)).
+    hash_jmpn_constant(c({}),('e$$glb$$f$$inorder',2,6)).
+    unify_nil(2).
+    return_det.
+label(('e$$glb$$f$$inorder',2,4)).
+    hash_jmpn_struct(({},3),('e$$glb$$f$$inorder',2,6)).
+    fetch_3v(-4,-5,-6).
+    para_v(-7).
+    para_u(-5).
+    call0(('e$$glb$$f$$inorder',2),8).
+    para_v(-5).
+    para_u(-6).
+    call0(('e$$glb$$f$$inorder',2),8).
+    move_comp_list1(-8,u(-4)).
+    para_uuv(-8,-5,-9).
+    call0(('$concat_lists_or_arrays',3),10).
+    last_call(801,('$concat_lists_or_arrays',3),u(-7),u(-9),u(2),10).
+    return_det.
+label(('e$$glb$$f$$inorder',2,6)).
+    move_struct0(-4,(inorder,1)).
+    build_arg_u(1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$inorder',2,8)).
+    fail.
+label(('e$$glb$$f$$inorder',2,9)).
+    fail0.
+label(('e$$glb$$f$$inorder',2,10)).
+    cut_fail.
+label(('e$$glb$$is_bstree',1)).
+label(('e$$glb$$is_bstree',1,-1)).
+    allocate_det(1,9,([],0),4).
+label(('e$$glb$$is_bstree',1,1)).
+label(('e$$glb$$is_bstree',1,2)).
+    hash(1,0,0,('e$$glb$$is_bstree',1,6)).
+    pred(('e$$glb$$is_bstree',1,2),1,2,('e$$glb$$is_bstree',1,6)).
+    arglabel(c,{},('e$$glb$$is_bstree',1,3)).
+    arglabel(s,({},3),('e$$glb$$is_bstree',1,4)).
+label(('e$$glb$$is_bstree',1,3)).
+    hash_jmpn_constant(c({}),('e$$glb$$is_bstree',1,6)).
+    return_det.
+label(('e$$glb$$is_bstree',1,4)).
+    hash_jmpn_struct(({},3),('e$$glb$$is_bstree',1,6)).
+    fetch_3v(-4,-5,-6).
+    para_v(-7).
+    para_u(1).
+    call0(('e$$glb$$f$$min_bstree',2),8).
+    para_uuu(-5,-7,-4).
+    call0(('e$$glb$$is_bstree',3),8).
+    para_v(-8).
+    para_u(1).
+    call0(('e$$glb$$f$$max_bstree',2),9).
+    last_call(801,('e$$glb$$is_bstree',3),u(-6),u(-4),u(-8),9).
+    return_det.
+label(('e$$glb$$is_bstree',1,6)).
+    fail.
+label(('e$$glb$$is_bstree',1,7)).
+    fail0.
+label(('e$$glb$$is_bstree',1,8)).
+    cut_fail.
+label(('e$$glb$$is_bstree',3)).
+label(('e$$glb$$is_bstree',3,-1)).
+    allocate_det(3,7,([],0),4).
+label(('e$$glb$$is_bstree',3,1)).
+label(('e$$glb$$is_bstree',3,2)).
+    hash(3,0,0,('e$$glb$$is_bstree',3,6)).
+    pred(('e$$glb$$is_bstree',3,2),3,2,('e$$glb$$is_bstree',3,6)).
+    arglabel(c,{},('e$$glb$$is_bstree',3,3)).
+    arglabel(s,({},3),('e$$glb$$is_bstree',3,4)).
+label(('e$$glb$$is_bstree',3,3)).
+    hash_jmpn_constant(c({}),('e$$glb$$is_bstree',3,6)).
+    return_det.
+label(('e$$glb$$is_bstree',3,4)).
+    hash_jmpn_struct(({},3),('e$$glb$$is_bstree',3,6)).
+    fetch_3v(-4,-5,3).
+    builtin3(13,('e$$glb$$is_bstree',3,6),v(-6),u(-4),u(2)).
+    jmp_id_uc(-6,c(<),('e$$glb$$is_bstree',3,6)).
+    builtin3(13,('e$$glb$$is_bstree',3,6),v(-6),u(-4),u(1)).
+    jmp_id_uc(-6,c(>),('e$$glb$$is_bstree',3,6)).
+    para_uuu(-5,2,-4).
+    call0(('e$$glb$$is_bstree',3),7).
+    tr_det_call1_au(('e$$glb$$is_bstree',3,1),2,3,3,-4,1,7).
+    return_det.
+label(('e$$glb$$is_bstree',3,6)).
+    fail.
+label(('e$$glb$$is_bstree',3,7)).
+    fail0.
+label(('e$$glb$$is_bstree',3,8)).
+    cut_fail.
+label(('e$$glb$$f$$min_bstree',2)).
+label(('e$$glb$$f$$min_bstree',2,-1)).
+    allocate_det(2,6,([],0),4).
+label(('e$$glb$$f$$min_bstree',2,1)).
+    jmpn_eq_struct(1,({},3),('e$$glb$$f$$min_bstree',2,4),('e$$glb$$f$$min_bstree',2,4)).
+    fetch_45.
+    jmpn_eq_constant(-5,c({}),('e$$glb$$f$$min_bstree',2,2),('e$$glb$$f$$min_bstree',2,2)).
+    unify_value_return_det(2,-4).
+    return_det.
+label(('e$$glb$$f$$min_bstree',2,2)).
+    tr_det_call1_au(('e$$glb$$f$$min_bstree',2,1),2,2,2,-5,6).
+    return_det.
+label(('e$$glb$$f$$min_bstree',2,4)).
+    move_struct0(-4,(min_bstree,1)).
+    build_arg_u(1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$min_bstree',2,6)).
+    fail.
+label(('e$$glb$$f$$min_bstree',2,7)).
+    fail0.
+label(('e$$glb$$f$$min_bstree',2,8)).
+    cut_fail.
+label(('e$$glb$$f$$max_bstree',2)).
+label(('e$$glb$$f$$max_bstree',2,-1)).
+    allocate_det(2,6,([],0),4).
+label(('e$$glb$$f$$max_bstree',2,1)).
+    jmpn_eq_struct_fetch_v(1,({},3),('e$$glb$$f$$max_bstree',2,4),('e$$glb$$f$$max_bstree',2,4),-4).
+    fetch_wv(-5).
+    jmpn_eq_constant(-5,c({}),('e$$glb$$f$$max_bstree',2,2),('e$$glb$$f$$max_bstree',2,2)).
+    unify_value_return_det(2,-4).
+    return_det.
+label(('e$$glb$$f$$max_bstree',2,2)).
+    tr_det_call1_au(('e$$glb$$f$$max_bstree',2,1),2,2,2,-5,6).
+    return_det.
+label(('e$$glb$$f$$max_bstree',2,4)).
+    move_struct0(-4,(max_bstree,1)).
+    build_arg_u(1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$max_bstree',2,6)).
+    fail.
+label(('e$$glb$$f$$max_bstree',2,7)).
+    fail0.
+label(('e$$glb$$f$$max_bstree',2,8)).
+    cut_fail.
+label(('e$$glb$$lookup_bstree',2)).
+label(('e$$glb$$lookup_bstree',2,-1)).
+    allocate_det(2,7,([],0),4).
+label(('e$$glb$$lookup_bstree',2,1)).
+    jmpn_eq_struct(2,({},3),('e$$glb$$lookup_bstree',2,6),('e$$glb$$lookup_bstree',2,6)).
+    fetch_3v(-4,-5,-6).
+    jmpn_id_uu(-4,1,('e$$glb$$lookup_bstree',2,2)).
+    return_det.
+label(('e$$glb$$lookup_bstree',2,2)).
+    jmpn_gt_uu(-4,1,('e$$glb$$lookup_bstree',2,4)).
+    tr_det_call1_au(('e$$glb$$lookup_bstree',2,1),1,2,-5,1,7).
+    return_det.
+label(('e$$glb$$lookup_bstree',2,4)).
+    tr_det_call1_au(('e$$glb$$lookup_bstree',2,1),1,2,-6,1,7).
+    return_det.
+label(('e$$glb$$lookup_bstree',2,6)).
+    fail.
+label(('e$$glb$$lookup_bstree',2,7)).
+    fail0.
+label(('e$$glb$$lookup_bstree',2,8)).
+    cut_fail.
+label(('e$$glb$$f$$tree_inst1',1)).
+label(('e$$glb$$f$$tree_inst1',1,-1)).
+    allocate_det(1,6,([],0),4).
+label(('e$$glb$$f$$tree_inst1',1,1)).
+    unify_struct_arg_c(1,({},3),c(6)).
+    unify_arg_v0(-4).
+    unify_arg_struct(({},3)).
+    unify_arg_c(c(8)).
+    unify_arg_v0(-5).
+    unify_arg_struct(({},3)).
+    unify_arg_3c(c(9),c({}),c({})).
+    unify_struct_arg_c(-4,({},3),c(5)).
+    unify_arg_v0(-4).
+    unify_arg_struct(({},3)).
+    unify_arg_3c(c(7),c({}),c({})).
+    unify_struct_arg_c(-4,({},3),c(4)).
+    unify_arg_2c(c({}),c({})).
+    unify_struct_arg_c(-5,({},3),c(3)).
+    unify_arg_2c(c({}),c({})).
+    return_det.
+label(('e$$glb$$f$$tree_inst1',1,2)).
+    move_struct0(-4,(unresolved_function_call,1)).
+    build_arg_c(c(tree_inst1)).
+    last_call(1,(throw,1),u(-4),5).
+    return_det.
+label(('e$$glb$$f$$tree_inst1',1,4)).
+    fail.
+label(('e$$glb$$f$$tree_inst1',1,5)).
+    fail0.
+label(('e$$glb$$f$$tree_inst1',1,6)).
+    cut_fail.
+label(('e$$glb$$f$$tree_inst2',1)).
+label(('e$$glb$$f$$tree_inst2',1,-1)).
+    allocate_det(1,6,([],0),4).
+label(('e$$glb$$f$$tree_inst2',1,1)).
+    unify_struct_arg_c(1,({},3),c(7)).
+    unify_arg_v0(-4).
+    unify_arg_struct(({},3)).
+    unify_arg_c(c(8)).
+    unify_arg_v0(-5).
+    unify_arg_struct(({},3)).
+    unify_arg_3c(c(9),c({}),c({})).
+    unify_struct_arg_c(-4,({},3),c(5)).
+    unify_arg_v0(-4).
+    unify_arg_struct(({},3)).
+    unify_arg_3c(c(6),c({}),c({})).
+    unify_struct_arg_c(-4,({},3),c(4)).
+    unify_arg_2c(c({}),c({})).
+    unify_struct_arg_c(-5,({},3),c(8)).
+    unify_arg_2c(c({}),c({})).
+    return_det.
+label(('e$$glb$$f$$tree_inst2',1,2)).
+    move_struct0(-4,(unresolved_function_call,1)).
+    build_arg_c(c(tree_inst2)).
+    last_call(1,(throw,1),u(-4),5).
+    return_det.
+label(('e$$glb$$f$$tree_inst2',1,4)).
+    fail.
+label(('e$$glb$$f$$tree_inst2',1,5)).
+    fail0.
+label(('e$$glb$$f$$tree_inst2',1,6)).
+    cut_fail.
+label(('e$$glb$$test_btree',0)).
+label(('e$$glb$$test_btree',0,-1)).
+    allocate_det(0,14,([],0),4).
+label(('e$$glb$$test_btree',0,1)).
+    para_v(-4).
+    call0(('e$$glb$$f$$tree_inst1',1),5).
+    move_value(-5,-4).
+    para_v(-6).
+    para_u(-5).
+    call0(('e$$glb$$f$$inorder',2),7).
+    para_c(c(user)).
+    para_u(-6).
+    call0((picat_println,2),7).
+    para_v(-7).
+    para_u(-5).
+    call0(('de$$glb$$test_btree_0_0__1',2),8).
+    move_var(-8).
+    jmp_var_y(-7,('e$$glb$$test_btree',0,2)).
+    unify_comp_list(-8,20,c(a),c(' '),c(b),c(i),c(n),c(a),c(r),c(y),c(' '),c(s),c(e),c(a),c(r),c(c),c(h),c(' '),c(t),c(r),c(e),c(e)).
+    jmp(('e$$glb$$test_btree',0,3)).
+label(('e$$glb$$test_btree',0,2)).
+    unify_comp_list(-8,24,c(n),c(o),c(t),c(' '),c(a),c(' '),c(b),c(i),c(n),c(a),c(r),c(y),c(' '),c(s),c(e),c(a),c(r),c(c),c(h),c(' '),c(t),c(r),c(e),c(e)).
+label(('e$$glb$$test_btree',0,3)).
+    para_c(c(user)).
+    para_u(-8).
+    call0((picat_println,2),9).
+    para_v(-9).
+    call0(('e$$glb$$f$$tree_inst2',1),10).
+    move_value(-10,-9).
+    para_v(-11).
+    para_u(-10).
+    call0(('e$$glb$$f$$inorder',2),12).
+    para_c(c(user)).
+    para_u(-11).
+    call0((picat_println,2),12).
+    para_v(-12).
+    para_u(-10).
+    call0(('de$$glb$$test_btree_0_0__2',2),13).
+    move_var(-13).
+    jmp_var_y(-12,('e$$glb$$test_btree',0,4)).
+    unify_comp_list(-13,20,c(a),c(' '),c(b),c(i),c(n),c(a),c(r),c(y),c(' '),c(s),c(e),c(a),c(r),c(c),c(h),c(' '),c(t),c(r),c(e),c(e)).
+    jmp(('e$$glb$$test_btree',0,5)).
+label(('e$$glb$$test_btree',0,4)).
+    unify_comp_list(-13,24,c(n),c(o),c(t),c(' '),c(a),c(' '),c(b),c(i),c(n),c(a),c(r),c(y),c(' '),c(s),c(e),c(a),c(r),c(c),c(h),c(' '),c(t),c(r),c(e),c(e)).
+label(('e$$glb$$test_btree',0,5)).
+    last_call(33,(picat_println,2),c(user),u(-13),14).
+    return_det.
+label(('e$$glb$$test_btree',0,7)).
+    fail.
+label(('e$$glb$$test_btree',0,8)).
+    fail0.
+label(('e$$glb$$test_btree',0,9)).
+    cut_fail.
+label(('e$$glb$$divide_main',0)).
+label(('e$$glb$$divide_main',0,-1)).
+    allocate_det(0,6,([],0),4).
+label(('e$$glb$$divide_main',0,1)).
+    move_struct0(-4,(/,2)).
+    build_arg_2c(c(x),c(x)).
+    move_struct0(-5,(/,2)).
+    build_arg_u(-4).
+    build_arg_c(c(x)).
+    move_struct0(-4,(/,2)).
+    build_arg_u(-5).
+    build_arg_c(c(x)).
+    move_struct0(-5,(/,2)).
+    build_arg_u(-4).
+    build_arg_c(c(x)).
+    move_struct0(-4,(/,2)).
+    build_arg_u(-5).
+    build_arg_c(c(x)).
+    move_struct0(-5,(/,2)).
+    build_arg_u(-4).
+    build_arg_c(c(x)).
+    move_struct0(-4,(/,2)).
+    build_arg_u(-5).
+    build_arg_c(c(x)).
+    move_struct0(-5,(/,2)).
+    build_arg_u(-4).
+    build_arg_c(c(x)).
+    move_struct0(-4,(/,2)).
+    build_arg_u(-5).
+    build_arg_c(c(x)).
+    para_uc(-4,c(x)).
+    para_v(-5).
+    call0(('e$$glb$$d',3),6).
+    para_c(c(user)).
+    para_u(-5).
+    call0((picat_write,2),6).
+    last_call(1,(nl,1),c(user),6).
+    return_det.
+label(('e$$glb$$divide_main',0,3)).
+    fail.
+label(('e$$glb$$divide_main',0,4)).
+    fail0.
+label(('e$$glb$$divide_main',0,5)).
+    cut_fail.
+label(('e$$glb$$d',3)).
+label(('e$$glb$$d',3,-1)).
+    allocate_det(3,9,([],0),4).
+label(('e$$glb$$d',3,1)).
+label(('e$$glb$$d',3,2)).
+    hash(3,0,0,('e$$glb$$d',3,19)).
+    pred(('e$$glb$$d',3,2),3,8,('e$$glb$$d',3,19)).
+    arglabel(s,(+,2),('e$$glb$$d',3,3)).
+    arglabel(s,(-,2),('e$$glb$$d',3,4)).
+    arglabel(s,(*,2),('e$$glb$$d',3,5)).
+    arglabel(s,(/,2),('e$$glb$$d',3,6)).
+    arglabel(s,(^,2),('e$$glb$$d',3,7)).
+    arglabel(s,(-,1),('e$$glb$$d',3,8)).
+    arglabel(s,(exp,1),('e$$glb$$d',3,9)).
+    arglabel(s,(log,1),('e$$glb$$d',3,10)).
+label(('e$$glb$$d',3,3)).
+    hash_jmpn_struct((+,2),('e$$glb$$d',3,19)).
+    fetch_45.
+    unify_struct_arg_2v0(1,(+,2),-6,-7).
+    para_uuu(-4,2,-6).
+    call0(('e$$glb$$d',3),8).
+    tr_det_call2_au(('e$$glb$$d',3,1),1,3,3,-5,2,-7,8).
+    return_det.
+label(('e$$glb$$d',3,4)).
+    hash_jmpn_struct((-,2),('e$$glb$$d',3,19)).
+    fetch_45.
+    unify_struct_arg_2v0(1,(-,2),-6,-7).
+    para_uuu(-4,2,-6).
+    call0(('e$$glb$$d',3),8).
+    tr_det_call2_au(('e$$glb$$d',3,1),1,3,3,-5,2,-7,8).
+    return_det.
+label(('e$$glb$$d',3,5)).
+    hash_jmpn_struct((*,2),('e$$glb$$d',3,19)).
+    fetch_45.
+    unify_struct_arg_v0(1,(+,2),-6).
+    unify_arg_struct((*,2)).
+    unify_arg_uv0(-4,-7).
+    unify_struct_arg_v0(-6,(*,2),-6).
+    unify_arg_u(-5).
+    para_uuu(-4,2,-6).
+    call0(('e$$glb$$d',3),8).
+    tr_det_call2_au(('e$$glb$$d',3,1),1,3,3,-5,2,-7,8).
+    return_det.
+label(('e$$glb$$d',3,6)).
+    hash_jmpn_struct((/,2),('e$$glb$$d',3,19)).
+    fetch_45.
+    unify_struct_arg_v0(1,(/,2),-6).
+    unify_arg_struct((^,2)).
+    unify_arg_u(-5).
+    unify_arg_c(c(2)).
+    unify_struct_arg_v0(-6,(-,2),-6).
+    unify_arg_struct((*,2)).
+    unify_arg_uv0(-4,-7).
+    unify_struct_arg_v0(-6,(*,2),-6).
+    unify_arg_u(-5).
+    para_uuu(-4,2,-6).
+    call0(('e$$glb$$d',3),8).
+    tr_det_call2_au(('e$$glb$$d',3,1),1,3,3,-5,2,-7,8).
+    return_det.
+label(('e$$glb$$d',3,7)).
+    hash_jmpn_struct((^,2),('e$$glb$$d',3,19)).
+    fetch_45.
+    unify_struct_arg_v0(1,(*,2),-6).
+    unify_arg_struct((^,2)).
+    unify_arg_uv0(-4,-7).
+    unify_struct_arg_v0(-6,(*,2),-6).
+    unify_arg_u(-5).
+    jmpn_int_y(-5,('e$$glb$$d',3,21)).
+    sub1(-5).
+    move_value(-8,-5).
+    unify_value(-7,-8).
+    tr_det_call2_au(('e$$glb$$d',3,1),1,3,3,-4,2,-6,9).
+    return_det.
+label(('e$$glb$$d',3,8)).
+    hash_jmpn_struct((-,1),('e$$glb$$d',3,19)).
+    fetch_v(-4).
+    unify_struct_arg_v0(1,(-,1),-5).
+    tr_det_call2_au(('e$$glb$$d',3,1),1,3,3,-4,2,-5,6).
+    return_det.
+label(('e$$glb$$d',3,9)).
+    hash_jmpn_struct((exp,1),('e$$glb$$d',3,19)).
+    fetch_v(-4).
+    unify_struct_arg_2v0(1,(*,2),-5,-6).
+    unify_struct_arg_u(-5,(exp,1),-4).
+    tr_det_call2_au(('e$$glb$$d',3,1),1,3,3,-4,2,-6,7).
+    return_det.
+label(('e$$glb$$d',3,10)).
+    hash_jmpn_struct((log,1),('e$$glb$$d',3,19)).
+    fetch_v(-4).
+    unify_struct_arg_v0(1,(/,2),-5).
+    unify_arg_u(-4).
+    tr_det_call2_au(('e$$glb$$d',3,1),1,3,3,-4,2,-5,6).
+    return_det.
+label(('e$$glb$$d',3,19)).
+    jmpn_id_uu(3,2,('e$$glb$$d',3,20)).
+    unify_constant_return_det(1,c(1)).
+label(('e$$glb$$d',3,20)).
+    unify_constant_return_det(1,c(0)).
+label(('e$$glb$$d',3,21)).
+    fail.
+label(('e$$glb$$d',3,22)).
+    fail0.
+label(('e$$glb$$d',3,23)).
+    cut_fail.
+label(('e$$glb$$f$$sum_list_imp',2)).
+label(('e$$glb$$f$$sum_list_imp',2,-1)).
+    allocate_det(2,8,([],0),4).
+label(('e$$glb$$f$$sum_list_imp',2,1)).
+    move_constant(-4,c(0)).
+    para_uv(1,-5).
+    call0((picat_iterator_collection_to_list,2),6).
+    para_uuv(-5,-4,-6).
+    call0((h___exssum_list_imp_1_1_1,3),7).
+    move_value(-7,-6).
+    unify_value_return_det(2,-7).
+    return_det.
+label(('e$$glb$$f$$sum_list_imp',2,2)).
+    move_struct0(-4,(sum_list_imp,1)).
+    build_arg_u(1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$sum_list_imp',2,4)).
+    fail.
+label(('e$$glb$$f$$sum_list_imp',2,5)).
+    fail0.
+label(('e$$glb$$f$$sum_list_imp',2,6)).
+    cut_fail.
+label((h___exssum_list_imp_1_1_1,3)).
+label((h___exssum_list_imp_1_1_1,3,-1)).
+    allocate_det(3,7,([],0),4).
+label((h___exssum_list_imp_1_1_1,3,1)).
+    switch_cons_vv(3,(h___exssum_list_imp_1_1_1,3,5),(h___exssum_list_imp_1_1_1,3,6),(h___exssum_list_imp_1_1_1,3,6),-4,-5).
+    add_uuv(2,-4,-4).
+    move_value(-6,-4).
+    move_value(-6,-6).
+    tr_det_call2_au((h___exssum_list_imp_1_1_1,3,1),1,2,3,-5,-6,1,7).
+    return_det.
+label((h___exssum_list_imp_1_1_1,3,3)).
+    move_value(2,2).
+    tr_det_call1_au((h___exssum_list_imp_1_1_1,3,1),1,3,-5,2,1,6).
+    return_det.
+label((h___exssum_list_imp_1_1_1,3,5)).
+    unify_value_return_det(1,2).
+    return_det.
+label((h___exssum_list_imp_1_1_1,3,6)).
+    fail.
+label((h___exssum_list_imp_1_1_1,3,7)).
+    fail0.
+label((h___exssum_list_imp_1_1_1,3,8)).
+    cut_fail.
+label(('e$$glb$$min_max_ip',3)).
+label(('e$$glb$$min_max_ip',3,-1)).
+    allocate_det(3,9,([],0),4).
+label(('e$$glb$$min_max_ip',3,1)).
+    switch_cons_vv(3,('e$$glb$$min_max_ip',3,2),('e$$glb$$min_max_ip',3,2),('e$$glb$$min_max_ip',3,2),-4,-5).
+    move_value(-6,-4).
+    move_value(-4,-4).
+    para_uv(-5,-7).
+    call0((picat_iterator_collection_to_list,2),8).
+    para_uuv(-7,-6,-5).
+    para_uv(-4,-8).
+    call0((h___exsmin_max_ip_3_1_1,5),9).
+    unify_value(2,-5).
+    unify_value_return_det(1,-8).
+    return_det.
+label(('e$$glb$$min_max_ip',3,2)).
+    fail.
+label(('e$$glb$$min_max_ip',3,3)).
+    fail0.
+label(('e$$glb$$min_max_ip',3,4)).
+    cut_fail.
+label((h___exsmin_max_ip_3_1_1,5)).
+label((h___exsmin_max_ip_3_1_1,5,-1)).
+    allocate_det(5,8,([],0),4).
+label((h___exsmin_max_ip_3_1_1,5,1)).
+    switch_cons_vv(5,(h___exsmin_max_ip_3_1_1,5,5),(h___exsmin_max_ip_3_1_1,5,6),(h___exsmin_max_ip_3_1_1,5,6),-4,-5).
+    builtin3(109,(h___exsmin_max_ip_3_1_1,5,6),u(4),u(-4),v(-6)).
+    move_value(-7,-6).
+    move_value(-7,-7).
+    builtin3(108,(h___exsmin_max_ip_3_1_1,5,6),u(2),u(-4),v(-6)).
+    move_value(-4,-6).
+    move_value(-4,-4).
+    tr_det_call_au((h___exsmin_max_ip_3_1_1,5,1),1057,5,-5,-7,3,-4,1,8).
+    return_det.
+label((h___exsmin_max_ip_3_1_1,5,3)).
+    move_value(4,4).
+    move_value(2,2).
+    tr_det_call1_au((h___exsmin_max_ip_3_1_1,5,1),1,5,-5,4,3,2,1,6).
+    return_det.
+label((h___exsmin_max_ip_3_1_1,5,5)).
+    unify_value(3,4).
+    unify_value_return_det(1,2).
+    return_det.
+label((h___exsmin_max_ip_3_1_1,5,6)).
+    fail.
+label((h___exsmin_max_ip_3_1_1,5,7)).
+    fail0.
+label((h___exsmin_max_ip_3_1_1,5,8)).
+    cut_fail.
+label(('e$$glb$$pascal',0)).
+label(('e$$glb$$pascal',0,-1)).
+    allocate_det(0,6,([],0),4).
+label(('e$$glb$$pascal',0,1)).
+    move_comp_list(-4,17,c(e),c(n),c(t),c(e),c(r),c(' '),c(a),c(n),c(' '),c(i),c(n),c(t),c(e),c(g),c(e),c(r),c(:)).
+    para_c(c(user)).
+    para_u(-4).
+    call0((picat_print,2),5).
+    para_c(c(user)).
+    para_v(-4).
+    call0((picat_read_int,2),5).
+    move_value(-5,-4).
+    last_call(33,(h___exspascal_0_1_2,2),c(0),u(-5),6).
+    return_det.
+label(('e$$glb$$pascal',0,3)).
+    fail.
+label(('e$$glb$$pascal',0,4)).
+    fail0.
+label(('e$$glb$$pascal',0,5)).
+    cut_fail.
+label((h___exspascal_0_1_1,5)).
+label((h___exspascal_0_1_1,5,-1)).
+    allocate_det(5,17,([],0),4).
+label((h___exspascal_0_1_1,5,1)).
+    jmpn_gt_uu(5,4,(h___exspascal_0_1_1,5,2)).
+    unify_value_return_det(2,3).
+    return_det.
+label((h___exspascal_0_1_1,5,2)).
+    move_comp_list(-4,3,c('%'),c(d),c(' ')).
+    para_uu(-4,3).
+    call0((picat_printf,2),5).
+    sub_uuv(1,5,-4).
+    move_value(-5,-4).
+    add_u1v(-5,-6).
+    move_value(-7,-6).
+    mul_uuv(3,-7,-8).
+    move_value(-9,-8).
+    move_struct(-10,(div,2)).
+    build_arg_2u(-9,5).
+    add_uiv(-10,0,-11).
+    move_value(-12,-11).
+    move_value(-13,-12).
+    move_value(-14,-13).
+    add_u1v(5,-15).
+    move_value(-16,-15).
+    tr_det_call2_au((h___exspascal_0_1_1,5,1),1,3,5,-16,4,-14,2,1,17).
+    return_det.
+label((h___exspascal_0_1_1,5,4)).
+    fail.
+label((h___exspascal_0_1_1,5,5)).
+    fail0.
+label((h___exspascal_0_1_1,5,6)).
+    cut_fail.
+label((h___exspascal_0_1_2,2)).
+label((h___exspascal_0_1_2,2,-1)).
+    allocate_det(2,11,([],0),4).
+label((h___exspascal_0_1_2,2,1)).
+    jmpn_gt_uu(2,1,(h___exspascal_0_1_2,2,2)).
+    return_det.
+label((h___exspascal_0_1_2,2,2)).
+    move_constant(-4,c(1)).
+    para_v(-5).
+    para_uv(2,-6).
+    call0((dh___exspascal_0_1_2_2_0__1,3),7).
+    move_vars(-8,-7).
+    jmp_var_y(-5,(h___exspascal_0_1_2,2,3)).
+    para_c(c(1)).
+    para_uuu(-6,-4,-7).
+    para_u(2).
+    call0((h___exspascal_0_1_1,5),9).
+    unify_value(-7,-8).
+    jmp((h___exspascal_0_1_2,2,4)).
+label((h___exspascal_0_1_2,2,3)).
+    unify_value(-4,-8).
+label((h___exspascal_0_1_2,2,4)).
+    para_c(c(user)).
+    call0((nl,1),9).
+    add_u1v(2,-9).
+    move_value(-10,-9).
+    tr_det_call1_au((h___exspascal_0_1_2,2,1),1,2,-10,1,11).
+    return_det.
+label((h___exspascal_0_1_2,2,6)).
+    fail.
+label((h___exspascal_0_1_2,2,7)).
+    fail0.
+label((h___exspascal_0_1_2,2,8)).
+    cut_fail.
+label(('e$$glb$$pascal2',0)).
+label(('e$$glb$$pascal2',0,-1)).
+    allocate_det(0,7,([],0),4).
+label(('e$$glb$$pascal2',0,1)).
+    move_comp_list(-4,17,c(e),c(n),c(t),c(e),c(r),c(' '),c(a),c(n),c(' '),c(i),c(n),c(t),c(e),c(g),c(e),c(r),c(:)).
+    para_c(c(user)).
+    para_u(-4).
+    call0((picat_print,2),5).
+    para_c(c(user)).
+    para_v(-4).
+    call0((picat_read_int,2),5).
+    move_value(-5,-4).
+    move_comp_list1(-6,c(1)).
+    last_call(17185,(h___exspascal2_0_1_1,4),c(1),u(-5),u(-6),v(0),7).
+    return_det.
+label(('e$$glb$$pascal2',0,3)).
+    fail.
+label(('e$$glb$$pascal2',0,4)).
+    fail0.
+label(('e$$glb$$pascal2',0,5)).
+    cut_fail.
+label((h___exspascal2_0_1_1,4)).
+label((h___exspascal2_0_1_1,4,-1)).
+    allocate_det(4,8,([],0),4).
+label((h___exspascal2_0_1_1,4,1)).
+    jmpn_gt_uu(4,3,(h___exspascal2_0_1_1,4,2)).
+    unify_value_return_det(1,2).
+    return_det.
+label((h___exspascal2_0_1_1,4,2)).
+    para_c(c(user)).
+    para_u(2).
+    call0((picat_write,2),4).
+    para_c(c(user)).
+    call0((nl,1),4).
+    para_v(-4).
+    para_u(2).
+    call0(('i$$glb$$f$$next_row',2),5).
+    move_value(-5,-4).
+    add_u1v(4,-6).
+    move_value(-7,-6).
+    tr_det_call2_au((h___exspascal2_0_1_1,4,1),1,3,4,-7,3,-5,1,8).
+    return_det.
+label((h___exspascal2_0_1_1,4,4)).
+    fail.
+label((h___exspascal2_0_1_1,4,5)).
+    fail0.
+label((h___exspascal2_0_1_1,4,6)).
+    cut_fail.
+label(('i$$glb$$f$$next_row',2)).
+label(('i$$glb$$f$$next_row',2,-1)).
+    allocate_det(2,14,([],0),4).
+label(('i$$glb$$f$$next_row',2,1)).
+    move_comp_list1(-4,c(1)).
+    move_constant(-5,c(1)).
+    para_v(-6).
+    para_uv(1,-7).
+    call0(('di$$glb$$f$$next_row_2_0__1',3),8).
+    move_vars(-12,-8).
+    jmp_var_y(-6,('i$$glb$$f$$next_row',2,2)).
+    para_uu(-7,-8).
+    call0((picat_iterator_collection_to_list,2),13).
+    para_uuu(-8,-4,-9).
+    para_uu(-5,-10).
+    call0((h___exsnext_row_1_1_1,5),13).
+    unify_value(-9,-11).
+    unify_value(-10,-12).
+    jmp(('i$$glb$$f$$next_row',2,3)).
+label(('i$$glb$$f$$next_row',2,2)).
+    unify_value(-4,-11).
+    unify_value(-5,-12).
+label(('i$$glb$$f$$next_row',2,3)).
+    move_cons(-13,c(1),u(-11)).
+    unify_value_return_det(2,-13).
+    return_det.
+label(('i$$glb$$f$$next_row',2,4)).
+    move_struct0(-4,(next_row,1)).
+    build_arg_u(1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('i$$glb$$f$$next_row',2,6)).
+    fail.
+label(('i$$glb$$f$$next_row',2,7)).
+    fail0.
+label(('i$$glb$$f$$next_row',2,8)).
+    cut_fail.
+label((h___exsnext_row_1_1_1,5)).
+label((h___exsnext_row_1_1_1,5,-1)).
+    allocate_det(5,8,([],0),4).
+label((h___exsnext_row_1_1_1,5,1)).
+    switch_cons_vv(5,(h___exsnext_row_1_1_1,5,5),(h___exsnext_row_1_1_1,5,6),(h___exsnext_row_1_1_1,5,6),-4,-5).
+    add_uuv(2,-4,-6).
+    move_value(-7,-6).
+    move_cons0_uu(-6,-7,4).
+    move_value(-4,-4).
+    tr_det_call_au((h___exsnext_row_1_1_1,5,1),1057,5,-5,-6,3,-4,1,8).
+    return_det.
+label((h___exsnext_row_1_1_1,5,3)).
+    move_value(4,4).
+    move_value(2,2).
+    tr_det_call1_au((h___exsnext_row_1_1_1,5,1),1,5,-5,4,3,2,1,6).
+    return_det.
+label((h___exsnext_row_1_1_1,5,5)).
+    unify_value(3,4).
+    unify_value_return_det(1,2).
+    return_det.
+label((h___exsnext_row_1_1_1,5,6)).
+    fail.
+label((h___exsnext_row_1_1_1,5,7)).
+    fail0.
+label((h___exsnext_row_1_1_1,5,8)).
+    cut_fail.
+label(('e$$glb$$f$$list_of_lists',2)).
+label(('e$$glb$$f$$list_of_lists',2,-1)).
+    allocate_det(2,6,([],0),4).
+label(('e$$glb$$f$$list_of_lists',2,1)).
+    move_value(-4,2).
+    para_cuuv(c(1),1,-4,-5).
+    call0((h___exslist_of_lists_1_1_2,4),6).
+    unify_nil(-5).
+    return_det.
+label(('e$$glb$$f$$list_of_lists',2,2)).
+    move_struct0(-4,(list_of_lists,1)).
+    build_arg_u(1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$list_of_lists',2,4)).
+    fail.
+label(('e$$glb$$f$$list_of_lists',2,5)).
+    fail0.
+label(('e$$glb$$f$$list_of_lists',2,6)).
+    cut_fail.
+label((h___exslist_of_lists_1_1_1,4)).
+label((h___exslist_of_lists_1_1_1,4,-1)).
+    allocate_det(4,5,([],0),4).
+label((h___exslist_of_lists_1_1_1,4,1)).
+    jmpn_gt_uu(4,3,(h___exslist_of_lists_1_1_1,4,2)).
+    unify_value_return_det(1,2).
+    return_det.
+label((h___exslist_of_lists_1_1_1,4,2)).
+    unify_cons_uv0(2,4,-4).
+    move_value(2,-4).
+    add_u1v(4,-4).
+    move_value(4,-4).
+    tr_det_call0((h___exslist_of_lists_1_1_1,4,1),5).
+    return_det.
+label((h___exslist_of_lists_1_1_1,4,4)).
+    fail.
+label((h___exslist_of_lists_1_1_1,4,5)).
+    fail0.
+label((h___exslist_of_lists_1_1_1,4,6)).
+    cut_fail.
+label((h___exslist_of_lists_1_1_2,4)).
+label((h___exslist_of_lists_1_1_2,4,-1)).
+    allocate_det(4,10,([],0),4).
+label((h___exslist_of_lists_1_1_2,4,1)).
+    jmpn_gt_uu(4,3,(h___exslist_of_lists_1_1_2,4,2)).
+    unify_value_return_det(1,2).
+    return_det.
+label((h___exslist_of_lists_1_1_2,4,2)).
+    move_var(-5).
+    move_value(-4,-5).
+    para_cuuv(c(1),4,-5,-6).
+    call0((h___exslist_of_lists_1_1_1,4),7).
+    unify_nil(-6).
+    unify_cons(2,u(-4),v(-5)).
+    move_value(-7,-5).
+    add_u1v(4,-8).
+    move_value(-9,-8).
+    tr_det_call2_au((h___exslist_of_lists_1_1_2,4,1),1,3,4,-9,3,-7,1,10).
+    return_det.
+label((h___exslist_of_lists_1_1_2,4,4)).
+    fail.
+label((h___exslist_of_lists_1_1_2,4,5)).
+    fail0.
+label((h___exslist_of_lists_1_1_2,4,6)).
+    cut_fail.
+label(('e$$glb$$f$$another_list_of_lists',2)).
+label(('e$$glb$$f$$another_list_of_lists',2,-1)).
+    allocate_det(2,6,([],0),4).
+label(('e$$glb$$f$$another_list_of_lists',2,1)).
+    move_value(-4,2).
+    para_cuuv(c(1),1,-4,-5).
+    call0((h___exsanother_list_of_lists_1_1_1,4),6).
+    unify_nil(-5).
+    return_det.
+label(('e$$glb$$f$$another_list_of_lists',2,2)).
+    move_struct0(-4,(another_list_of_lists,1)).
+    build_arg_u(1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$another_list_of_lists',2,4)).
+    fail.
+label(('e$$glb$$f$$another_list_of_lists',2,5)).
+    fail0.
+label(('e$$glb$$f$$another_list_of_lists',2,6)).
+    cut_fail.
+label((h___exsanother_list_of_lists_1_1_1,4)).
+label((h___exsanother_list_of_lists_1_1_1,4,-1)).
+    allocate_det(4,7,([],0),4).
+label((h___exsanother_list_of_lists_1_1_1,4,1)).
+    jmpn_gt_uu(4,3,(h___exsanother_list_of_lists_1_1_1,4,2)).
+    unify_value_return_det(1,2).
+    return_det.
+label((h___exsanother_list_of_lists_1_1_1,4,2)).
+    unify_cons_v0v0(2,-4,-5).
+    para_c(c(1)).
+    para_c(c(1)).
+    para_uu(4,-4).
+    call0((picat_range,4),6).
+    move_value(2,-5).
+    add_u1v(4,-4).
+    move_value(-6,-4).
+    tr_det_call1_au((h___exsanother_list_of_lists_1_1_1,4,1),1,4,-6,3,2,1,7).
+    return_det.
+label((h___exsanother_list_of_lists_1_1_1,4,4)).
+    fail.
+label((h___exsanother_list_of_lists_1_1_1,4,5)).
+    fail0.
+label((h___exsanother_list_of_lists_1_1_1,4,6)).
+    cut_fail.
+label(('e$$glb$$f$$qsort',2)).
+label(('e$$glb$$f$$qsort',2,-1)).
+    allocate_det(2,18,([],0),4).
+label(('e$$glb$$f$$qsort',2,1)).
+    switch_cons_vv(1,('e$$glb$$f$$qsort',2,3),('e$$glb$$f$$qsort',2,4),('e$$glb$$f$$qsort',2,4),-4,-5).
+    move_var(-7).
+    move_value(-6,-7).
+    para_uv(-5,-8).
+    call0((picat_iterator_collection_to_list,2),9).
+    para_uuv(-8,-7,-9).
+    para_u(-4).
+    call0((h___exsqsort_1_2_1,4),10).
+    unify_nil(-9).
+    para_v(-10).
+    para_u(-6).
+    call0(('e$$glb$$f$$qsort',2),11).
+    move_var(-12).
+    move_value(-11,-12).
+    para_uv(-5,-13).
+    call0((picat_iterator_collection_to_list,2),14).
+    para_uuv(-13,-12,-14).
+    para_u(-4).
+    call0((h___exsqsort_1_2_2,4),15).
+    unify_nil(-14).
+    para_v(-15).
+    para_u(-11).
+    call0(('e$$glb$$f$$qsort',2),16).
+    move_comp_list1(-16,u(-4)).
+    para_uuv(-16,-15,-17).
+    call0(('$concat_lists_or_arrays',3),18).
+    last_call(801,('$concat_lists_or_arrays',3),u(-10),u(-17),u(2),18).
+    return_det.
+label(('e$$glb$$f$$qsort',2,3)).
+    unify_nil(2).
+    return_det.
+label(('e$$glb$$f$$qsort',2,4)).
+    move_struct0(-4,(qsort,1)).
+    build_arg_u(1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$qsort',2,6)).
+    fail.
+label(('e$$glb$$f$$qsort',2,7)).
+    fail0.
+label(('e$$glb$$f$$qsort',2,8)).
+    cut_fail.
+label((h___exsqsort_1_2_1,4)).
+label((h___exsqsort_1_2_1,4,-1)).
+    allocate_det(4,8,([],0),4).
+label((h___exsqsort_1_2_1,4,1)).
+    switch_cons_vv(4,(h___exsqsort_1_2_1,4,7),(h___exsqsort_1_2_1,4,8),(h___exsqsort_1_2_1,4,8),-4,-5).
+    move_var(-6).
+    jmpn_ge_uu(1,-4,(h___exsqsort_1_2_1,4,2)).
+    unify_cons_uu(3,-4,-6).
+    unify_arg_read_u(-6).
+    jmp((h___exsqsort_1_2_1,4,3)).
+label((h___exsqsort_1_2_1,4,2)).
+    unify_value(3,-6).
+label((h___exsqsort_1_2_1,4,3)).
+    move_value(-7,-6).
+    tr_det_call2_au((h___exsqsort_1_2_1,4,1),1,2,4,-5,-7,2,1,8).
+    return_det.
+label((h___exsqsort_1_2_1,4,5)).
+    move_value(3,3).
+    tr_det_call1_au((h___exsqsort_1_2_1,4,1),1,4,-5,3,2,1,6).
+    return_det.
+label((h___exsqsort_1_2_1,4,7)).
+    unify_value_return_det(2,3).
+    return_det.
+label((h___exsqsort_1_2_1,4,8)).
+    fail.
+label((h___exsqsort_1_2_1,4,9)).
+    fail0.
+label((h___exsqsort_1_2_1,4,10)).
+    cut_fail.
+label((h___exsqsort_1_2_2,4)).
+label((h___exsqsort_1_2_2,4,-1)).
+    allocate_det(4,8,([],0),4).
+label((h___exsqsort_1_2_2,4,1)).
+    switch_cons_vv(4,(h___exsqsort_1_2_2,4,7),(h___exsqsort_1_2_2,4,8),(h___exsqsort_1_2_2,4,8),-4,-5).
+    move_var(-6).
+    jmpn_gt_uu(-4,1,(h___exsqsort_1_2_2,4,2)).
+    unify_cons_uu(3,-4,-6).
+    unify_arg_read_u(-6).
+    jmp((h___exsqsort_1_2_2,4,3)).
+label((h___exsqsort_1_2_2,4,2)).
+    unify_value(3,-6).
+label((h___exsqsort_1_2_2,4,3)).
+    move_value(-7,-6).
+    tr_det_call2_au((h___exsqsort_1_2_2,4,1),1,2,4,-5,-7,2,1,8).
+    return_det.
+label((h___exsqsort_1_2_2,4,5)).
+    move_value(3,3).
+    tr_det_call1_au((h___exsqsort_1_2_2,4,1),1,4,-5,3,2,1,6).
+    return_det.
+label((h___exsqsort_1_2_2,4,7)).
+    unify_value_return_det(2,3).
+    return_det.
+label((h___exsqsort_1_2_2,4,8)).
+    fail.
+label((h___exsqsort_1_2_2,4,9)).
+    fail0.
+label((h___exsqsort_1_2_2,4,10)).
+    cut_fail.
+label(('e$$glb$$f$$power_set',2)).
+label(('e$$glb$$f$$power_set',2,-1)).
+    allocate_det(2,13,([],0),4).
+label(('e$$glb$$f$$power_set',2,1)).
+    switch_cons_vv(1,('e$$glb$$f$$power_set',2,2),('e$$glb$$f$$power_set',2,3),('e$$glb$$f$$power_set',2,3),-4,-5).
+    para_v(-6).
+    para_u(-5).
+    call0(('e$$glb$$f$$power_set',2),7).
+    move_value(-5,-6).
+    move_var(-8).
+    move_value(-7,-8).
+    para_uv(-5,-9).
+    call0((picat_iterator_collection_to_list,2),10).
+    para_uuv(-9,-8,-10).
+    para_u(-4).
+    call0((h___exspower_set_1_2_1,4),11).
+    unify_nil(-10).
+    move_value(-11,-7).
+    para_uuv(-5,-11,-12).
+    call0(('$concat_lists_or_arrays',3),13).
+    unify_value_return_det(2,-12).
+    return_det.
+label(('e$$glb$$f$$power_set',2,2)).
+    unify_cons_cc(2,c([]),c([])).
+    return_det.
+label(('e$$glb$$f$$power_set',2,3)).
+    move_struct0(-4,(power_set,1)).
+    build_arg_u(1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$power_set',2,5)).
+    fail.
+label(('e$$glb$$f$$power_set',2,6)).
+    fail0.
+label(('e$$glb$$f$$power_set',2,7)).
+    cut_fail.
+label((h___exspower_set_1_2_1,4)).
+label((h___exspower_set_1_2_1,4,-1)).
+    allocate_det(4,8,([],0),4).
+label((h___exspower_set_1_2_1,4,1)).
+    switch_cons_vv(4,(h___exspower_set_1_2_1,4,5),(h___exspower_set_1_2_1,4,6),(h___exspower_set_1_2_1,4,6),-4,-5).
+    unify_cons_v0v0(3,-6,-7).
+    unify_cons_uu(-6,1,-4).
+    unify_arg_read_u(-4).
+    move_value(-7,-7).
+    tr_det_call2_au((h___exspower_set_1_2_1,4,1),1,2,4,-5,-7,2,1,8).
+    return_det.
+label((h___exspower_set_1_2_1,4,3)).
+    move_value(3,3).
+    tr_det_call1_au((h___exspower_set_1_2_1,4,1),1,4,-5,3,2,1,6).
+    return_det.
+label((h___exspower_set_1_2_1,4,5)).
+    unify_value_return_det(2,3).
+    return_det.
+label((h___exspower_set_1_2_1,4,6)).
+    fail.
+label((h___exspower_set_1_2_1,4,7)).
+    fail0.
+label((h___exspower_set_1_2_1,4,8)).
+    cut_fail.
+label(('e$$glb$$f$$perm',2)).
+label(('e$$glb$$f$$perm',2,-1)).
+    allocate_det(2,7,([],0),4).
+label(('e$$glb$$f$$perm',2,1)).
+    jmpn_nil(1,('e$$glb$$f$$perm',2,2),('e$$glb$$f$$perm',2,2)).
+    unify_cons_cc(2,c([]),c([])).
+    return_det.
+label(('e$$glb$$f$$perm',2,2)).
+    move_value(-4,2).
+    para_uv(1,-5).
+    call0((picat_iterator_collection_to_list,2),6).
+    para_uuv(-5,-4,-6).
+    para_u(1).
+    call0((h___exsperm_1_2_2,4),7).
+    unify_nil(-6).
+    return_det.
+label(('e$$glb$$f$$perm',2,3)).
+    move_struct0(-4,(perm,1)).
+    build_arg_u(1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$perm',2,5)).
+    fail.
+label(('e$$glb$$f$$perm',2,6)).
+    fail0.
+label(('e$$glb$$f$$perm',2,7)).
+    cut_fail.
+label((h___exsperm_1_2_1,4)).
+label((h___exsperm_1_2_1,4,-1)).
+    allocate_det(4,8,([],0),4).
+label((h___exsperm_1_2_1,4,1)).
+    switch_cons_vv(4,(h___exsperm_1_2_1,4,5),(h___exsperm_1_2_1,4,6),(h___exsperm_1_2_1,4,6),-4,-5).
+    unify_cons_v0v0(3,-6,-7).
+    unify_cons_uu(-6,1,-4).
+    unify_arg_read_u(-4).
+    move_value(-7,-7).
+    tr_det_call2_au((h___exsperm_1_2_1,4,1),1,2,4,-5,-7,2,1,8).
+    return_det.
+label((h___exsperm_1_2_1,4,3)).
+    move_value(3,3).
+    tr_det_call1_au((h___exsperm_1_2_1,4,1),1,4,-5,3,2,1,6).
+    return_det.
+label((h___exsperm_1_2_1,4,5)).
+    unify_value_return_det(2,3).
+    return_det.
+label((h___exsperm_1_2_1,4,6)).
+    fail.
+label((h___exsperm_1_2_1,4,7)).
+    fail0.
+label((h___exsperm_1_2_1,4,8)).
+    cut_fail.
+label((h___exsperm_1_2_2,4)).
+label((h___exsperm_1_2_2,4,-1)).
+    allocate_det(4,11,([],0),4).
+label((h___exsperm_1_2_2,4,1)).
+    switch_cons_vv(4,(h___exsperm_1_2_2,4,7),(h___exsperm_1_2_2,4,8),(h___exsperm_1_2_2,4,8),-4,-5).
+    para_vv(-6,-7).
+    para_uu(-4,1).
+    call0((dh___exsperm_1_2_2_4_0__1,4),8).
+    move_vars(-10,-8).
+    jmp_var_y(-6,(h___exsperm_1_2_2,4,2)).
+    para_uu(-7,-8).
+    call0((picat_iterator_collection_to_list,2),11).
+    para_uuu(-8,3,-9).
+    para_u(-4).
+    call0((h___exsperm_1_2_1,4),11).
+    unify_value(-9,-10).
+    jmp((h___exsperm_1_2_2,4,3)).
+label((h___exsperm_1_2_2,4,2)).
+    unify_value(3,-10).
+label((h___exsperm_1_2_2,4,3)).
+    tr_det_call2_au((h___exsperm_1_2_2,4,1),1,2,4,-5,-10,2,1,11).
+    return_det.
+label((h___exsperm_1_2_2,4,5)).
+    move_value(3,3).
+    tr_det_call1_au((h___exsperm_1_2_2,4,1),1,4,-5,3,2,1,6).
+    return_det.
+label((h___exsperm_1_2_2,4,7)).
+    unify_value_return_det(2,3).
+    return_det.
+label((h___exsperm_1_2_2,4,8)).
+    fail.
+label((h___exsperm_1_2_2,4,9)).
+    fail0.
+label((h___exsperm_1_2_2,4,10)).
+    cut_fail.
+label(('e$$glb$$f$$perm1',2)).
+label(('e$$glb$$f$$perm1',2,-1)).
+    allocate_det(2,10,([],0),4).
+label(('e$$glb$$f$$perm1',2,1)).
+    switch_cons_vv(1,('e$$glb$$f$$perm1',2,2),('e$$glb$$f$$perm1',2,3),('e$$glb$$f$$perm1',2,3),-4,-5).
+    para_v(-6).
+    para_u(-5).
+    call0(('e$$glb$$f$$perm1',2),7).
+    move_value(-5,-6).
+    move_value(-7,2).
+    para_uv(-5,-8).
+    call0((picat_iterator_collection_to_list,2),9).
+    para_uuv(-8,-7,-9).
+    para_u(-4).
+    call0((h___exsperm1_1_2_2,4),10).
+    unify_nil(-9).
+    return_det.
+label(('e$$glb$$f$$perm1',2,2)).
+    unify_cons_cc(2,c([]),c([])).
+    return_det.
+label(('e$$glb$$f$$perm1',2,3)).
+    move_struct0(-4,(perm1,1)).
+    build_arg_u(1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$perm1',2,5)).
+    fail.
+label(('e$$glb$$f$$perm1',2,6)).
+    fail0.
+label(('e$$glb$$f$$perm1',2,7)).
+    cut_fail.
+label((h___exsperm1_1_2_1,6)).
+label((h___exsperm1_1_2_1,6,-1)).
+    allocate_det(6,9,([],0),4).
+label((h___exsperm1_1_2_1,6,1)).
+    jmpn_gt_uu(6,5,(h___exsperm1_1_2_1,6,2)).
+    unify_value_return_det(3,4).
+    return_det.
+label((h___exsperm1_1_2_1,6,2)).
+    para_uuuv(1,6,2,-4).
+    call0((picat_insert,4),5).
+    unify_cons(4,u(-4),v(-5)).
+    move_value(-6,-5).
+    add_u1v(6,-7).
+    move_value(-8,-7).
+    tr_det_call2_au((h___exsperm1_1_2_1,6,1),1,3,6,-8,5,-6,3,2,1,9).
+    return_det.
+label((h___exsperm1_1_2_1,6,4)).
+    fail.
+label((h___exsperm1_1_2_1,6,5)).
+    fail0.
+label((h___exsperm1_1_2_1,6,6)).
+    cut_fail.
+label((h___exsperm1_1_2_2,4)).
+label((h___exsperm1_1_2_2,4,-1)).
+    allocate_det(4,10,([],0),4).
+label((h___exsperm1_1_2_2,4,1)).
+    switch_cons_vv(4,(h___exsperm1_1_2_2,4,7),(h___exsperm1_1_2_2,4,8),(h___exsperm1_1_2_2,4,8),-4,-5).
+    para_vv(-6,-7).
+    para_u(-4).
+    call0((dh___exsperm1_1_2_2_4_0__1,3),8).
+    move_vars(-9,-8).
+    jmp_var_y(-6,(h___exsperm1_1_2_2,4,2)).
+    para_c(c(1)).
+    para_uuu(-7,3,-8).
+    para_uu(1,-4).
+    call0((h___exsperm1_1_2_1,6),10).
+    unify_value(-8,-9).
+    jmp((h___exsperm1_1_2_2,4,3)).
+label((h___exsperm1_1_2_2,4,2)).
+    unify_value(3,-9).
+label((h___exsperm1_1_2_2,4,3)).
+    tr_det_call2_au((h___exsperm1_1_2_2,4,1),1,2,4,-5,-9,2,1,10).
+    return_det.
+label((h___exsperm1_1_2_2,4,5)).
+    move_value(3,3).
+    tr_det_call1_au((h___exsperm1_1_2_2,4,1),1,4,-5,3,2,1,6).
+    return_det.
+label((h___exsperm1_1_2_2,4,7)).
+    unify_value_return_det(2,3).
+    return_det.
+label((h___exsperm1_1_2_2,4,8)).
+    fail.
+label((h___exsperm1_1_2_2,4,9)).
+    fail0.
+label((h___exsperm1_1_2_2,4,10)).
+    cut_fail.
+label(('e$$glb$$f$$matrix_multi',3)).
+label(('e$$glb$$f$$matrix_multi',3,-1)).
+    allocate_det(3,13,([],0),4).
+label(('e$$glb$$f$$matrix_multi',3,1)).
+    builtin2(266,('e$$glb$$f$$matrix_multi',3,2),u(2),v(-4)).
+    jmp(('e$$glb$$f$$matrix_multi',3,3)).
+label(('e$$glb$$f$$matrix_multi',3,2)).
+    move_var(-4).
+    para_uc(2,c(length)).
+    para_u(-4).
+    call0((picat_get,3),5).
+label(('e$$glb$$f$$matrix_multi',3,3)).
+    builtin3(273,('e$$glb$$f$$matrix_multi',3,10),c(1),u(1),v(-5)).
+    builtin2(266,('e$$glb$$f$$matrix_multi',3,4),u(-5),v(-6)).
+    jmp(('e$$glb$$f$$matrix_multi',3,5)).
+label(('e$$glb$$f$$matrix_multi',3,4)).
+    move_var(-6).
+    para_uc(-5,c(length)).
+    para_u(-6).
+    call0((picat_get,3),7).
+label(('e$$glb$$f$$matrix_multi',3,5)).
+    move_comp_list(-7,2,u(-4),u(-6)).
+    move_struct(-8,(new_array,2)).
+    build_arg_2u(-4,-6).
+    para_uu(-7,-8).
+    call0((picat_check_array_dims,2),9).
+    para_uv(-7,-9).
+    call0((picat_create_array,2),10).
+    move_value(-10,-9).
+    para_vv(-11,-12).
+    para_u(2).
+    call0(('de$$glb$$f$$matrix_multi_3_0__1',3),13).
+    jmp_var_y(-11,('e$$glb$$f$$matrix_multi',3,6)).
+    para_c(c(1)).
+    para_uuu(-12,-10,2).
+    para_u(1).
+    call0((h___exsmatrix_multi_2_1_3,5),13).
+    jmp(('e$$glb$$f$$matrix_multi',3,7)).
+label(('e$$glb$$f$$matrix_multi',3,6)).
+label(('e$$glb$$f$$matrix_multi',3,7)).
+    unify_value_return_det(3,-10).
+    return_det.
+label(('e$$glb$$f$$matrix_multi',3,8)).
+    move_struct0(-4,(matrix_multi,2)).
+    build_arg_2u(2,1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$matrix_multi',3,10)).
+    fail.
+label(('e$$glb$$f$$matrix_multi',3,11)).
+    fail0.
+label(('e$$glb$$f$$matrix_multi',3,12)).
+    cut_fail.
+label((h___exsmatrix_multi_2_1_1,8)).
+label((h___exsmatrix_multi_2_1_1,8,-1)).
+    allocate_det(8,7,([],0),4).
+label((h___exsmatrix_multi_2_1_1,8,1)).
+    jmpn_gt_uu(8,7,(h___exsmatrix_multi_2_1_1,8,2)).
+    unify_value_return_det(5,6).
+    return_det.
+label((h___exsmatrix_multi_2_1_1,8,2)).
+    builtin3(273,(h___exsmatrix_multi_2_1_1,8,4),u(1),u(2),v(-4)).
+    builtin3(273,(h___exsmatrix_multi_2_1_1,8,4),u(8),u(-4),v(-5)).
+    builtin3(273,(h___exsmatrix_multi_2_1_1,8,4),u(8),u(3),v(-4)).
+    builtin3(273,(h___exsmatrix_multi_2_1_1,8,4),u(4),u(-4),v(-6)).
+    mul_uuv(-5,-6,-6).
+    move_value(-5,-6).
+    add_uuv(6,-5,-5).
+    move_value(-6,-5).
+    move_value(-6,-6).
+    move_value(6,-6).
+    add_u1v(8,-6).
+    move_value(8,-6).
+    tr_det_call0((h___exsmatrix_multi_2_1_1,8,1),7).
+    return_det.
+label((h___exsmatrix_multi_2_1_1,8,4)).
+    fail.
+label((h___exsmatrix_multi_2_1_1,8,5)).
+    fail0.
+label((h___exsmatrix_multi_2_1_1,8,6)).
+    cut_fail.
+label((h___exsmatrix_multi_2_1_2,6)).
+label((h___exsmatrix_multi_2_1_2,6,-1)).
+    allocate_det(6,13,([],0),4).
+label((h___exsmatrix_multi_2_1_2,6,1)).
+    jmpn_gt_uu(6,5,(h___exsmatrix_multi_2_1_2,6,2)).
+    return_det.
+label((h___exsmatrix_multi_2_1_2,6,2)).
+    builtin3(273,(h___exsmatrix_multi_2_1_2,6,6),u(1),u(2),v(-4)).
+    builtin3(273,(h___exsmatrix_multi_2_1_2,6,6),u(6),u(-4),v(-5)).
+    move_constant(-4,c(0)).
+    para_vv(-6,-7).
+    para_u(3).
+    call0((dh___exsmatrix_multi_2_1_2_6_0__1,3),8).
+    move_vars(-9,-8).
+    jmp_var_y(-6,(h___exsmatrix_multi_2_1_2,6,3)).
+    para_c(c(1)).
+    para_uuu(-7,-4,-8).
+    para_uuu(6,4,3).
+    para_u(1).
+    call0((h___exsmatrix_multi_2_1_1,8),10).
+    unify_value(-8,-9).
+    jmp((h___exsmatrix_multi_2_1_2,6,4)).
+label((h___exsmatrix_multi_2_1_2,6,3)).
+    unify_value(-4,-9).
+label((h___exsmatrix_multi_2_1_2,6,4)).
+    move_value(-10,-9).
+    unify_value(-5,-10).
+    add_u1v(6,-11).
+    move_value(-12,-11).
+    tr_det_call1_au((h___exsmatrix_multi_2_1_2,6,1),1,6,-12,5,4,3,2,1,13).
+    return_det.
+label((h___exsmatrix_multi_2_1_2,6,6)).
+    fail.
+label((h___exsmatrix_multi_2_1_2,6,7)).
+    fail0.
+label((h___exsmatrix_multi_2_1_2,6,8)).
+    cut_fail.
+label((h___exsmatrix_multi_2_1_3,5)).
+label((h___exsmatrix_multi_2_1_3,5,-1)).
+    allocate_det(5,8,([],0),4).
+label((h___exsmatrix_multi_2_1_3,5,1)).
+    jmpn_gt_uu(5,4,(h___exsmatrix_multi_2_1_3,5,2)).
+    return_det.
+label((h___exsmatrix_multi_2_1_3,5,2)).
+    para_vv(-4,-5).
+    para_u(1).
+    call0((dh___exsmatrix_multi_2_1_3_5_0__1,3),6).
+    jmp_var_y(-4,(h___exsmatrix_multi_2_1_3,5,3)).
+    para_c(c(1)).
+    para_uuu(-5,1,2).
+    para_uu(3,5).
+    call0((h___exsmatrix_multi_2_1_2,6),6).
+    jmp((h___exsmatrix_multi_2_1_3,5,4)).
+label((h___exsmatrix_multi_2_1_3,5,3)).
+label((h___exsmatrix_multi_2_1_3,5,4)).
+    add_u1v(5,-6).
+    move_value(-7,-6).
+    tr_det_call1_au((h___exsmatrix_multi_2_1_3,5,1),1,5,-7,4,3,2,1,8).
+    return_det.
+label((h___exsmatrix_multi_2_1_3,5,6)).
+    fail.
+label((h___exsmatrix_multi_2_1_3,5,7)).
+    fail0.
+label((h___exsmatrix_multi_2_1_3,5,8)).
+    cut_fail.
+label(('e$$glb$$f$$my_primes',2)).
+label(('e$$glb$$f$$my_primes',2,-1)).
+    allocate_det(2,12,([],0),4).
+label(('e$$glb$$f$$my_primes',2,1)).
+    move_var(-4).
+    jmpn_int_y(1,('e$$glb$$f$$my_primes',2,2)).
+    jmpn_ge_ui(1,0,('e$$glb$$f$$my_primes',2,2)).
+    jmpn_ge_ui(1,1250,('e$$glb$$f$$my_primes',2,4)).
+    para_u(1).
+    call0((garbage_collect,1),5).
+    jmp(('e$$glb$$f$$my_primes',2,5)).
+label(('e$$glb$$f$$my_primes',2,4)).
+label(('e$$glb$$f$$my_primes',2,5)).
+    functor(u(-4),c({}),u(1)).
+    move_vars(-6,-5).
+    jmp(('e$$glb$$f$$my_primes',2,3)).
+label(('e$$glb$$f$$my_primes',2,2)).
+    move_struct(-5,(nonnegative_integer_expected,1)).
+    build_arg_u(1).
+    move_struct(-6,(new_array,1)).
+    build_arg_u(1).
+    para_uu(-5,-6).
+    call0((handle_exception,2),7).
+label(('e$$glb$$f$$my_primes',2,3)).
+    move_value(-5,-4).
+    para_vv(-6,-7).
+    para_u(1).
+    call0(('de$$glb$$f$$my_primes_2_0__1',3),8).
+    jmp_var_y(-6,('e$$glb$$f$$my_primes',2,6)).
+    para_c(c(2)).
+    para_uuu(-7,1,-5).
+    call0((h___exsmy_primes_1_1_2,4),8).
+    jmp(('e$$glb$$f$$my_primes',2,7)).
+label(('e$$glb$$f$$my_primes',2,6)).
+label(('e$$glb$$f$$my_primes',2,7)).
+    move_var(-9).
+    move_value(-8,-9).
+    para_cuuv(c(2),1,-9,-10).
+    para_u(-5).
+    call0((h___exsmy_primes_1_1_3,5),11).
+    unify_nil(-10).
+    move_value(-11,-8).
+    unify_value_return_det(2,-11).
+    return_det.
+label(('e$$glb$$f$$my_primes',2,8)).
+    move_struct0(-4,(my_primes,1)).
+    build_arg_u(1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$my_primes',2,10)).
+    fail.
+label(('e$$glb$$f$$my_primes',2,11)).
+    fail0.
+label(('e$$glb$$f$$my_primes',2,12)).
+    cut_fail.
+label((h___exsmy_primes_1_1_1,4)).
+label((h___exsmy_primes_1_1_1,4,-1)).
+    allocate_det(4,5,([],0),4).
+label((h___exsmy_primes_1_1_1,4,1)).
+    jmpn_gt_ui(3,0,(h___exsmy_primes_1_1_1,4,2)).
+    jmpn_gt_uu(4,2,(h___exsmy_primes_1_1_1,4,2)).
+    return_det.
+label((h___exsmy_primes_1_1_1,4,2)).
+    jmpn_gt_iu(0,3,(h___exsmy_primes_1_1_1,4,3)).
+    jmpn_gt_uu(2,4,(h___exsmy_primes_1_1_1,4,3)).
+    return_det.
+label((h___exsmy_primes_1_1_1,4,3)).
+    builtin3(273,(h___exsmy_primes_1_1_1,4,5),u(4),u(1),v(-4)).
+    unify_constant(-4,c(0)).
+    add_uuv(4,3,-4).
+    move_value(4,-4).
+    tr_det_call0((h___exsmy_primes_1_1_1,4,1),5).
+    return_det.
+label((h___exsmy_primes_1_1_1,4,5)).
+    fail.
+label((h___exsmy_primes_1_1_1,4,6)).
+    fail0.
+label((h___exsmy_primes_1_1_1,4,7)).
+    cut_fail.
+label((h___exsmy_primes_1_1_2,4)).
+label((h___exsmy_primes_1_1_2,4,-1)).
+    allocate_det(4,9,([],0),4).
+label((h___exsmy_primes_1_1_2,4,1)).
+    jmpn_gt_uu(4,3,(h___exsmy_primes_1_1_2,4,2)).
+    return_det.
+label((h___exsmy_primes_1_1_2,4,2)).
+    para_v(-4).
+    para_uu(1,4).
+    call0((dh___exsmy_primes_1_1_2_4_0__1,3),5).
+    move_vars(-6,-5).
+    jmp_var_y(-4,(h___exsmy_primes_1_1_2,4,3)).
+    para_uuu(-5,4,-6).
+    call0((dh___exsmy_primes_1_1_2_4_0__2,3),7).
+    jmp_var_y(-5,(h___exsmy_primes_1_1_2,4,5)).
+    para_uuu(-6,4,2).
+    para_u(1).
+    call0((h___exsmy_primes_1_1_1,4),7).
+    jmp((h___exsmy_primes_1_1_2,4,6)).
+label((h___exsmy_primes_1_1_2,4,5)).
+label((h___exsmy_primes_1_1_2,4,6)).
+    jmp((h___exsmy_primes_1_1_2,4,4)).
+label((h___exsmy_primes_1_1_2,4,3)).
+label((h___exsmy_primes_1_1_2,4,4)).
+    add_u1v(4,-7).
+    move_value(-8,-7).
+    tr_det_call1_au((h___exsmy_primes_1_1_2,4,1),1,4,-8,3,2,1,9).
+    return_det.
+label((h___exsmy_primes_1_1_2,4,8)).
+    fail.
+label((h___exsmy_primes_1_1_2,4,9)).
+    fail0.
+label((h___exsmy_primes_1_1_2,4,10)).
+    cut_fail.
+label((h___exsmy_primes_1_1_3,5)).
+label((h___exsmy_primes_1_1_3,5,-1)).
+    allocate_det(5,9,([],0),4).
+label((h___exsmy_primes_1_1_3,5,1)).
+    jmpn_gt_uu(5,4,(h___exsmy_primes_1_1_3,5,2)).
+    unify_value_return_det(2,3).
+    return_det.
+label((h___exsmy_primes_1_1_3,5,2)).
+    para_v(-4).
+    para_uu(1,5).
+    call0((dh___exsmy_primes_1_1_3_5_0__1,3),5).
+    move_var(-5).
+    jmp_var_y(-4,(h___exsmy_primes_1_1_3,5,3)).
+    unify_cons_uu(3,5,-5).
+    unify_arg_read_u(-5).
+    jmp((h___exsmy_primes_1_1_3,5,4)).
+label((h___exsmy_primes_1_1_3,5,3)).
+    unify_value(3,-5).
+label((h___exsmy_primes_1_1_3,5,4)).
+    move_value(-6,-5).
+    add_u1v(5,-7).
+    move_value(-8,-7).
+    tr_det_call2_au((h___exsmy_primes_1_1_3,5,1),1,3,5,-8,4,-6,2,1,9).
+    return_det.
+label((h___exsmy_primes_1_1_3,5,6)).
+    fail.
+label((h___exsmy_primes_1_1_3,5,7)).
+    fail0.
+label((h___exsmy_primes_1_1_3,5,8)).
+    cut_fail.
+label(('e$$glb$$sp',4)).
+label(('e$$glb$$sp',4,-1)).
+    table_allocate(4,20,('e$$glb$$sp',4),13).
+    table_mode(12,4,1).
+label(('e$$glb$$sp',4,0)).
+label(('e$$glb$$sp',4,1)).
+    fork_unify_cons_vc(('e$$glb$$sp',4,3),2,-13,c([])).
+    unify_struct_arg_2u(-13,(',',2),3,4).
+    unify_arg_read_u(3).
+    para_uuu(4,3,1).
+    call0(('e$$glb$$edge',3),14).
+    table_produce.
+    noop1(14).
+    noop1(13).
+label(('e$$glb$$sp',4,3)).
+    fork_unify_cons_vv(('e$$glb$$sp',4,999999),2,-13,-14).
+    unify_struct_arg_uv0(-13,(',',2),4,-15).
+    para_uuv(4,-15,-16).
+    call0(('e$$glb$$edge',3),17).
+    para_uuuv(-15,3,-14,-17).
+    call0(('e$$glb$$sp',4),18).
+    add_uuv(-16,-17,-18).
+    move_value(-19,-18).
+    unify_value(1,-19).
+    table_produce.
+    noop1(20).
+    noop1(13).
+label(('e$$glb$$sp',4,999999)).
+    table_check_completion(('e$$glb$$sp',4,0)).
+label(('e$$glb$$sp',4,4)).
+    fail.
+label(('e$$glb$$sp',4,5)).
+    fail0.
+label(('e$$glb$$sp',4,6)).
+    cut_fail.
+label(('e$$glb$$edge',3)).
+label(('e$$glb$$edge',3,-1)).
+    allocate_nondet(3,9,([],0),9).
+label(('e$$glb$$edge',3,0)).
+    nondet(3).
+label(('e$$glb$$edge',3,1)).
+label(('e$$glb$$edge',3,2)).
+    hash(3,0,0,('e$$glb$$edge',3,15)).
+    pred(('e$$glb$$edge',3,2),3,3,('e$$glb$$edge',3,15)).
+    arglabel(i,1,('e$$glb$$edge',3,3)).
+    arglabel(i,2,('e$$glb$$edge',3,4)).
+    arglabel(i,3,('e$$glb$$edge',3,5)).
+label(('e$$glb$$edge',3,3)).
+    hash_jmpn_constant(c(1),('e$$glb$$edge',3,15)).
+label(('e$$glb$$edge',3,6)).
+    hash(2,0,0,('e$$glb$$edge',3,9)).
+    pred(('e$$glb$$edge',3,6),2,2,('e$$glb$$edge',3,9)).
+    arglabel(i,2,('e$$glb$$edge',3,7)).
+    arglabel(i,3,('e$$glb$$edge',3,8)).
+label(('e$$glb$$edge',3,7)).
+    hash_jmpn_constant(c(2),('e$$glb$$edge',3,9)).
+    cut0.
+    unify_constant_return_det(1,c(1)).
+label(('e$$glb$$edge',3,8)).
+    hash_jmpn_constant(c(3),('e$$glb$$edge',3,9)).
+    cut0.
+    unify_constant_return_det(1,c(2)).
+label(('e$$glb$$edge',3,9)).
+    jmpn_eq_constant(3,c(1),('e$$glb$$edge',3,15),('e$$glb$$edge',3,15)).
+    fork_unify_constant(('e$$glb$$edge',3,10),2,c(2)).
+    unify_constant_return_nondet(1,c(1)).
+    noop1(9).
+label(('e$$glb$$edge',3,10)).
+    cut0.
+    unify_constant(2,c(3)).
+    unify_constant_return_det(1,c(2)).
+label(('e$$glb$$edge',3,4)).
+    hash_jmpn_constant(c(2),('e$$glb$$edge',3,15)).
+    jmpn_eq_constant(2,c(3),('e$$glb$$edge',3,11),('e$$glb$$edge',3,11)).
+    cut0.
+    unify_constant_return_det(1,c(3)).
+label(('e$$glb$$edge',3,11)).
+    jmpn_eq_constant(3,c(2),('e$$glb$$edge',3,15),('e$$glb$$edge',3,15)).
+    cut0.
+    unify_constant(2,c(3)).
+    unify_constant_return_det(1,c(3)).
+label(('e$$glb$$edge',3,5)).
+    hash_jmpn_constant(c(3),('e$$glb$$edge',3,15)).
+    jmpn_eq_constant(2,c(2),('e$$glb$$edge',3,12),('e$$glb$$edge',3,12)).
+    cut0.
+    unify_constant_return_det(1,c(4)).
+label(('e$$glb$$edge',3,12)).
+    jmpn_eq_constant(3,c(3),('e$$glb$$edge',3,15),('e$$glb$$edge',3,15)).
+    cut0.
+    unify_constant(2,c(2)).
+    unify_constant_return_det(1,c(4)).
+label(('e$$glb$$edge',3,13)).
+    fail.
+label(('e$$glb$$edge',3,14)).
+    fail0.
+label(('e$$glb$$edge',3,15)).
+    cut_fail.
+label(('e$$glb$$edit',3)).
+label(('e$$glb$$edit',3,-1)).
+    table_allocate(3,17,('e$$glb$$edit',3),13).
+    table_mode(4,3,1).
+label(('e$$glb$$edit',3,0)).
+label(('e$$glb$$edit',3,1)).
+    switch_cons_vv(3,('e$$glb$$edit',3,3),('e$$glb$$edit',3,4),('e$$glb$$edit',3,4),-13,-14).
+    switch_cons_vv(2,('e$$glb$$edit',3,4),('e$$glb$$edit',3,4),('e$$glb$$edit',3,4),-15,-16).
+    jmpn_id_uu(-13,-15,('e$$glb$$edit',3,4)).
+    bp_fork(('e$$glb$$edit',3,999999)).
+    para_uuu(-14,-16,1).
+    call0(('e$$glb$$edit',3),17).
+    table_produce.
+    noop1(17).
+label(('e$$glb$$edit',3,3)).
+    jmpn_nil(2,('e$$glb$$edit',3,4),('e$$glb$$edit',3,4)).
+    fork_unify_constant(('e$$glb$$edit',3,999999),1,c(0)).
+    table_produce.
+    noop1(13).
+label(('e$$glb$$edit',3,4)).
+    switch_cons(2,('e$$glb$$edit',3,5),('e$$glb$$edit',3,5),('e$$glb$$edit',3,5),0,-13).
+    bp_fork(('e$$glb$$edit',3,5)).
+    para_uuv(3,-13,-14).
+    call0(('e$$glb$$edit',3),15).
+    add_u1v(-14,-15).
+    move_value(-16,-15).
+    unify_value(1,-16).
+    table_produce.
+    noop1(17).
+    noop1(13).
+label(('e$$glb$$edit',3,5)).
+    switch_cons(3,('e$$glb$$edit',3,999999),('e$$glb$$edit',3,999999),('e$$glb$$edit',3,999999),0,-13).
+    bp_fork(('e$$glb$$edit',3,999999)).
+    para_uuv(-13,2,-14).
+    call0(('e$$glb$$edit',3),15).
+    add_u1v(-14,-15).
+    move_value(-16,-15).
+    unify_value(1,-16).
+    table_produce.
+    noop1(17).
+    noop1(13).
+label(('e$$glb$$edit',3,999999)).
+    table_check_completion(('e$$glb$$edit',3,0)).
+label(('e$$glb$$edit',3,6)).
+    fail.
+label(('e$$glb$$edit',3,7)).
+    fail0.
+label(('e$$glb$$edit',3,8)).
+    cut_fail.
+label(('e$$glb$$farmer',0)).
+label(('e$$glb$$farmer',0,-1)).
+    allocate_det(0,6,([],0),4).
+label(('e$$glb$$farmer',0,1)).
+    move_comp_list(-4,4,c(s),c(s),c(s),c(s)).
+    para_uv(-4,-5).
+    call0(('e$$planner$$plan',2),6).
+    last_call(33,(picat_println,2),c(user),u(-5),6).
+    return_det.
+label(('e$$glb$$farmer',0,3)).
+    fail.
+label(('e$$glb$$farmer',0,4)).
+    fail0.
+label(('e$$glb$$farmer',0,5)).
+    cut_fail.
+label(('e$$glb$$final',1)).
+label(('e$$glb$$final',1,-1)).
+    allocate_det(1,6,([],0),4).
+label(('e$$glb$$final',1,1)).
+    switch_cons_vv(1,('e$$glb$$final',1,2),('e$$glb$$final',1,2),('e$$glb$$final',1,2),-4,-5).
+    jmpn_eq_constant(-4,c(n),('e$$glb$$final',1,2),('e$$glb$$final',1,2)).
+    switch_cons_vv(-5,('e$$glb$$final',1,2),('e$$glb$$final',1,2),('e$$glb$$final',1,2),-5,-4).
+    jmpn_eq_constant(-5,c(n),('e$$glb$$final',1,2),('e$$glb$$final',1,2)).
+    switch_cons_vv(-4,('e$$glb$$final',1,2),('e$$glb$$final',1,2),('e$$glb$$final',1,2),-4,-5).
+    jmpn_eq_constant(-4,c(n),('e$$glb$$final',1,2),('e$$glb$$final',1,2)).
+    switch_cons_vv(-5,('e$$glb$$final',1,2),('e$$glb$$final',1,2),('e$$glb$$final',1,2),-5,-4).
+    jmpn_eq_constant(-5,c(n),('e$$glb$$final',1,2),('e$$glb$$final',1,2)).
+    jmpn_nil(-4,('e$$glb$$final',1,2),('e$$glb$$final',1,2)).
+    return_det.
+label(('e$$glb$$final',1,2)).
+    fail.
+label(('e$$glb$$final',1,3)).
+    fail0.
+label(('e$$glb$$final',1,4)).
+    cut_fail.
+label(('e$$glb$$action',4)).
+label(('e$$glb$$action',4,-1)).
+    allocate_nondet(4,18,([],0),9).
+label(('e$$glb$$action',4,0)).
+    nondet(4).
+label(('e$$glb$$action',4,1)).
+    switch_cons_910(4,('e$$glb$$action',4,11),('e$$glb$$action',4,11),('e$$glb$$action',4,11)).
+    switch_cons_vv(-10,('e$$glb$$action',4,11),('e$$glb$$action',4,11),('e$$glb$$action',4,11),-11,-12).
+    jmpn_id_uu(-9,-11,('e$$glb$$action',4,3)).
+    switch_cons_vv(-12,('e$$glb$$action',4,3),('e$$glb$$action',4,3),('e$$glb$$action',4,3),-13,-14).
+    switch_cons_vv(-14,('e$$glb$$action',4,3),('e$$glb$$action',4,3),('e$$glb$$action',4,3),-15,-16).
+    jmpn_nil(-16,('e$$glb$$action',4,3),('e$$glb$$action',4,3)).
+    fork_unify_constant(('e$$glb$$action',4,3),2,c(farmer_wolf)).
+    unify_constant(1,c(1)).
+    para_uv(-9,-17).
+    call0(('e$$glb$$opposite',2),18).
+    unify_comp_list(3,4,u(-17),u(-17),u(-13),u(-15)).
+    para_u(3).
+    call0(('de$$glb$$action_4_0__1',1),18).
+    return_nondet.
+    noop1(13).
+label(('e$$glb$$action',4,3)).
+    switch_cons_vv(-12,('e$$glb$$action',4,11),('e$$glb$$action',4,11),('e$$glb$$action',4,11),-13,-14).
+    jmpn_id_uu(-9,-13,('e$$glb$$action',4,5)).
+    switch_cons_vv(-14,('e$$glb$$action',4,5),('e$$glb$$action',4,5),('e$$glb$$action',4,5),-15,-16).
+    jmpn_nil(-16,('e$$glb$$action',4,5),('e$$glb$$action',4,5)).
+    fork_unify_constant(('e$$glb$$action',4,5),2,c(farmer_goat)).
+    unify_constant(1,c(1)).
+    para_uv(-9,-17).
+    call0(('e$$glb$$opposite',2),18).
+    unify_comp_list(3,4,u(-17),u(-11),u(-17),u(-15)).
+    para_u(3).
+    call0(('de$$glb$$action_4_0__2',1),18).
+    return_nondet.
+    noop1(15).
+label(('e$$glb$$action',4,5)).
+    switch_cons_vv(-14,('e$$glb$$action',4,11),('e$$glb$$action',4,11),('e$$glb$$action',4,11),-15,-16).
+    jmpn_id_uu(-9,-15,('e$$glb$$action',4,7)).
+    jmpn_nil(-16,('e$$glb$$action',4,7),('e$$glb$$action',4,7)).
+    fork_unify_constant(('e$$glb$$action',4,7),2,c(farmer_cabbage)).
+    unify_constant(1,c(1)).
+    para_uv(-9,-17).
+    call0(('e$$glb$$opposite',2),18).
+    unify_comp_list(3,4,u(-17),u(-11),u(-13),u(-17)).
+    para_u(3).
+    call0(('de$$glb$$action_4_0__3',1),18).
+    return_nondet.
+    noop1(17).
+label(('e$$glb$$action',4,7)).
+    jmpn_nil(-16,('e$$glb$$action',4,11),('e$$glb$$action',4,11)).
+    cut0.
+    unify_constant(2,c(farmer_alone)).
+    unify_constant(1,c(1)).
+    para_uv(-9,-16).
+    call0(('e$$glb$$opposite',2),17).
+    unify_comp_list(3,4,u(-16),u(-11),u(-13),u(-15)).
+    last_call(1,('de$$glb$$action_4_0__4',1),u(3),17).
+    return_det.
+label(('e$$glb$$action',4,9)).
+    fail.
+label(('e$$glb$$action',4,10)).
+    fail0.
+label(('e$$glb$$action',4,11)).
+    cut_fail.
+label(('e$$glb$$opposite',2)).
+label(('e$$glb$$opposite',2,-1)).
+    allocate_det(2,4,([],0),4).
+label(('e$$glb$$opposite',2,1)).
+label(('e$$glb$$opposite',2,2)).
+    hash(1,0,0,('e$$glb$$opposite',2,5)).
+    pred(('e$$glb$$opposite',2,2),1,2,('e$$glb$$opposite',2,5)).
+    arglabel(c,s,('e$$glb$$opposite',2,3)).
+    arglabel(c,n,('e$$glb$$opposite',2,4)).
+label(('e$$glb$$opposite',2,3)).
+    hash_jmpn_constant(c(s),('e$$glb$$opposite',2,5)).
+    unify_constant_return_det(2,c(n)).
+label(('e$$glb$$opposite',2,4)).
+    hash_jmpn_constant(c(n),('e$$glb$$opposite',2,5)).
+    unify_constant_return_det(2,c(s)).
+label(('e$$glb$$opposite',2,5)).
+label(('e$$glb$$opposite',2,6)).
+    hash(2,0,0,('e$$glb$$opposite',2,9)).
+    pred(('e$$glb$$opposite',2,6),2,2,('e$$glb$$opposite',2,9)).
+    arglabel(c,n,('e$$glb$$opposite',2,7)).
+    arglabel(c,s,('e$$glb$$opposite',2,8)).
+label(('e$$glb$$opposite',2,7)).
+    hash_jmpn_constant(c(n),('e$$glb$$opposite',2,9)).
+    unify_constant_return_det(1,c(s)).
+label(('e$$glb$$opposite',2,8)).
+    hash_jmpn_constant(c(s),('e$$glb$$opposite',2,9)).
+    unify_constant_return_det(1,c(n)).
+label(('e$$glb$$opposite',2,9)).
+    fail.
+label(('e$$glb$$opposite',2,10)).
+    fail0.
+label(('e$$glb$$opposite',2,11)).
+    cut_fail.
+label(('e$$glb$$unsafe',1)).
+label(('e$$glb$$unsafe',1,-1)).
+    allocate_det(1,12,([],0),4).
+label(('e$$glb$$unsafe',1,1)).
+    switch_cons_vv(1,('e$$glb$$unsafe',1,3),('e$$glb$$unsafe',1,3),('e$$glb$$unsafe',1,3),-4,-5).
+    switch_cons_vv(-5,('e$$glb$$unsafe',1,3),('e$$glb$$unsafe',1,3),('e$$glb$$unsafe',1,3),-6,-7).
+    switch_cons_vv(-7,('e$$glb$$unsafe',1,3),('e$$glb$$unsafe',1,3),('e$$glb$$unsafe',1,3),-8,-9).
+    switch_cons_vv(-9,('e$$glb$$unsafe',1,3),('e$$glb$$unsafe',1,3),('e$$glb$$unsafe',1,3),-10,-11).
+    jmpn_nil(-11,('e$$glb$$unsafe',1,3),('e$$glb$$unsafe',1,3)).
+    jmpn_id_uu(-6,-8,('e$$glb$$unsafe',1,2)).
+    jmp_id_uu(-4,-6,('e$$glb$$unsafe',1,2)).
+    return_det.
+label(('e$$glb$$unsafe',1,2)).
+    jmpn_id_uu(-8,-10,('e$$glb$$unsafe',1,3)).
+    jmp_id_uu(-4,-8,('e$$glb$$unsafe',1,3)).
+    return_det.
+label(('e$$glb$$unsafe',1,3)).
+    fail.
+label(('e$$glb$$unsafe',1,4)).
+    fail0.
+label(('e$$glb$$unsafe',1,5)).
+    cut_fail.
+label(('e$$glb$$sendmory',0)).
+label(('e$$glb$$sendmory',0,-1)).
+    allocate_det(0,34,([],0),4).
+label(('e$$glb$$sendmory',0,1)).
+    move_comp_list(-4,8,v(-5),v(-6),v(-7),v(-8),v(-9),v(-10),v(-11),v(-12)).
+    move_struct0(-13,(..,2)).
+    build_arg_2c(c(0),c(1)).
+    move_struct0(-14,(..,2)).
+    build_arg_u(-13).
+    build_arg_c(c(9)).
+    para_uu(-4,-14).
+    call0(('_$_picat_in',2),15).
+    para_u(-4).
+    call0(('e$$cp$$all_different',1),15).
+    para_uc(-5,c(0)).
+    call0(('e$$cp$$#!=',2),15).
+    para_uc(-9,c(0)).
+    call0(('e$$cp$$#!=',2),15).
+    move_struct(-14,(*,2)).
+    build_arg_c(c(1000)).
+    build_arg_u(-5).
+    move_struct(-13,(*,2)).
+    build_arg_c(c(100)).
+    build_arg_u(-6).
+    move_struct(-15,(+,2)).
+    build_arg_2u(-14,-13).
+    move_struct(-16,(*,2)).
+    build_arg_c(c(10)).
+    build_arg_u(-7).
+    move_struct(-17,(+,2)).
+    build_arg_2u(-15,-16).
+    move_struct(-18,(+,2)).
+    build_arg_2u(-17,-8).
+    move_struct(-19,(*,2)).
+    build_arg_c(c(1000)).
+    build_arg_u(-9).
+    move_struct(-20,(+,2)).
+    build_arg_2u(-18,-19).
+    move_struct(-21,(*,2)).
+    build_arg_c(c(100)).
+    build_arg_u(-10).
+    move_struct(-22,(+,2)).
+    build_arg_2u(-20,-21).
+    move_struct(-23,(*,2)).
+    build_arg_c(c(10)).
+    build_arg_u(-11).
+    move_struct(-24,(+,2)).
+    build_arg_2u(-22,-23).
+    move_struct(-25,(+,2)).
+    build_arg_2u(-24,-6).
+    move_struct(-26,(*,2)).
+    build_arg_c(c(10000)).
+    build_arg_u(-9).
+    move_struct(-27,(*,2)).
+    build_arg_c(c(1000)).
+    build_arg_u(-10).
+    move_struct(-28,(+,2)).
+    build_arg_2u(-26,-27).
+    move_struct(-29,(*,2)).
+    build_arg_c(c(100)).
+    build_arg_u(-7).
+    move_struct(-30,(+,2)).
+    build_arg_2u(-28,-29).
+    move_struct(-31,(*,2)).
+    build_arg_c(c(10)).
+    build_arg_u(-6).
+    move_struct(-32,(+,2)).
+    build_arg_2u(-30,-31).
+    move_struct(-33,(+,2)).
+    build_arg_2u(-32,-12).
+    para_uu(-25,-33).
+    call0(('e$$cp$$#=',2),34).
+    para_u(-4).
+    call0(('e$$cp$$solve',1),34).
+    para_c(c(user)).
+    para_u(-4).
+    call0((picat_write,2),34).
+    last_call(1,(nl,1),c(user),34).
+    return_det.
+label(('e$$glb$$sendmory',0,3)).
+    fail.
+label(('e$$glb$$sendmory',0,4)).
+    fail0.
+label(('e$$glb$$sendmory',0,5)).
+    cut_fail.
+label(('e$$glb$$queens',1)).
+label(('e$$glb$$queens',1,-1)).
+    allocate_det(1,11,([],0),4).
+label(('e$$glb$$queens',1,1)).
+    move_var(-4).
+    jmpn_int_y(1,('e$$glb$$queens',1,2)).
+    jmpn_ge_ui(1,0,('e$$glb$$queens',1,2)).
+    jmpn_ge_ui(1,1250,('e$$glb$$queens',1,4)).
+    para_u(1).
+    call0((garbage_collect,1),5).
+    jmp(('e$$glb$$queens',1,5)).
+label(('e$$glb$$queens',1,4)).
+label(('e$$glb$$queens',1,5)).
+    functor(u(-4),c({}),u(1)).
+    move_vars(-6,-5).
+    jmp(('e$$glb$$queens',1,3)).
+label(('e$$glb$$queens',1,2)).
+    move_struct(-5,(nonnegative_integer_expected,1)).
+    build_arg_u(1).
+    move_struct(-6,(new_array,1)).
+    build_arg_u(1).
+    para_uu(-5,-6).
+    call0((handle_exception,2),7).
+label(('e$$glb$$queens',1,3)).
+    move_value(-5,-4).
+    move_struct(-6,(..,2)).
+    build_arg_2c(c(1),c(1)).
+    move_struct(-7,(..,2)).
+    build_arg_2u(-6,1).
+    para_uu(-5,-7).
+    call0(('_$_picat_in',2),8).
+    para_v(-8).
+    para_uv(1,-9).
+    call0(('de$$glb$$queens_1_0__1',3),10).
+    jmp_var_y(-8,('e$$glb$$queens',1,6)).
+    para_c(c(1)).
+    para_uuu(-9,-5,1).
+    call0((h___exsqueens_1_1_2,4),10).
+    jmp(('e$$glb$$queens',1,7)).
+label(('e$$glb$$queens',1,6)).
+label(('e$$glb$$queens',1,7)).
+    move_comp_list1(-10,c(ff)).
+    para_uu(-10,-5).
+    call0(('e$$cp$$solve',2),11).
+    para_c(c(user)).
+    para_u(-5).
+    call0((picat_write,2),11).
+    last_call(1,(nl,1),c(user),11).
+    return_det.
+label(('e$$glb$$queens',1,9)).
+    fail.
+label(('e$$glb$$queens',1,10)).
+    fail0.
+label(('e$$glb$$queens',1,11)).
+    cut_fail.
+label((h___exsqueens_1_1_1,4)).
+label((h___exsqueens_1_1_1,4,-1)).
+    allocate_det(4,11,([],0),4).
+label((h___exsqueens_1_1_1,4,1)).
+    jmpn_gt_uu(4,3,(h___exsqueens_1_1_1,4,2)).
+    return_det.
+label((h___exsqueens_1_1_1,4,2)).
+    builtin3(273,(h___exsqueens_1_1_1,4,4),u(1),u(2),v(-4)).
+    builtin3(273,(h___exsqueens_1_1_1,4,4),u(4),u(2),v(-5)).
+    para_uu(-4,-5).
+    call0(('e$$cp$$#!=',2),6).
+    builtin3(273,(h___exsqueens_1_1_1,4,4),u(1),u(2),v(-4)).
+    builtin3(273,(h___exsqueens_1_1_1,4,4),u(4),u(2),v(-5)).
+    move_struct(-6,(-,2)).
+    build_arg_2u(-4,-5).
+    move_struct(-7,(abs,1)).
+    build_arg_u(-6).
+    move_struct(-8,(-,2)).
+    build_arg_2u(4,1).
+    para_uu(-7,-8).
+    call0(('e$$cp$$#!=',2),9).
+    add_u1v(4,-9).
+    move_value(-10,-9).
+    tr_det_call1_au((h___exsqueens_1_1_1,4,1),1,4,-10,3,2,1,11).
+    return_det.
+label((h___exsqueens_1_1_1,4,4)).
+    fail.
+label((h___exsqueens_1_1_1,4,5)).
+    fail0.
+label((h___exsqueens_1_1_1,4,6)).
+    cut_fail.
+label((h___exsqueens_1_1_2,4)).
+label((h___exsqueens_1_1_2,4,-1)).
+    allocate_det(4,8,([],0),4).
+label((h___exsqueens_1_1_2,4,1)).
+    jmpn_gt_uu(4,3,(h___exsqueens_1_1_2,4,2)).
+    return_det.
+label((h___exsqueens_1_1_2,4,2)).
+    para_v(-4).
+    para_uv(4,-5).
+    call0((dh___exsqueens_1_1_2_4_0__1,3),6).
+    jmp_var_y(-4,(h___exsqueens_1_1_2,4,3)).
+    para_uuu(-5,1,2).
+    para_u(4).
+    call0((h___exsqueens_1_1_1,4),6).
+    jmp((h___exsqueens_1_1_2,4,4)).
+label((h___exsqueens_1_1_2,4,3)).
+label((h___exsqueens_1_1_2,4,4)).
+    add_u1v(4,-6).
+    move_value(-7,-6).
+    tr_det_call1_au((h___exsqueens_1_1_2,4,1),1,4,-7,3,2,1,8).
+    return_det.
+label((h___exsqueens_1_1_2,4,6)).
+    fail.
+label((h___exsqueens_1_1_2,4,7)).
+    fail0.
+label((h___exsqueens_1_1_2,4,8)).
+    cut_fail.
+label(('e$$glb$$queens2',2)).
+label(('e$$glb$$queens2',2,-1)).
+    allocate_det(2,16,([],0),4).
+label(('e$$glb$$queens2',2,1)).
+    move_var(-4).
+    jmpn_int_y(2,('e$$glb$$queens2',2,2)).
+    jmpn_ge_ui(2,0,('e$$glb$$queens2',2,2)).
+    para_uu(-4,2).
+    call0((build_list,2),5).
+    move_vars(-6,-5).
+    jmp(('e$$glb$$queens2',2,3)).
+label(('e$$glb$$queens2',2,2)).
+    move_struct(-5,(nonnegative_integer_expected,1)).
+    build_arg_u(2).
+    move_struct(-6,(new_list,1)).
+    build_arg_u(2).
+    para_uu(-5,-6).
+    call0((handle_exception,2),7).
+label(('e$$glb$$queens2',2,3)).
+    unify_value(1,-4).
+    move_struct(-5,(..,2)).
+    build_arg_2c(c(1),c(1)).
+    move_struct(-6,(..,2)).
+    build_arg_2u(-5,2).
+    para_uu(1,-6).
+    call0(('_$_picat_in',2),7).
+    move_var(-8).
+    move_value(-7,-8).
+    para_cuuv(c(1),2,-8,-9).
+    para_u(1).
+    call0((h___exsqueens2_2_1_1,5),10).
+    unify_nil(-9).
+    move_value(-10,-7).
+    move_var(-12).
+    move_value(-11,-12).
+    para_cuuv(c(1),2,-12,-13).
+    para_u(1).
+    call0((h___exsqueens2_2_1_2,5),14).
+    unify_nil(-13).
+    move_value(-14,-11).
+    para_u(1).
+    call0(('e$$cp$$all_different',1),15).
+    para_u(-10).
+    call0(('e$$cp$$all_different',1),15).
+    para_u(-14).
+    call0(('e$$cp$$all_different',1),15).
+    move_comp_list1(-15,c(ff)).
+    last_call(1,('e$$cp$$solve',2),u(-15),u(1),16).
+    return_det.
+label(('e$$glb$$queens2',2,5)).
+    fail.
+label(('e$$glb$$queens2',2,6)).
+    fail0.
+label(('e$$glb$$queens2',2,7)).
+    cut_fail.
+label((h___exsqueens2_2_1_1,5)).
+label((h___exsqueens2_2_1_1,5,-1)).
+    allocate_det(5,7,([],0),4).
+label((h___exsqueens2_2_1_1,5,1)).
+    jmpn_gt_uu(5,4,(h___exsqueens2_2_1_1,5,2)).
+    unify_value_return_det(2,3).
+    return_det.
+label((h___exsqueens2_2_1_1,5,2)).
+    builtin3(273,(h___exsqueens2_2_1_1,5,4),u(5),u(1),v(-4)).
+    unify_cons_v0v0(3,-5,-6).
+    unify_struct_arg_2u(-5,(+,2),5,-4).
+    unify_arg_read_u(5).
+    move_value(3,-6).
+    add_u1v(5,-6).
+    move_value(5,-6).
+    tr_det_call0((h___exsqueens2_2_1_1,5,1),7).
+    return_det.
+label((h___exsqueens2_2_1_1,5,4)).
+    fail.
+label((h___exsqueens2_2_1_1,5,5)).
+    fail0.
+label((h___exsqueens2_2_1_1,5,6)).
+    cut_fail.
+label((h___exsqueens2_2_1_2,5)).
+label((h___exsqueens2_2_1_2,5,-1)).
+    allocate_det(5,7,([],0),4).
+label((h___exsqueens2_2_1_2,5,1)).
+    jmpn_gt_uu(5,4,(h___exsqueens2_2_1_2,5,2)).
+    unify_value_return_det(2,3).
+    return_det.
+label((h___exsqueens2_2_1_2,5,2)).
+    builtin3(273,(h___exsqueens2_2_1_2,5,4),u(5),u(1),v(-4)).
+    unify_cons_v0v0(3,-5,-6).
+    unify_struct_arg_2u(-5,(-,2),5,-4).
+    unify_arg_read_u(5).
+    move_value(3,-6).
+    add_u1v(5,-6).
+    move_value(5,-6).
+    tr_det_call0((h___exsqueens2_2_1_2,5,1),7).
+    return_det.
+label((h___exsqueens2_2_1_2,5,4)).
+    fail.
+label((h___exsqueens2_2_1_2,5,5)).
+    fail0.
+label((h___exsqueens2_2_1_2,5,6)).
+    cut_fail.
+label(('e$$glb$$color',2)).
+label(('e$$glb$$color',2,-1)).
+    allocate_det(2,10,([],0),4).
+label(('e$$glb$$color',2,1)).
+    move_var(-4).
+    jmpn_int_y(2,('e$$glb$$color',2,2)).
+    jmpn_ge_ui(2,0,('e$$glb$$color',2,2)).
+    jmpn_ge_ui(2,1250,('e$$glb$$color',2,4)).
+    para_u(2).
+    call0((garbage_collect,1),5).
+    jmp(('e$$glb$$color',2,5)).
+label(('e$$glb$$color',2,4)).
+label(('e$$glb$$color',2,5)).
+    functor(u(-4),c({}),u(2)).
+    move_vars(-6,-5).
+    jmp(('e$$glb$$color',2,3)).
+label(('e$$glb$$color',2,2)).
+    move_struct(-5,(nonnegative_integer_expected,1)).
+    build_arg_u(2).
+    move_struct(-6,(new_array,1)).
+    build_arg_u(2).
+    para_uu(-5,-6).
+    call0((handle_exception,2),7).
+label(('e$$glb$$color',2,3)).
+    move_value(-5,-4).
+    move_struct(-6,(..,2)).
+    build_arg_2c(c(1),c(1)).
+    move_struct(-7,(..,2)).
+    build_arg_2u(-6,1).
+    para_uu(-5,-7).
+    call0(('_$_picat_in',2),8).
+    para_v(-8).
+    para_uv(2,-9).
+    call0(('de$$glb$$color_2_0__1',3),10).
+    jmp_var_y(-8,('e$$glb$$color',2,6)).
+    para_c(c(1)).
+    para_uuu(-9,-5,2).
+    call0((h___exscolor_2_1_2,4),10).
+    jmp(('e$$glb$$color',2,7)).
+label(('e$$glb$$color',2,6)).
+label(('e$$glb$$color',2,7)).
+    para_u(-5).
+    call0(('e$$cp$$solve',1),10).
+    para_c(c(user)).
+    para_u(-5).
+    call0((picat_write,2),10).
+    last_call(1,(nl,1),c(user),10).
+    return_det.
+label(('e$$glb$$color',2,9)).
+    fail.
+label(('e$$glb$$color',2,10)).
+    fail0.
+label(('e$$glb$$color',2,11)).
+    cut_fail.
+label((h___exscolor_2_1_1,4)).
+label((h___exscolor_2_1_1,4,-1)).
+    allocate_det(4,11,([],0),4).
+label((h___exscolor_2_1_1,4,1)).
+    jmpn_gt_uu(4,3,(h___exscolor_2_1_1,4,2)).
+    return_det.
+label((h___exscolor_2_1_1,4,2)).
+    para_v(-4).
+    para_uu(4,1).
+    call0((dh___exscolor_2_1_1_4_0__1,3),5).
+    move_vars(-6,-5).
+    jmp_var_y(-4,(h___exscolor_2_1_1,4,3)).
+    builtin3(273,(h___exscolor_2_1_1,4,6),u(1),u(2),v(-7)).
+    unify_value(-5,-7).
+    builtin3(273,(h___exscolor_2_1_1,4,6),u(4),u(2),v(-8)).
+    unify_value(-6,-8).
+    para_uu(-5,-6).
+    call0(('e$$cp$$#!=',2),9).
+    jmp((h___exscolor_2_1_1,4,4)).
+label((h___exscolor_2_1_1,4,3)).
+    move_vars(-8,-7).
+label((h___exscolor_2_1_1,4,4)).
+    add_u1v(4,-9).
+    move_value(-10,-9).
+    tr_det_call1_au((h___exscolor_2_1_1,4,1),1,4,-10,3,2,1,11).
+    return_det.
+label((h___exscolor_2_1_1,4,6)).
+    fail.
+label((h___exscolor_2_1_1,4,7)).
+    fail0.
+label((h___exscolor_2_1_1,4,8)).
+    cut_fail.
+label((h___exscolor_2_1_2,4)).
+label((h___exscolor_2_1_2,4,-1)).
+    allocate_det(4,8,([],0),4).
+label((h___exscolor_2_1_2,4,1)).
+    jmpn_gt_uu(4,3,(h___exscolor_2_1_2,4,2)).
+    return_det.
+label((h___exscolor_2_1_2,4,2)).
+    para_v(-4).
+    para_uv(4,-5).
+    call0((dh___exscolor_2_1_2_4_0__1,3),6).
+    jmp_var_y(-4,(h___exscolor_2_1_2,4,3)).
+    para_uuu(-5,1,2).
+    para_u(4).
+    call0((h___exscolor_2_1_1,4),6).
+    jmp((h___exscolor_2_1_2,4,4)).
+label((h___exscolor_2_1_2,4,3)).
+label((h___exscolor_2_1_2,4,4)).
+    add_u1v(4,-6).
+    move_value(-7,-6).
+    tr_det_call1_au((h___exscolor_2_1_2,4,1),1,4,-7,3,2,1,8).
+    return_det.
+label((h___exscolor_2_1_2,4,6)).
+    fail.
+label((h___exscolor_2_1_2,4,7)).
+    fail0.
+label((h___exscolor_2_1_2,4,8)).
+    cut_fail.
+label(('e$$glb$$bcolor',2)).
+label(('e$$glb$$bcolor',2,-1)).
+    allocate_det(2,10,([],0),4).
+label(('e$$glb$$bcolor',2,1)).
+    move_comp_list(-4,2,u(2),u(1)).
+    move_struct0(-5,(new_array,2)).
+    build_arg_2u(2,1).
+    para_uu(-4,-5).
+    call0((picat_check_array_dims,2),6).
+    para_uv(-4,-5).
+    call0((picat_create_array,2),6).
+    move_value(-6,-5).
+    move_comp_list(-7,2,c(0),c(1)).
+    para_uu(-6,-7).
+    call0(('e$$cp$$::',2),8).
+    para_c(c(1)).
+    para_uuu(2,-6,1).
+    call0((h___exsbcolor_2_1_2,4),8).
+    para_v(-8).
+    para_uv(2,-9).
+    call0(('de$$glb$$bcolor_2_0__1',3),10).
+    jmp_var_y(-8,('e$$glb$$bcolor',2,2)).
+    para_c(c(1)).
+    para_uuu(-9,1,-6).
+    para_u(2).
+    call0((h___exsbcolor_2_1_5,5),10).
+    jmp(('e$$glb$$bcolor',2,3)).
+label(('e$$glb$$bcolor',2,2)).
+label(('e$$glb$$bcolor',2,3)).
+    para_u(-6).
+    call0(('e$$cp$$solve',1),10).
+    para_c(c(user)).
+    para_u(-6).
+    call0((picat_write,2),10).
+    last_call(1,(nl,1),c(user),10).
+    return_det.
+label(('e$$glb$$bcolor',2,5)).
+    fail.
+label(('e$$glb$$bcolor',2,6)).
+    fail0.
+label(('e$$glb$$bcolor',2,7)).
+    cut_fail.
+label((h___exsbcolor_2_1_1,6)).
+label((h___exsbcolor_2_1_1,6,-1)).
+    allocate_det(6,6,([],0),4).
+label((h___exsbcolor_2_1_1,6,1)).
+    jmpn_gt_uu(6,5,(h___exsbcolor_2_1_1,6,2)).
+    unify_value_return_det(3,4).
+    return_det.
+label((h___exsbcolor_2_1_1,6,2)).
+    builtin3(273,(h___exsbcolor_2_1_1,6,4),u(1),u(2),v(-4)).
+    builtin3(273,(h___exsbcolor_2_1_1,6,4),u(6),u(-4),v(-5)).
+    unify_cons_uv0(4,-5,-4).
+    move_value(4,-4).
+    add_u1v(6,-4).
+    move_value(6,-4).
+    tr_det_call0((h___exsbcolor_2_1_1,6,1),6).
+    return_det.
+label((h___exsbcolor_2_1_1,6,4)).
+    fail.
+label((h___exsbcolor_2_1_1,6,5)).
+    fail0.
+label((h___exsbcolor_2_1_1,6,6)).
+    cut_fail.
+label((h___exsbcolor_2_1_2,4)).
+label((h___exsbcolor_2_1_2,4,-1)).
+    allocate_det(4,9,([],0),4).
+label((h___exsbcolor_2_1_2,4,1)).
+    jmpn_gt_uu(4,3,(h___exsbcolor_2_1_2,4,2)).
+    return_det.
+label((h___exsbcolor_2_1_2,4,2)).
+    move_var(-5).
+    move_value(-4,-5).
+    para_cuuv(c(1),1,-5,-6).
+    para_uu(2,4).
+    call0((h___exsbcolor_2_1_1,6),7).
+    unify_nil(-6).
+    move_struct(-5,(sum,1)).
+    build_arg_u(-4).
+    para_uc(-5,c(1)).
+    call0(('e$$cp$$#=',2),7).
+    add_u1v(4,-7).
+    move_value(-8,-7).
+    tr_det_call1_au((h___exsbcolor_2_1_2,4,1),1,4,-8,3,2,1,9).
+    return_det.
+label((h___exsbcolor_2_1_2,4,4)).
+    fail.
+label((h___exsbcolor_2_1_2,4,5)).
+    fail0.
+label((h___exsbcolor_2_1_2,4,6)).
+    cut_fail.
+label((h___exsbcolor_2_1_3,5)).
+label((h___exsbcolor_2_1_3,5,-1)).
+    allocate_det(5,7,([],0),4).
+label((h___exsbcolor_2_1_3,5,1)).
+    jmpn_gt_uu(5,4,(h___exsbcolor_2_1_3,5,2)).
+    return_det.
+label((h___exsbcolor_2_1_3,5,2)).
+    builtin3(273,(h___exsbcolor_2_1_3,5,4),u(1),u(2),v(-4)).
+    builtin3(273,(h___exsbcolor_2_1_3,5,4),u(5),u(-4),v(-5)).
+    builtin3(273,(h___exsbcolor_2_1_3,5,4),u(3),u(2),v(-4)).
+    builtin3(273,(h___exsbcolor_2_1_3,5,4),u(5),u(-4),v(-6)).
+    move_struct0(-4,(#~,1)).
+    build_arg_u(-5).
+    move_struct0(-5,(#~,1)).
+    build_arg_u(-6).
+    para_uu(-4,-5).
+    call0(('e$$cp$$#\\/',2),7).
+    add_u1v(5,-4).
+    move_value(-5,-4).
+    tr_det_call1_au((h___exsbcolor_2_1_3,5,1),1,5,-5,4,3,2,1,7).
+    return_det.
+label((h___exsbcolor_2_1_3,5,4)).
+    fail.
+label((h___exsbcolor_2_1_3,5,5)).
+    fail0.
+label((h___exsbcolor_2_1_3,5,6)).
+    cut_fail.
+label((h___exsbcolor_2_1_4,5)).
+label((h___exsbcolor_2_1_4,5,-1)).
+    allocate_det(5,7,([],0),4).
+label((h___exsbcolor_2_1_4,5,1)).
+    jmpn_gt_uu(5,4,(h___exsbcolor_2_1_4,5,2)).
+    return_det.
+label((h___exsbcolor_2_1_4,5,2)).
+    para_v(-4).
+    para_uu(5,1).
+    call0((dh___exsbcolor_2_1_4_5_0__1,3),5).
+    jmp_var_y(-4,(h___exsbcolor_2_1_4,5,3)).
+    para_c(c(1)).
+    para_uuu(2,5,3).
+    para_u(1).
+    call0((h___exsbcolor_2_1_3,5),5).
+    jmp((h___exsbcolor_2_1_4,5,4)).
+label((h___exsbcolor_2_1_4,5,3)).
+label((h___exsbcolor_2_1_4,5,4)).
+    add_u1v(5,-5).
+    move_value(-6,-5).
+    tr_det_call1_au((h___exsbcolor_2_1_4,5,1),1,5,-6,4,3,2,1,7).
+    return_det.
+label((h___exsbcolor_2_1_4,5,6)).
+    fail.
+label((h___exsbcolor_2_1_4,5,7)).
+    fail0.
+label((h___exsbcolor_2_1_4,5,8)).
+    cut_fail.
+label((h___exsbcolor_2_1_5,5)).
+label((h___exsbcolor_2_1_5,5,-1)).
+    allocate_det(5,8,([],0),4).
+label((h___exsbcolor_2_1_5,5,1)).
+    jmpn_gt_uu(5,4,(h___exsbcolor_2_1_5,5,2)).
+    return_det.
+label((h___exsbcolor_2_1_5,5,2)).
+    para_v(-4).
+    para_uv(5,-5).
+    call0((dh___exsbcolor_2_1_5_5_0__1,3),6).
+    jmp_var_y(-4,(h___exsbcolor_2_1_5,5,3)).
+    para_uuu(-5,1,2).
+    para_uu(3,5).
+    call0((h___exsbcolor_2_1_4,5),6).
+    jmp((h___exsbcolor_2_1_5,5,4)).
+label((h___exsbcolor_2_1_5,5,3)).
+label((h___exsbcolor_2_1_5,5,4)).
+    add_u1v(5,-6).
+    move_value(-7,-6).
+    tr_det_call1_au((h___exsbcolor_2_1_5,5,1),1,5,-7,4,3,2,1,8).
+    return_det.
+label((h___exsbcolor_2_1_5,5,6)).
+    fail.
+label((h___exsbcolor_2_1_5,5,7)).
+    fail0.
+label((h___exsbcolor_2_1_5,5,8)).
+    cut_fail.
+label(('e$$glb$$read_array_main',0)).
+label(('e$$glb$$read_array_main',0,-1)).
+    allocate_det(0,8,([],0),4).
+label(('e$$glb$$read_array_main',0,1)).
+    move_var(-4).
+    jmp(('e$$glb$$read_array_main',0,4)).
+    para_c(c(100)).
+    call0((garbage_collect,1),5).
+    jmp(('e$$glb$$read_array_main',0,5)).
+label(('e$$glb$$read_array_main',0,4)).
+label(('e$$glb$$read_array_main',0,5)).
+    functor(u(-4),c({}),c(100)).
+    move_vars(-6,-5).
+    jmp(('e$$glb$$read_array_main',0,3)).
+label(('e$$glb$$read_array_main',0,2)).
+    move_struct(-5,(nonnegative_integer_expected,1)).
+    build_arg_c(c(100)).
+    move_struct(-6,(new_array,1)).
+    build_arg_c(c(100)).
+    para_uu(-5,-6).
+    call0((handle_exception,2),7).
+label(('e$$glb$$read_array_main',0,3)).
+    move_value(-5,-4).
+    para_v(-6).
+    para_u(-5).
+    call0(('e$$glb$$f$$read_array',2),7).
+    move_value(-7,-6).
+    last_call(801,(h___exsread_array_main_0_1_1,3),c(1),u(-7),u(-5),8).
+    return_det.
+label(('e$$glb$$read_array_main',0,7)).
+    fail.
+label(('e$$glb$$read_array_main',0,8)).
+    fail0.
+label(('e$$glb$$read_array_main',0,9)).
+    cut_fail.
+label((h___exsread_array_main_0_1_1,3)).
+label((h___exsread_array_main_0_1_1,3,-1)).
+    allocate_det(3,6,([],0),4).
+label((h___exsread_array_main_0_1_1,3,1)).
+    jmpn_gt_uu(3,2,(h___exsread_array_main_0_1_1,3,2)).
+    return_det.
+label((h___exsread_array_main_0_1_1,3,2)).
+    builtin3(273,(h___exsread_array_main_0_1_1,3,4),u(3),u(1),v(-4)).
+    para_c(c(user)).
+    para_u(-4).
+    call0((picat_write,2),5).
+    para_c(c(user)).
+    call0((nl,1),5).
+    add_u1v(3,-4).
+    move_value(-5,-4).
+    tr_det_call1_au((h___exsread_array_main_0_1_1,3,1),1,3,-5,2,1,6).
+    return_det.
+label((h___exsread_array_main_0_1_1,3,4)).
+    fail.
+label((h___exsread_array_main_0_1_1,3,5)).
+    fail0.
+label((h___exsread_array_main_0_1_1,3,6)).
+    cut_fail.
+label(('e$$glb$$f$$read_array',2)).
+label(('e$$glb$$f$$read_array',2,-1)).
+    allocate_det(2,9,([],0),4).
+label(('e$$glb$$f$$read_array',2,1)).
+    move_constant(-4,c(0)).
+    para_c(c(user)).
+    para_v(-5).
+    call0((picat_read_int,2),6).
+    move_value(-6,-5).
+    para_uv(-4,-7).
+    para_uw(-6).
+    para_u(1).
+    call0((w___exsread_array_1_1_1,5),8).
+    move_value(-8,-7).
+    unify_value_return_det(2,-8).
+    return_det.
+label(('e$$glb$$f$$read_array',2,2)).
+    move_struct0(-4,(read_array,1)).
+    build_arg_u(1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$read_array',2,4)).
+    fail.
+label(('e$$glb$$f$$read_array',2,5)).
+    fail0.
+label(('e$$glb$$f$$read_array',2,6)).
+    cut_fail.
+label((w___exsread_array_1_1_1,5)).
+label((w___exsread_array_1_1_1,5,-1)).
+    allocate_nondet(5,15,([],0),9).
+label((w___exsread_array_1_1_1,5,0)).
+    nondet(5).
+label((w___exsread_array_1_1_1,5,1)).
+    bp_fork((w___exsread_array_1_1_1,5,3)).
+    para_uc(3,c(0)).
+    call0((\=,2),9).
+    cut.
+    add_u1v(5,-9).
+    move_value(-10,-9).
+    move_value(-11,-10).
+    builtin3(273,(w___exsread_array_1_1_1,5,4),u(-11),u(1),v(-12)).
+    unify_value(-12,3).
+    para_c(c(user)).
+    para_v(-13).
+    call0((picat_read_int,2),14).
+    move_value(-14,-13).
+    tr_nondet_call2_au((w___exsread_array_1_1_1,5,1),1,3,5,-11,4,-14,2,1,15).
+    return_det.
+    noop1(9).
+label((w___exsread_array_1_1_1,5,3)).
+    cut0.
+    unify_value(4,5).
+    unify_value_return_det(2,3).
+    return_det.
+label((w___exsread_array_1_1_1,5,4)).
+    fail.
+label((w___exsread_array_1_1_1,5,5)).
+    fail0.
+label((w___exsread_array_1_1_1,5,6)).
+    cut_fail.
+label(('e$$glb$$copy',2)).
+label(('e$$glb$$copy',2,-1)).
+    allocate_det(2,9,([],0),4).
+label(('e$$glb$$copy',2,1)).
+    para_uc(2,c(read)).
+    para_v(-4).
+    call0((picat_open,3),5).
+    move_value(-5,-4).
+    para_uc(1,c(write)).
+    para_v(-6).
+    call0((picat_open,3),7).
+    move_value(2,-6).
+    para_uv(-5,-7).
+    call0((picat_read_line,2),8).
+    move_value(-8,-7).
+    para_uw(-8).
+    para_uu(-5,2).
+    call0((w___exscopy_2_1_1,4),9).
+    para_u(-5).
+    call0((close,1),9).
+    last_call0((close,1),9).
+    return_det.
+label(('e$$glb$$copy',2,3)).
+    fail.
+label(('e$$glb$$copy',2,4)).
+    fail0.
+label(('e$$glb$$copy',2,5)).
+    cut_fail.
+label((w___exscopy_2_1_1,4)).
+label((w___exscopy_2_1_1,4,-1)).
+    allocate_nondet(4,12,([],0),9).
+label((w___exscopy_2_1_1,4,0)).
+    nondet(4).
+label((w___exscopy_2_1_1,4,1)).
+    bp_fork((w___exscopy_2_1_1,4,3)).
+    para_uc(4,c(end_of_file)).
+    call0((\=,2),9).
+    cut.
+    move_comp_list(-9,4,c('%'),c(s),c('%'),c(n)).
+    para_uuu(1,-9,4).
+    call0((picat_printf,3),10).
+    para_uv(2,-10).
+    call0((picat_read_line,2),11).
+    move_value(-11,-10).
+    tr_nondet_call1_au((w___exscopy_2_1_1,4,1),1,4,-11,3,2,1,12).
+    return_det.
+    noop1(9).
+label((w___exscopy_2_1_1,4,3)).
+    cut_unify_value_return_det(3,4).
+    return_det.
+label((w___exscopy_2_1_1,4,4)).
+    fail.
+label((w___exscopy_2_1_1,4,5)).
+    fail0.
+label((w___exscopy_2_1_1,4,6)).
+    cut_fail.
+label(('e$$glb$$output_students',1)).
+label(('e$$glb$$output_students',1,-1)).
+    allocate_det(1,5,([],0),4).
+label(('e$$glb$$output_students',1,1)).
+    para_uv(1,-4).
+    call0((picat_iterator_collection_to_list,2),5).
+    last_call(1,(h___exsoutput_students_1_1_1,1),u(-4),5).
+    return_det.
+label(('e$$glb$$output_students',1,3)).
+    fail.
+label(('e$$glb$$output_students',1,4)).
+    fail0.
+label(('e$$glb$$output_students',1,5)).
+    cut_fail.
+label((h___exsoutput_students_1_1_1,1)).
+label((h___exsoutput_students_1_1_1,1,-1)).
+    allocate_det(1,9,([],0),4).
+label((h___exsoutput_students_1_1_1,1,1)).
+    switch_cons_vv(1,(h___exsoutput_students_1_1_1,1,5),(h___exsoutput_students_1_1_1,1,6),(h___exsoutput_students_1_1_1,1,6),-4,-5).
+    jmpn_eq_struct(-4,(student,3),(h___exsoutput_students_1_1_1,1,3),(h___exsoutput_students_1_1_1,1,3)).
+    fetch_3v(-4,-6,-7).
+    para_uv(-7,-8).
+    call0((picat_to_real,2),9).
+    move_comp_list(-7,17,c('%'),c('1'),c('0'),c(s),c(' '),c('%'),c('1'),c('0'),c(s),c(' '),c('%'),c('5'),c('.'),c('2'),c(f),c('%'),c(n)).
+    para_uuu(-7,-4,-6).
+    para_u(-8).
+    call0((picat_printf,4),9).
+    tr_det_call1_au((h___exsoutput_students_1_1_1,1,1),1,1,-5,9).
+    return_det.
+label((h___exsoutput_students_1_1_1,1,3)).
+    tr_det_call1_au((h___exsoutput_students_1_1_1,1,1),1,1,-5,6).
+    return_det.
+label((h___exsoutput_students_1_1_1,1,5)).
+    return_det.
+label((h___exsoutput_students_1_1_1,1,6)).
+    fail.
+label((h___exsoutput_students_1_1_1,1,7)).
+    fail0.
+label((h___exsoutput_students_1_1_1,1,8)).
+    cut_fail.
+label(('e$$glb$$f$$my_map',3)).
+label(('e$$glb$$f$$my_map',3,-1)).
+    allocate_det(3,9,([],0),4).
+label(('e$$glb$$f$$my_map',3,1)).
+    switch_cons_vv(1,('e$$glb$$f$$my_map',3,3),('e$$glb$$f$$my_map',3,4),('e$$glb$$f$$my_map',3,4),-4,-5).
+    unify_cons_v0(3,-6).
+    move_comp_list(-7,2,c(cp),c(planner)).
+    move_comp_list1(-8,u(-4)).
+    para_uuu(-7,2,-8).
+    para_u(-6).
+    call0(('$dyna_eval_func',4),9).
+    tr_det_call1_au(('e$$glb$$f$$my_map',3,1),3,3,3,2,-5,9).
+    return_det.
+label(('e$$glb$$f$$my_map',3,3)).
+    unify_nil(3).
+    return_det.
+label(('e$$glb$$f$$my_map',3,4)).
+    move_struct0(-4,(my_map,2)).
+    build_arg_2u(2,1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$my_map',3,6)).
+    fail.
+label(('e$$glb$$f$$my_map',3,7)).
+    fail0.
+label(('e$$glb$$f$$my_map',3,8)).
+    cut_fail.
+label(('e$$glb$$f$$my_map',4)).
+label(('e$$glb$$f$$my_map',4,-1)).
+    allocate_det(4,11,([],0),4).
+label(('e$$glb$$f$$my_map',4,1)).
+    switch_cons_vv(2,('e$$glb$$f$$my_map',4,3),('e$$glb$$f$$my_map',4,4),('e$$glb$$f$$my_map',4,4),-4,-5).
+    switch_cons_vv(1,('e$$glb$$f$$my_map',4,4),('e$$glb$$f$$my_map',4,4),('e$$glb$$f$$my_map',4,4),-6,-7).
+    unify_cons_v0(4,-8).
+    move_comp_list(-9,2,c(cp),c(planner)).
+    move_comp_list(-10,2,u(-4),u(-6)).
+    para_uuu(-9,3,-10).
+    para_u(-8).
+    call0(('$dyna_eval_func',4),11).
+    tr_det_call2_au(('e$$glb$$f$$my_map',4,1),3,4,4,4,3,-5,-7,11).
+    return_det.
+label(('e$$glb$$f$$my_map',4,3)).
+    jmpn_nil(1,('e$$glb$$f$$my_map',4,4),('e$$glb$$f$$my_map',4,4)).
+    unify_nil(4).
+    return_det.
+label(('e$$glb$$f$$my_map',4,4)).
+    move_struct0(-4,(my_map,3)).
+    build_arg_3u(3,2,1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$my_map',4,6)).
+    fail.
+label(('e$$glb$$f$$my_map',4,7)).
+    fail0.
+label(('e$$glb$$f$$my_map',4,8)).
+    cut_fail.
+label(('e$$glb$$f$$my_fold',4)).
+label(('e$$glb$$f$$my_fold',4,-1)).
+    allocate_det(4,8,([],0),4).
+label(('e$$glb$$f$$my_fold',4,1)).
+    switch_cons_vv(1,('e$$glb$$f$$my_fold',4,3),('e$$glb$$f$$my_fold',4,4),('e$$glb$$f$$my_fold',4,4),-4,-5).
+    move_comp_list(-6,2,c(cp),c(planner)).
+    move_comp_list(-7,2,u(-4),u(2)).
+    para_uuuv(-6,3,-7,-4).
+    call0(('$dyna_eval_func',4),8).
+    tr_det_call2_au(('e$$glb$$f$$my_fold',4,1),3,4,4,4,3,-4,-5,8).
+    return_det.
+label(('e$$glb$$f$$my_fold',4,3)).
+    unify_value_return_det(4,2).
+    return_det.
+label(('e$$glb$$f$$my_fold',4,4)).
+    move_struct0(-4,(my_fold,3)).
+    build_arg_3u(3,2,1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$my_fold',4,6)).
+    fail.
+label(('e$$glb$$f$$my_fold',4,7)).
+    fail0.
+label(('e$$glb$$f$$my_fold',4,8)).
+    cut_fail.
+label(('e$$glb$$test_ar',0)).
+label(('e$$glb$$test_ar',0,-1)).
+    allocate_det(0,20,([],0),4).
+label(('e$$glb$$test_ar',0,1)).
+    para_v(-4).
+    call0(('e$$glb$$watch_event',1),5).
+    para_u(-4).
+    call0(('e$$glb$$watch_dom',1),5).
+    para_u(-4).
+    call0(('e$$glb$$watch_dom_any',1),5).
+    para_u(-4).
+    call0(('e$$glb$$watch_ins',1),5).
+    para_u(-4).
+    call0(('e$$glb$$watch_bound',1),5).
+    para_v(-5).
+    para_u(-4).
+    call0(('de$$glb$$test_ar_0_0__1',2),6).
+    jmp_var_y(-5,('e$$glb$$test_ar',0,2)).
+    builtin3(161,('e$$glb$$test_ar',0,13),u(-4),c(6),c(event)).
+    move_vars(-7,-6).
+    jmp(('e$$glb$$test_ar',0,3)).
+label(('e$$glb$$test_ar',0,2)).
+    move_struct(-6,(channel_variable_expected,1)).
+    build_arg_u(-4).
+    move_struct(-7,(post_event,2)).
+    build_arg_u(-4).
+    build_arg_c(c(event)).
+    para_uu(-6,-7).
+    call0((handle_exception,2),8).
+label(('e$$glb$$test_ar',0,3)).
+    para_v(-8).
+    para_u(-4).
+    call0(('de$$glb$$test_ar_0_0__2',2),9).
+    jmp_var_y(-8,('e$$glb$$test_ar',0,4)).
+    builtin3(161,('e$$glb$$test_ar',0,13),u(-4),c(4),c(dom)).
+    move_vars(-10,-9).
+    jmp(('e$$glb$$test_ar',0,5)).
+label(('e$$glb$$test_ar',0,4)).
+    move_struct(-9,(channel_variable_expected,1)).
+    build_arg_u(-4).
+    move_struct(-10,(post_event_dom,2)).
+    build_arg_u(-4).
+    build_arg_c(c(dom)).
+    para_uu(-9,-10).
+    call0((handle_exception,2),11).
+label(('e$$glb$$test_ar',0,5)).
+    para_v(-11).
+    para_u(-4).
+    call0(('de$$glb$$test_ar_0_0__3',2),12).
+    jmp_var_y(-11,('e$$glb$$test_ar',0,6)).
+    builtin3(161,('e$$glb$$test_ar',0,13),u(-4),c(0),c(0)).
+    move_vars(-13,-12).
+    jmp(('e$$glb$$test_ar',0,7)).
+label(('e$$glb$$test_ar',0,6)).
+    move_struct(-12,(channel_variable_expected,1)).
+    build_arg_u(-4).
+    move_struct(-13,(post_event_ins,1)).
+    build_arg_u(-4).
+    para_uu(-12,-13).
+    call0((handle_exception,2),14).
+label(('e$$glb$$test_ar',0,7)).
+    para_v(-14).
+    para_u(-4).
+    call0(('de$$glb$$test_ar_0_0__4',2),15).
+    jmp_var_y(-14,('e$$glb$$test_ar',0,8)).
+    builtin3(161,('e$$glb$$test_ar',0,13),u(-4),c(2),c(0)).
+    move_vars(-16,-15).
+    jmp(('e$$glb$$test_ar',0,9)).
+label(('e$$glb$$test_ar',0,8)).
+    move_struct(-15,(channel_variable_expected,1)).
+    build_arg_u(-4).
+    move_struct(-16,(post_event_bound,1)).
+    build_arg_u(-4).
+    para_uu(-15,-16).
+    call0((handle_exception,2),17).
+label(('e$$glb$$test_ar',0,9)).
+    para_v(-17).
+    para_u(-4).
+    call0(('de$$glb$$test_ar_0_0__5',2),18).
+    jmp_var_y(-17,('e$$glb$$test_ar',0,10)).
+    builtin3(161,('e$$glb$$test_ar',0,13),u(-4),c(5),c(any)).
+    return_det.
+    jmp(('e$$glb$$test_ar',0,11)).
+label(('e$$glb$$test_ar',0,10)).
+    move_struct(-18,(channel_variable_expected,1)).
+    build_arg_u(-4).
+    move_struct(-19,(post_event_any,2)).
+    build_arg_u(-4).
+    build_arg_c(c(any)).
+    last_call(33,(handle_exception,2),u(-18),u(-19),20).
+    return_det.
+label(('e$$glb$$test_ar',0,11)).
+    return_det.
+label(('e$$glb$$test_ar',0,13)).
+    fail.
+label(('e$$glb$$test_ar',0,14)).
+    fail0.
+label(('e$$glb$$test_ar',0,15)).
+    cut_fail.
+label(('e$$glb$$watch_event',1)).
+label(('e$$glb$$watch_event',1,-1)).
+    allocate_susp(1,11,('e$$glb$$watch_event',1),8).
+label(('e$$glb$$watch_event',1,1)).
+    delay(('e$$glb$$watch_event',1,1),('e$$glb$$watch_event',1,1),('e$$glb$$watch_event',1),('e$$glb$$watch_event',1,2)).
+    trigger_var_dom(1).
+    return_delay.
+label(('e$$glb$$watch_event',1,2)).
+    fetch_event_object(-8).
+    getbreg_y(-9).
+    move_struct(-10,(event,1)).
+    build_arg_u(-8).
+    para_c(c(user)).
+    para_u(-10).
+    call0((picat_write,2),11).
+    para_c(c(user)).
+    call0((nl,1),11).
+    putbreg_y(-9).
+    return_delay.
+label(('e$$glb$$watch_event',1,3)).
+    fail.
+label(('e$$glb$$watch_event',1,4)).
+    fail0.
+label(('e$$glb$$watch_event',1,5)).
+    cut_fail.
+label(('e$$glb$$watch_dom',1)).
+label(('e$$glb$$watch_dom',1,-1)).
+    allocate_susp(1,11,('e$$glb$$watch_dom',1),8).
+label(('e$$glb$$watch_dom',1,1)).
+    delay(('e$$glb$$watch_dom',1,1),('e$$glb$$watch_dom',1,1),('e$$glb$$watch_dom',1),('e$$glb$$watch_dom',1,2)).
+    trigger_var_dom(1).
+    return_delay.
+label(('e$$glb$$watch_dom',1,2)).
+    fetch_event_object(-8).
+    getbreg_y(-9).
+    move_struct(-10,(dom,1)).
+    build_arg_u(-8).
+    para_c(c(user)).
+    para_u(-10).
+    call0((picat_write,2),11).
+    para_c(c(user)).
+    call0((nl,1),11).
+    putbreg_y(-9).
+    return_delay.
+label(('e$$glb$$watch_dom',1,3)).
+    fail.
+label(('e$$glb$$watch_dom',1,4)).
+    fail0.
+label(('e$$glb$$watch_dom',1,5)).
+    cut_fail.
+label(('e$$glb$$watch_dom_any',1)).
+label(('e$$glb$$watch_dom_any',1,-1)).
+    allocate_susp(1,11,('e$$glb$$watch_dom_any',1),8).
+label(('e$$glb$$watch_dom_any',1,1)).
+    delay(('e$$glb$$watch_dom_any',1,1),('e$$glb$$watch_dom_any',1,1),('e$$glb$$watch_dom_any',1),('e$$glb$$watch_dom_any',1,2)).
+    trigger_var_any_dom(1).
+    return_delay.
+label(('e$$glb$$watch_dom_any',1,2)).
+    fetch_event_object(-8).
+    getbreg_y(-9).
+    move_struct(-10,(dom_any,1)).
+    build_arg_u(-8).
+    para_c(c(user)).
+    para_u(-10).
+    call0((picat_write,2),11).
+    para_c(c(user)).
+    call0((nl,1),11).
+    putbreg_y(-9).
+    return_delay.
+label(('e$$glb$$watch_dom_any',1,3)).
+    fail.
+label(('e$$glb$$watch_dom_any',1,4)).
+    fail0.
+label(('e$$glb$$watch_dom_any',1,5)).
+    cut_fail.
+label(('e$$glb$$watch_ins',1)).
+label(('e$$glb$$watch_ins',1,-1)).
+    allocate_susp(1,10,('e$$glb$$watch_ins',1),8).
+label(('e$$glb$$watch_ins',1,1)).
+    delay(('e$$glb$$watch_ins',1,1),('e$$glb$$watch_ins',1,1),('e$$glb$$watch_ins',1),('e$$glb$$watch_ins',1,2)).
+    trigger_var_ins(1).
+    return_delay.
+label(('e$$glb$$watch_ins',1,2)).
+    getbreg_y(-8).
+    move_struct(-9,(ins,1)).
+    build_arg_u(1).
+    para_c(c(user)).
+    para_u(-9).
+    call0((picat_write,2),10).
+    para_c(c(user)).
+    call0((nl,1),10).
+    putbreg_y(-8).
+    return_delay.
+label(('e$$glb$$watch_ins',1,3)).
+    fail.
+label(('e$$glb$$watch_ins',1,4)).
+    fail0.
+label(('e$$glb$$watch_ins',1,5)).
+    cut_fail.
+label(('e$$glb$$watch_bound',1)).
+label(('e$$glb$$watch_bound',1,-1)).
+    allocate_susp(1,10,('e$$glb$$watch_bound',1),8).
+label(('e$$glb$$watch_bound',1,1)).
+    delay(('e$$glb$$watch_bound',1,1),('e$$glb$$watch_bound',1,1),('e$$glb$$watch_bound',1),('e$$glb$$watch_bound',1,2)).
+    trigger_var_minmax(1).
+    return_delay.
+label(('e$$glb$$watch_bound',1,2)).
+    getbreg_y(-8).
+    move_struct(-9,(bound,1)).
+    build_arg_u(1).
+    para_c(c(user)).
+    para_u(-9).
+    call0((picat_write,2),10).
+    para_c(c(user)).
+    call0((nl,1),10).
+    putbreg_y(-8).
+    return_delay.
+label(('e$$glb$$watch_bound',1,3)).
+    fail.
+label(('e$$glb$$watch_bound',1,4)).
+    fail0.
+label(('e$$glb$$watch_bound',1,5)).
+    cut_fail.
+label(('e$$glb$$catch_divided_by_zero',0)).
+label(('e$$glb$$catch_divided_by_zero',0,-1)).
+    allocate_det(0,7,([],0),4).
+label(('e$$glb$$catch_divided_by_zero',0,1)).
+    move_struct0(-4,('e$$glb$$f$$myd',3)).
+    build_arg_v0c(-5,c(4)).
+    build_arg_c(c(0)).
+    move_struct0(-6,(picat_write,2)).
+    build_arg_c(c(user)).
+    build_arg_u(-5).
+    move_struct0(-5,(',',2)).
+    build_arg_2u(-4,-6).
+    move_struct0(-4,('e$$glb$$handle',1)).
+    build_arg_v0(-6).
+    last_call(801,(catch,3),u(-5),u(-6),u(-4),7).
+    return_det.
+label(('e$$glb$$catch_divided_by_zero',0,3)).
+    fail.
+label(('e$$glb$$catch_divided_by_zero',0,4)).
+    fail0.
+label(('e$$glb$$catch_divided_by_zero',0,5)).
+    cut_fail.
+label(('e$$glb$$f$$myd',3)).
+label(('e$$glb$$f$$myd',3,-1)).
+    allocate_det(3,6,([],0),4).
+label(('e$$glb$$f$$myd',3,1)).
+    div(u(2),u(1),-4).
+    unify_value_return_det(3,-4).
+    return_det.
+label(('e$$glb$$f$$myd',3,2)).
+    move_struct0(-4,(myd,2)).
+    build_arg_2u(2,1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$glb$$f$$myd',3,4)).
+    fail.
+label(('e$$glb$$f$$myd',3,5)).
+    fail0.
+label(('e$$glb$$f$$myd',3,6)).
+    cut_fail.
+label(('e$$glb$$handle',1)).
+label(('e$$glb$$handle',1,-1)).
+    allocate_det(1,4,([],0),4).
+label(('e$$glb$$handle',1,1)).
+    para_c(c(user)).
+    para_u(1).
+    call0((picat_write,2),4).
+    para_c(c(user)).
+    call0((nl,1),4).
+    last_call0((throw,1),4).
+    return_det.
+label(('e$$glb$$handle',1,3)).
+    fail.
+label(('e$$glb$$handle',1,4)).
+    fail0.
+label(('e$$glb$$handle',1,5)).
+    cut_fail.
+label(('de$$glb$$f$$matrix_multi_3_0__1',3)).
+label(('de$$glb$$f$$matrix_multi_3_0__1',3,-1)).
+    allocate_nondet(3,10,([],0),9).
+label(('de$$glb$$f$$matrix_multi_3_0__1',3,0)).
+    nondet(3).
+label(('de$$glb$$f$$matrix_multi_3_0__1',3,1)).
+    bp_fork(('de$$glb$$f$$matrix_multi_3_0__1',3,4)).
+    builtin2(266,('de$$glb$$f$$matrix_multi_3_0__1',3,2),u(1),v(-9)).
+    unify_value(2,-9).
+    jmp(('de$$glb$$f$$matrix_multi_3_0__1',3,3)).
+label(('de$$glb$$f$$matrix_multi_3_0__1',3,2)).
+    move_var(-9).
+    para_uc(1,c(length)).
+    para_u(2).
+    call0((picat_get,3),10).
+label(('de$$glb$$f$$matrix_multi_3_0__1',3,3)).
+    cut.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label(('de$$glb$$f$$matrix_multi_3_0__1',3,4)).
+    cut_return.
+label(('de$$glb$$f$$matrix_multi_3_0__1',3,5)).
+    fail.
+label(('de$$glb$$f$$matrix_multi_3_0__1',3,6)).
+    fail0.
+label(('de$$glb$$f$$matrix_multi_3_0__1',3,7)).
+    cut_fail.
+label(('de$$glb$$f$$my_primes_2_0__1',3)).
+label(('de$$glb$$f$$my_primes_2_0__1',3,-1)).
+    allocate_nondet(3,12,([],0),9).
+label(('de$$glb$$f$$my_primes_2_0__1',3,0)).
+    nondet(3).
+label(('de$$glb$$f$$my_primes_2_0__1',3,1)).
+    bp_fork(('de$$glb$$f$$my_primes_2_0__1',3,2)).
+    builtin2(40,('de$$glb$$f$$my_primes_2_0__1',3,4),u(1),v(-9)).
+    move_value(-10,-9).
+    builtin2(34,('de$$glb$$f$$my_primes_2_0__1',3,4),u(-10),v(-11)).
+    unify_value_cut(2,-11).
+    cut0.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label(('de$$glb$$f$$my_primes_2_0__1',3,2)).
+    cut_return.
+label(('de$$glb$$f$$my_primes_2_0__1',3,3)).
+    fail.
+label(('de$$glb$$f$$my_primes_2_0__1',3,4)).
+    fail0.
+label(('de$$glb$$f$$my_primes_2_0__1',3,5)).
+    cut_fail.
+label(('de$$glb$$test_ar_0_0__3',2)).
+label(('de$$glb$$test_ar_0_0__3',2,-1)).
+    allocate_nondet(2,9,([],0),9).
+label(('de$$glb$$test_ar_0_0__3',2,0)).
+    nondet(2).
+label(('de$$glb$$test_ar_0_0__3',2,1)).
+    bp_fork(('de$$glb$$test_ar_0_0__3',2,2)).
+    builtin1(116,('de$$glb$$test_ar_0_0__3',2,4),u(1)).
+    cut0.
+    unify_constant_return_det(2,c(1)).
+    noop1(9).
+label(('de$$glb$$test_ar_0_0__3',2,2)).
+    cut_return.
+label(('de$$glb$$test_ar_0_0__3',2,3)).
+    fail.
+label(('de$$glb$$test_ar_0_0__3',2,4)).
+    fail0.
+label(('de$$glb$$test_ar_0_0__3',2,5)).
+    cut_fail.
+label((dh___exspascal_0_1_2_2_0__1,3)).
+label((dh___exspascal_0_1_2_2_0__1,3,-1)).
+    allocate_nondet(3,10,([],0),9).
+label((dh___exspascal_0_1_2_2_0__1,3,0)).
+    nondet(3).
+label((dh___exspascal_0_1_2_2_0__1,3,1)).
+    bp_fork((dh___exspascal_0_1_2_2_0__1,3,2)).
+    add_u1v(2,-9).
+    unify_value_cut(1,-9).
+    cut0.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label((dh___exspascal_0_1_2_2_0__1,3,2)).
+    cut_return.
+label((dh___exspascal_0_1_2_2_0__1,3,3)).
+    fail.
+label((dh___exspascal_0_1_2_2_0__1,3,4)).
+    fail0.
+label((dh___exspascal_0_1_2_2_0__1,3,5)).
+    cut_fail.
+label((dh___exsbcolor_2_1_5_5_0__1,3)).
+label((dh___exsbcolor_2_1_5_5_0__1,3,-1)).
+    allocate_nondet(3,10,([],0),9).
+label((dh___exsbcolor_2_1_5_5_0__1,3,0)).
+    nondet(3).
+label((dh___exsbcolor_2_1_5_5_0__1,3,1)).
+    bp_fork((dh___exsbcolor_2_1_5_5_0__1,3,2)).
+    add_u1v(2,-9).
+    unify_value_cut(1,-9).
+    cut0.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label((dh___exsbcolor_2_1_5_5_0__1,3,2)).
+    cut_return.
+label((dh___exsbcolor_2_1_5_5_0__1,3,3)).
+    fail.
+label((dh___exsbcolor_2_1_5_5_0__1,3,4)).
+    fail0.
+label((dh___exsbcolor_2_1_5_5_0__1,3,5)).
+    cut_fail.
+label(('de$$glb$$action_4_0__3',1)).
+label(('de$$glb$$action_4_0__3',1,-1)).
+    allocate_nondet(1,9,([],0),9).
+label(('de$$glb$$action_4_0__3',1,0)).
+    nondet(1).
+label(('de$$glb$$action_4_0__3',1,1)).
+    bp_fork(('de$$glb$$action_4_0__3',1,2)).
+    para_u(1).
+    call0(('e$$glb$$unsafe',1),9).
+    cut.
+    fail.
+    return_det.
+    noop1(9).
+label(('de$$glb$$action_4_0__3',1,2)).
+    cut_return.
+label(('de$$glb$$action_4_0__3',1,3)).
+    fail.
+label(('de$$glb$$action_4_0__3',1,4)).
+    fail0.
+label(('de$$glb$$action_4_0__3',1,5)).
+    cut_fail.
+label((dh___exscolor_2_1_1_4_0__1,3)).
+label((dh___exscolor_2_1_1_4_0__1,3,-1)).
+    allocate_nondet(3,9,([],0),9).
+label((dh___exscolor_2_1_1_4_0__1,3,0)).
+    nondet(3).
+label((dh___exscolor_2_1_1_4_0__1,3,1)).
+    bp_fork((dh___exscolor_2_1_1_4_0__1,3,2)).
+    para_uu(2,1).
+    call0((dh___exscolor_2_1_1_4_0__2,2),9).
+    cut.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label((dh___exscolor_2_1_1_4_0__1,3,2)).
+    cut_return.
+label((dh___exscolor_2_1_1_4_0__1,3,3)).
+    fail.
+label((dh___exscolor_2_1_1_4_0__1,3,4)).
+    fail0.
+label((dh___exscolor_2_1_1_4_0__1,3,5)).
+    cut_fail.
+label((dh___exscolor_2_1_2_4_0__1,3)).
+label((dh___exscolor_2_1_2_4_0__1,3,-1)).
+    allocate_nondet(3,10,([],0),9).
+label((dh___exscolor_2_1_2_4_0__1,3,0)).
+    nondet(3).
+label((dh___exscolor_2_1_2_4_0__1,3,1)).
+    bp_fork((dh___exscolor_2_1_2_4_0__1,3,2)).
+    add_u1v(2,-9).
+    unify_value_cut(1,-9).
+    cut0.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label((dh___exscolor_2_1_2_4_0__1,3,2)).
+    cut_return.
+label((dh___exscolor_2_1_2_4_0__1,3,3)).
+    fail.
+label((dh___exscolor_2_1_2_4_0__1,3,4)).
+    fail0.
+label((dh___exscolor_2_1_2_4_0__1,3,5)).
+    cut_fail.
+label((dh___exsbcolor_2_1_4_5_0__1,3)).
+label((dh___exsbcolor_2_1_4_5_0__1,3,-1)).
+    allocate_nondet(3,9,([],0),9).
+label((dh___exsbcolor_2_1_4_5_0__1,3,0)).
+    nondet(3).
+label((dh___exsbcolor_2_1_4_5_0__1,3,1)).
+    bp_fork((dh___exsbcolor_2_1_4_5_0__1,3,2)).
+    para_uu(2,1).
+    call0((dh___exsbcolor_2_1_4_5_0__2,2),9).
+    cut.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label((dh___exsbcolor_2_1_4_5_0__1,3,2)).
+    cut_return.
+label((dh___exsbcolor_2_1_4_5_0__1,3,3)).
+    fail.
+label((dh___exsbcolor_2_1_4_5_0__1,3,4)).
+    fail0.
+label((dh___exsbcolor_2_1_4_5_0__1,3,5)).
+    cut_fail.
+label(('de$$glb$$queens_1_0__1',3)).
+label(('de$$glb$$queens_1_0__1',3,-1)).
+    allocate_nondet(3,10,([],0),9).
+label(('de$$glb$$queens_1_0__1',3,0)).
+    nondet(3).
+label(('de$$glb$$queens_1_0__1',3,1)).
+    bp_fork(('de$$glb$$queens_1_0__1',3,2)).
+    sub_u1v(2,-9).
+    unify_value_cut(1,-9).
+    cut0.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label(('de$$glb$$queens_1_0__1',3,2)).
+    cut_return.
+label(('de$$glb$$queens_1_0__1',3,3)).
+    fail.
+label(('de$$glb$$queens_1_0__1',3,4)).
+    fail0.
+label(('de$$glb$$queens_1_0__1',3,5)).
+    cut_fail.
+label(('de$$glb$$test_ar_0_0__1',2)).
+label(('de$$glb$$test_ar_0_0__1',2,-1)).
+    allocate_nondet(2,9,([],0),9).
+label(('de$$glb$$test_ar_0_0__1',2,0)).
+    nondet(2).
+label(('de$$glb$$test_ar_0_0__1',2,1)).
+    bp_fork(('de$$glb$$test_ar_0_0__1',2,2)).
+    builtin1(116,('de$$glb$$test_ar_0_0__1',2,4),u(1)).
+    cut0.
+    unify_constant_return_det(2,c(1)).
+    noop1(9).
+label(('de$$glb$$test_ar_0_0__1',2,2)).
+    cut_return.
+label(('de$$glb$$test_ar_0_0__1',2,3)).
+    fail.
+label(('de$$glb$$test_ar_0_0__1',2,4)).
+    fail0.
+label(('de$$glb$$test_ar_0_0__1',2,5)).
+    cut_fail.
+label(('de$$glb$$bcolor_2_0__1',3)).
+label(('de$$glb$$bcolor_2_0__1',3,-1)).
+    allocate_nondet(3,10,([],0),9).
+label(('de$$glb$$bcolor_2_0__1',3,0)).
+    nondet(3).
+label(('de$$glb$$bcolor_2_0__1',3,1)).
+    bp_fork(('de$$glb$$bcolor_2_0__1',3,2)).
+    sub_u1v(2,-9).
+    unify_value_cut(1,-9).
+    cut0.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label(('de$$glb$$bcolor_2_0__1',3,2)).
+    cut_return.
+label(('de$$glb$$bcolor_2_0__1',3,3)).
+    fail.
+label(('de$$glb$$bcolor_2_0__1',3,4)).
+    fail0.
+label(('de$$glb$$bcolor_2_0__1',3,5)).
+    cut_fail.
+label((dh___exsmy_primes_1_1_3_5_0__1,3)).
+label((dh___exsmy_primes_1_1_3_5_0__1,3,-1)).
+    allocate_nondet(3,10,([],0),9).
+label((dh___exsmy_primes_1_1_3_5_0__1,3,0)).
+    nondet(3).
+label((dh___exsmy_primes_1_1_3_5_0__1,3,1)).
+    bp_fork((dh___exsmy_primes_1_1_3_5_0__1,3,2)).
+    builtin3(273,(dh___exsmy_primes_1_1_3_5_0__1,3,4),u(1),u(2),v(-9)).
+    jmpn_var_y(-9,(dh___exsmy_primes_1_1_3_5_0__1,3,4)).
+    cut0.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label((dh___exsmy_primes_1_1_3_5_0__1,3,2)).
+    cut_return.
+label((dh___exsmy_primes_1_1_3_5_0__1,3,3)).
+    fail.
+label((dh___exsmy_primes_1_1_3_5_0__1,3,4)).
+    fail0.
+label((dh___exsmy_primes_1_1_3_5_0__1,3,5)).
+    cut_fail.
+label(('de$$glb$$action_4_0__2',1)).
+label(('de$$glb$$action_4_0__2',1,-1)).
+    allocate_nondet(1,9,([],0),9).
+label(('de$$glb$$action_4_0__2',1,0)).
+    nondet(1).
+label(('de$$glb$$action_4_0__2',1,1)).
+    bp_fork(('de$$glb$$action_4_0__2',1,2)).
+    para_u(1).
+    call0(('e$$glb$$unsafe',1),9).
+    cut.
+    fail.
+    return_det.
+    noop1(9).
+label(('de$$glb$$action_4_0__2',1,2)).
+    cut_return.
+label(('de$$glb$$action_4_0__2',1,3)).
+    fail.
+label(('de$$glb$$action_4_0__2',1,4)).
+    fail0.
+label(('de$$glb$$action_4_0__2',1,5)).
+    cut_fail.
+label(('de$$glb$$test_ar_0_0__5',2)).
+label(('de$$glb$$test_ar_0_0__5',2,-1)).
+    allocate_nondet(2,9,([],0),9).
+label(('de$$glb$$test_ar_0_0__5',2,0)).
+    nondet(2).
+label(('de$$glb$$test_ar_0_0__5',2,1)).
+    bp_fork(('de$$glb$$test_ar_0_0__5',2,2)).
+    builtin1(116,('de$$glb$$test_ar_0_0__5',2,4),u(1)).
+    cut0.
+    unify_constant_return_det(2,c(1)).
+    noop1(9).
+label(('de$$glb$$test_ar_0_0__5',2,2)).
+    cut_return.
+label(('de$$glb$$test_ar_0_0__5',2,3)).
+    fail.
+label(('de$$glb$$test_ar_0_0__5',2,4)).
+    fail0.
+label(('de$$glb$$test_ar_0_0__5',2,5)).
+    cut_fail.
+label(('de$$glb$$my_between_3_0__1',3)).
+label(('de$$glb$$my_between_3_0__1',3,-1)).
+    allocate_nondet(3,11,([],0),9).
+label(('de$$glb$$my_between_3_0__1',3,0)).
+    nondet(3).
+label(('de$$glb$$my_between_3_0__1',3,1)).
+    fork_unify_value(('de$$glb$$my_between_3_0__1',3,2),1,2).
+    return_nondet.
+    noop1(9).
+label(('de$$glb$$my_between_3_0__1',3,2)).
+    cut0.
+    add_u1v(2,-9).
+    move_value(-10,-9).
+    last_call(33,('e$$glb$$my_between',3),u(-10),u(3),u(1),11).
+    return_det.
+label(('de$$glb$$my_between_3_0__1',3,4)).
+    fail.
+label(('de$$glb$$my_between_3_0__1',3,5)).
+    fail0.
+label(('de$$glb$$my_between_3_0__1',3,6)).
+    cut_fail.
+label((dh___exsperm1_1_2_2_4_0__1,3)).
+label((dh___exsperm1_1_2_2_4_0__1,3,-1)).
+    allocate_nondet(3,11,([],0),9).
+label((dh___exsperm1_1_2_2_4_0__1,3,0)).
+    nondet(3).
+label((dh___exsperm1_1_2_2_4_0__1,3,1)).
+    bp_fork((dh___exsperm1_1_2_2_4_0__1,3,4)).
+    builtin2(266,(dh___exsperm1_1_2_2_4_0__1,3,2),u(1),v(-9)).
+    jmp((dh___exsperm1_1_2_2_4_0__1,3,3)).
+label((dh___exsperm1_1_2_2_4_0__1,3,2)).
+    move_var(-9).
+    para_uc(1,c(length)).
+    para_u(-9).
+    call0((picat_get,3),10).
+label((dh___exsperm1_1_2_2_4_0__1,3,3)).
+    add_u1v(-9,-10).
+    unify_value(2,-10).
+    cut.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label((dh___exsperm1_1_2_2_4_0__1,3,4)).
+    cut_return.
+label((dh___exsperm1_1_2_2_4_0__1,3,5)).
+    fail.
+label((dh___exsperm1_1_2_2_4_0__1,3,6)).
+    fail0.
+label((dh___exsperm1_1_2_2_4_0__1,3,7)).
+    cut_fail.
+label(('de$$glb$$action_4_0__1',1)).
+label(('de$$glb$$action_4_0__1',1,-1)).
+    allocate_nondet(1,9,([],0),9).
+label(('de$$glb$$action_4_0__1',1,0)).
+    nondet(1).
+label(('de$$glb$$action_4_0__1',1,1)).
+    bp_fork(('de$$glb$$action_4_0__1',1,2)).
+    para_u(1).
+    call0(('e$$glb$$unsafe',1),9).
+    cut.
+    fail.
+    return_det.
+    noop1(9).
+label(('de$$glb$$action_4_0__1',1,2)).
+    cut_return.
+label(('de$$glb$$action_4_0__1',1,3)).
+    fail.
+label(('de$$glb$$action_4_0__1',1,4)).
+    fail0.
+label(('de$$glb$$action_4_0__1',1,5)).
+    cut_fail.
+label((dh___exsmy_primes_1_1_2_4_0__1,3)).
+label((dh___exsmy_primes_1_1_2_4_0__1,3,-1)).
+    allocate_nondet(3,10,([],0),9).
+label((dh___exsmy_primes_1_1_2_4_0__1,3,0)).
+    nondet(3).
+label((dh___exsmy_primes_1_1_2_4_0__1,3,1)).
+    bp_fork((dh___exsmy_primes_1_1_2_4_0__1,3,2)).
+    builtin3(273,(dh___exsmy_primes_1_1_2_4_0__1,3,4),u(1),u(2),v(-9)).
+    jmpn_var_y(-9,(dh___exsmy_primes_1_1_2_4_0__1,3,4)).
+    cut0.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label((dh___exsmy_primes_1_1_2_4_0__1,3,2)).
+    cut_return.
+label((dh___exsmy_primes_1_1_2_4_0__1,3,3)).
+    fail.
+label((dh___exsmy_primes_1_1_2_4_0__1,3,4)).
+    fail0.
+label((dh___exsmy_primes_1_1_2_4_0__1,3,5)).
+    cut_fail.
+label((dh___exsbcolor_2_1_4_5_0__2,2)).
+label((dh___exsbcolor_2_1_4_5_0__2,2,-1)).
+    allocate_nondet(2,9,([],0),9).
+label((dh___exsbcolor_2_1_4_5_0__2,2,0)).
+    nondet(2).
+label((dh___exsbcolor_2_1_4_5_0__2,2,1)).
+    bp_fork((dh___exsbcolor_2_1_4_5_0__2,2,3)).
+    para_uu(1,2).
+    call0(('e$$glb$$edge',2),9).
+    return_nondet.
+    noop1(9).
+label((dh___exsbcolor_2_1_4_5_0__2,2,3)).
+    cut0.
+    last_call0(('e$$glb$$edge',2),9).
+    return_det.
+label((dh___exsbcolor_2_1_4_5_0__2,2,5)).
+    fail.
+label((dh___exsbcolor_2_1_4_5_0__2,2,6)).
+    fail0.
+label((dh___exsbcolor_2_1_4_5_0__2,2,7)).
+    cut_fail.
+label((dh___exsmy_primes_1_1_2_4_0__2,3)).
+label((dh___exsmy_primes_1_1_2_4_0__2,3,-1)).
+    allocate_nondet(3,10,([],0),9).
+label((dh___exsmy_primes_1_1_2_4_0__2,3,0)).
+    nondet(3).
+label((dh___exsmy_primes_1_1_2_4_0__2,3,1)).
+    bp_fork((dh___exsmy_primes_1_1_2_4_0__2,3,2)).
+    builtin3(37,(dh___exsmy_primes_1_1_2_4_0__2,3,4),u(2),c(2),v(-9)).
+    unify_value_cut(1,-9).
+    cut0.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label((dh___exsmy_primes_1_1_2_4_0__2,3,2)).
+    cut_return.
+label((dh___exsmy_primes_1_1_2_4_0__2,3,3)).
+    fail.
+label((dh___exsmy_primes_1_1_2_4_0__2,3,4)).
+    fail0.
+label((dh___exsmy_primes_1_1_2_4_0__2,3,5)).
+    cut_fail.
+label(('de$$glb$$f$$fibc_2_0__1',2)).
+label(('de$$glb$$f$$fibc_2_0__1',2,-1)).
+    allocate_nondet(2,9,([],0),9).
+label(('de$$glb$$f$$fibc_2_0__1',2,0)).
+    nondet(2).
+label(('de$$glb$$f$$fibc_2_0__1',2,1)).
+    bp_fork(('de$$glb$$f$$fibc_2_0__1',2,4)).
+    jmpn_id_uc(1,c(0),('de$$glb$$f$$fibc_2_0__1',2,2)).
+    jmp(('de$$glb$$f$$fibc_2_0__1',2,3)).
+label(('de$$glb$$f$$fibc_2_0__1',2,2)).
+    jmpn_id_uc(1,c(1),('de$$glb$$f$$fibc_2_0__1',2,5)).
+label(('de$$glb$$f$$fibc_2_0__1',2,3)).
+    cut.
+    unify_constant_return_det(2,c(1)).
+    noop1(9).
+label(('de$$glb$$f$$fibc_2_0__1',2,4)).
+    cut_return.
+label(('de$$glb$$f$$fibc_2_0__1',2,5)).
+    fail.
+label(('de$$glb$$f$$fibc_2_0__1',2,6)).
+    fail0.
+label(('de$$glb$$f$$fibc_2_0__1',2,7)).
+    cut_fail.
+label(('di$$glb$$f$$next_row_2_0__1',3)).
+label(('di$$glb$$f$$next_row_2_0__1',3,-1)).
+    allocate_nondet(3,9,([],0),9).
+label(('di$$glb$$f$$next_row_2_0__1',3,0)).
+    nondet(3).
+label(('di$$glb$$f$$next_row_2_0__1',3,1)).
+    bp_fork(('di$$glb$$f$$next_row_2_0__1',3,2)).
+    para_uu(1,2).
+    call0(('e$$picat_lib_aux$$f$$tail',2),9).
+    cut.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label(('di$$glb$$f$$next_row_2_0__1',3,2)).
+    cut_return.
+label(('di$$glb$$f$$next_row_2_0__1',3,3)).
+    fail.
+label(('di$$glb$$f$$next_row_2_0__1',3,4)).
+    fail0.
+label(('di$$glb$$f$$next_row_2_0__1',3,5)).
+    cut_fail.
+label((dh___exsperm_1_2_2_4_0__1,4)).
+label((dh___exsperm_1_2_2_4_0__1,4,-1)).
+    allocate_nondet(4,10,([],0),9).
+label((dh___exsperm_1_2_2_4_0__1,4,0)).
+    nondet(4).
+label((dh___exsperm_1_2_2_4_0__1,4,1)).
+    bp_fork((dh___exsperm_1_2_2_4_0__1,4,2)).
+    para_uuv(1,2,-9).
+    call0((picat_delete_one,3),10).
+    para_uu(3,-9).
+    call0(('e$$glb$$f$$perm',2),10).
+    cut.
+    unify_constant_return_det(4,c(1)).
+    noop1(9).
+label((dh___exsperm_1_2_2_4_0__1,4,2)).
+    cut_return.
+label((dh___exsperm_1_2_2_4_0__1,4,3)).
+    fail.
+label((dh___exsperm_1_2_2_4_0__1,4,4)).
+    fail0.
+label((dh___exsperm_1_2_2_4_0__1,4,5)).
+    cut_fail.
+label((dh___exscolor_2_1_1_4_0__2,2)).
+label((dh___exscolor_2_1_1_4_0__2,2,-1)).
+    allocate_nondet(2,9,([],0),9).
+label((dh___exscolor_2_1_1_4_0__2,2,0)).
+    nondet(2).
+label((dh___exscolor_2_1_1_4_0__2,2,1)).
+    bp_fork((dh___exscolor_2_1_1_4_0__2,2,3)).
+    para_uu(1,2).
+    call0(('e$$glb$$edge',2),9).
+    return_nondet.
+    noop1(9).
+label((dh___exscolor_2_1_1_4_0__2,2,3)).
+    cut0.
+    last_call0(('e$$glb$$edge',2),9).
+    return_det.
+label((dh___exscolor_2_1_1_4_0__2,2,5)).
+    fail.
+label((dh___exscolor_2_1_1_4_0__2,2,6)).
+    fail0.
+label((dh___exscolor_2_1_1_4_0__2,2,7)).
+    cut_fail.
+label((dh___exsmatrix_multi_2_1_3_5_0__1,3)).
+label((dh___exsmatrix_multi_2_1_3_5_0__1,3,-1)).
+    allocate_nondet(3,11,([],0),9).
+label((dh___exsmatrix_multi_2_1_3_5_0__1,3,0)).
+    nondet(3).
+label((dh___exsmatrix_multi_2_1_3_5_0__1,3,1)).
+    bp_fork((dh___exsmatrix_multi_2_1_3_5_0__1,3,4)).
+    builtin3(273,(dh___exsmatrix_multi_2_1_3_5_0__1,3,6),c(1),u(1),v(-9)).
+    builtin2(266,(dh___exsmatrix_multi_2_1_3_5_0__1,3,2),u(-9),v(-10)).
+    unify_value(2,-10).
+    jmp((dh___exsmatrix_multi_2_1_3_5_0__1,3,3)).
+label((dh___exsmatrix_multi_2_1_3_5_0__1,3,2)).
+    move_var(-10).
+    para_uc(-9,c(length)).
+    para_u(2).
+    call0((picat_get,3),11).
+label((dh___exsmatrix_multi_2_1_3_5_0__1,3,3)).
+    cut.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label((dh___exsmatrix_multi_2_1_3_5_0__1,3,4)).
+    cut_return.
+label((dh___exsmatrix_multi_2_1_3_5_0__1,3,5)).
+    fail.
+label((dh___exsmatrix_multi_2_1_3_5_0__1,3,6)).
+    fail0.
+label((dh___exsmatrix_multi_2_1_3_5_0__1,3,7)).
+    cut_fail.
+label(('de$$glb$$test_ar_0_0__2',2)).
+label(('de$$glb$$test_ar_0_0__2',2,-1)).
+    allocate_nondet(2,9,([],0),9).
+label(('de$$glb$$test_ar_0_0__2',2,0)).
+    nondet(2).
+label(('de$$glb$$test_ar_0_0__2',2,1)).
+    bp_fork(('de$$glb$$test_ar_0_0__2',2,2)).
+    builtin1(116,('de$$glb$$test_ar_0_0__2',2,4),u(1)).
+    cut0.
+    unify_constant_return_det(2,c(1)).
+    noop1(9).
+label(('de$$glb$$test_ar_0_0__2',2,2)).
+    cut_return.
+label(('de$$glb$$test_ar_0_0__2',2,3)).
+    fail.
+label(('de$$glb$$test_ar_0_0__2',2,4)).
+    fail0.
+label(('de$$glb$$test_ar_0_0__2',2,5)).
+    cut_fail.
+label(('de$$glb$$test_btree_0_0__1',2)).
+label(('de$$glb$$test_btree_0_0__1',2,-1)).
+    allocate_nondet(2,9,([],0),9).
+label(('de$$glb$$test_btree_0_0__1',2,0)).
+    nondet(2).
+label(('de$$glb$$test_btree_0_0__1',2,1)).
+    bp_fork(('de$$glb$$test_btree_0_0__1',2,2)).
+    para_u(1).
+    call0(('e$$glb$$is_bstree',1),9).
+    cut.
+    unify_constant_return_det(2,c(1)).
+    noop1(9).
+label(('de$$glb$$test_btree_0_0__1',2,2)).
+    cut_return.
+label(('de$$glb$$test_btree_0_0__1',2,3)).
+    fail.
+label(('de$$glb$$test_btree_0_0__1',2,4)).
+    fail0.
+label(('de$$glb$$test_btree_0_0__1',2,5)).
+    cut_fail.
+label((dh___exsmatrix_multi_2_1_2_6_0__1,3)).
+label((dh___exsmatrix_multi_2_1_2_6_0__1,3,-1)).
+    allocate_nondet(3,11,([],0),9).
+label((dh___exsmatrix_multi_2_1_2_6_0__1,3,0)).
+    nondet(3).
+label((dh___exsmatrix_multi_2_1_2_6_0__1,3,1)).
+    bp_fork((dh___exsmatrix_multi_2_1_2_6_0__1,3,4)).
+    builtin3(273,(dh___exsmatrix_multi_2_1_2_6_0__1,3,6),c(1),u(1),v(-9)).
+    builtin2(266,(dh___exsmatrix_multi_2_1_2_6_0__1,3,2),u(-9),v(-10)).
+    unify_value(2,-10).
+    jmp((dh___exsmatrix_multi_2_1_2_6_0__1,3,3)).
+label((dh___exsmatrix_multi_2_1_2_6_0__1,3,2)).
+    move_var(-10).
+    para_uc(-9,c(length)).
+    para_u(2).
+    call0((picat_get,3),11).
+label((dh___exsmatrix_multi_2_1_2_6_0__1,3,3)).
+    cut.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label((dh___exsmatrix_multi_2_1_2_6_0__1,3,4)).
+    cut_return.
+label((dh___exsmatrix_multi_2_1_2_6_0__1,3,5)).
+    fail.
+label((dh___exsmatrix_multi_2_1_2_6_0__1,3,6)).
+    fail0.
+label((dh___exsmatrix_multi_2_1_2_6_0__1,3,7)).
+    cut_fail.
+label((dh___exsqueens_1_1_2_4_0__1,3)).
+label((dh___exsqueens_1_1_2_4_0__1,3,-1)).
+    allocate_nondet(3,10,([],0),9).
+label((dh___exsqueens_1_1_2_4_0__1,3,0)).
+    nondet(3).
+label((dh___exsqueens_1_1_2_4_0__1,3,1)).
+    bp_fork((dh___exsqueens_1_1_2_4_0__1,3,2)).
+    add_u1v(2,-9).
+    unify_value_cut(1,-9).
+    cut0.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label((dh___exsqueens_1_1_2_4_0__1,3,2)).
+    cut_return.
+label((dh___exsqueens_1_1_2_4_0__1,3,3)).
+    fail.
+label((dh___exsqueens_1_1_2_4_0__1,3,4)).
+    fail0.
+label((dh___exsqueens_1_1_2_4_0__1,3,5)).
+    cut_fail.
+label(('de$$glb$$color_2_0__1',3)).
+label(('de$$glb$$color_2_0__1',3,-1)).
+    allocate_nondet(3,10,([],0),9).
+label(('de$$glb$$color_2_0__1',3,0)).
+    nondet(3).
+label(('de$$glb$$color_2_0__1',3,1)).
+    bp_fork(('de$$glb$$color_2_0__1',3,2)).
+    sub_u1v(2,-9).
+    unify_value_cut(1,-9).
+    cut0.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label(('de$$glb$$color_2_0__1',3,2)).
+    cut_return.
+label(('de$$glb$$color_2_0__1',3,3)).
+    fail.
+label(('de$$glb$$color_2_0__1',3,4)).
+    fail0.
+label(('de$$glb$$color_2_0__1',3,5)).
+    cut_fail.
+label(('de$$glb$$action_4_0__4',1)).
+label(('de$$glb$$action_4_0__4',1,-1)).
+    allocate_nondet(1,9,([],0),9).
+label(('de$$glb$$action_4_0__4',1,0)).
+    nondet(1).
+label(('de$$glb$$action_4_0__4',1,1)).
+    bp_fork(('de$$glb$$action_4_0__4',1,2)).
+    para_u(1).
+    call0(('e$$glb$$unsafe',1),9).
+    cut.
+    fail.
+    return_det.
+    noop1(9).
+label(('de$$glb$$action_4_0__4',1,2)).
+    cut_return.
+label(('de$$glb$$action_4_0__4',1,3)).
+    fail.
+label(('de$$glb$$action_4_0__4',1,4)).
+    fail0.
+label(('de$$glb$$action_4_0__4',1,5)).
+    cut_fail.
+label(('de$$glb$$test_btree_0_0__2',2)).
+label(('de$$glb$$test_btree_0_0__2',2,-1)).
+    allocate_nondet(2,9,([],0),9).
+label(('de$$glb$$test_btree_0_0__2',2,0)).
+    nondet(2).
+label(('de$$glb$$test_btree_0_0__2',2,1)).
+    bp_fork(('de$$glb$$test_btree_0_0__2',2,2)).
+    para_u(1).
+    call0(('e$$glb$$is_bstree',1),9).
+    cut.
+    unify_constant_return_det(2,c(1)).
+    noop1(9).
+label(('de$$glb$$test_btree_0_0__2',2,2)).
+    cut_return.
+label(('de$$glb$$test_btree_0_0__2',2,3)).
+    fail.
+label(('de$$glb$$test_btree_0_0__2',2,4)).
+    fail0.
+label(('de$$glb$$test_btree_0_0__2',2,5)).
+    cut_fail.
+label(('de$$glb$$test_ar_0_0__4',2)).
+label(('de$$glb$$test_ar_0_0__4',2,-1)).
+    allocate_nondet(2,9,([],0),9).
+label(('de$$glb$$test_ar_0_0__4',2,0)).
+    nondet(2).
+label(('de$$glb$$test_ar_0_0__4',2,1)).
+    bp_fork(('de$$glb$$test_ar_0_0__4',2,2)).
+    builtin1(116,('de$$glb$$test_ar_0_0__4',2,4),u(1)).
+    cut0.
+    unify_constant_return_det(2,c(1)).
+    noop1(9).
+label(('de$$glb$$test_ar_0_0__4',2,2)).
+    cut_return.
+label(('de$$glb$$test_ar_0_0__4',2,3)).
+    fail.
+label(('de$$glb$$test_ar_0_0__4',2,4)).
+    fail0.
+label(('de$$glb$$test_ar_0_0__4',2,5)).
+    cut_fail.

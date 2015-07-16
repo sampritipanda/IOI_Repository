@@ -1,0 +1,113 @@
+module prism.
+
+chindsight(Goal) => chindsight(Goal,_SubG,HProbs),print_chindsight(HProbs).
+chindsight(Goal,SubG,HProbs) => bp.prism_dyna_change_goal(Goal,NGoal), bp.chindsight(NGoal,SubG,HProbs0),trans_expls(HProbs0,HProbs). 
+chindsight_agg(Goal,Agg) => chindsight_agg_aux(Goal,Agg).
+fix_sw(Switch) => bp.fix_sw(Switch).
+get_prism_flag(Flag,Val) => bp.get_prism_flag(Flag,Val).
+get_samples(N,G,Gs) => get_samples_aux(N,G,Gs).
+get_samples_c(N,G,C,Gs,NSFs) => get_samples_c_aux(N,G,C,Gs,NSFs).
+get_sw(Switch,Info) => bp.get_sw(Switch,Info).
+get_values(Swi,Os) => bp.get_values(Swi,Os).
+hindsight(Goal) => hindsight(Goal,_SubG,HProbs), print_hindsight(HProbs).
+hindsight(Goal,SubG,HProbs) => bp.prism_dyna_change_goal(Goal,NGoal), bp.hindsight(NGoal,SubG,HProbs0),trans_expls(HProbs0,HProbs). 
+learn(Goals) => NGoals=[NGoal : Goal in Goals, bp.prism_dyna_change_goal(Goal,NGoal)],bp.learn(NGoals).
+msw(Switch,Value) => bp.msw(Switch,Value).
+print_graph(E) => bp.print_graph(E).
+prism_help => bp.prism_help.
+prob(Goal) => prob(Goal,P), print_prob(Goal,P).
+prob(Goal,P) => bp.prism_dyna_change_goal(Goal,NGoal), bp.prob(NGoal,P).
+probf(Goal) => probf(Goal,Exp), not not bp.print_graph(Exp,$[lr('<=>')]).
+probf(Goal,Exp) => bp.prism_dyna_change_goal(Goal,NGoal), bp.probf(NGoal,Exp1), trans_expls(Exp1,Exp).
+random_select(Os,Ds,O) => bp.random_select(Os,Ds,O).
+random_set_seed(Seed) => bp.random_set_seed(Seed).
+sample(Goal) => bp.prism_dyna_change_goal(Goal,NGoal), bp.sample(NGoal).
+set_prism_flag(Flag,Val) => bp.set_prism_flag(Flag,Val).
+set_sw(Switch) => bp.set_sw(Switch).
+set_sw(Switch,Distribution) => bp.set_sw(Switch,Distribution).
+show_sw => bp.show_sw.
+soft_msw(Switch,Value) => bp.soft_msw(Switch,Value).
+unfix_sw(Switch) => bp.unfix_sw(Switch).
+viterbi(Goal) => bp.prism_dyna_change_goal(Goal,NGoal), bp.viterbi(NGoal).
+viterbi(Goal,P) => bp.prism_dyna_change_goal(Goal,NGoal), bp.viterbi(NGoal,P).
+viterbi_subgoals(VNodes,Gs) => bp.viterbi_subgoals(VNodes,Gs).
+viterbif(Goal) => viterbif(Goal,Prob,Nodes), print_viterbif(Prob,Nodes).
+viterbif(Goal,Prob,Nodes) => bp.prism_dyna_change_goal(Goal,NGoal),	bp.viterbif(NGoal,Prob,Nodes0), trans_expls(Nodes0,Nodes). 
+viterbit(Goal) => viterbit(Goal,Prob,Nodes), print_viterbit(Prob,Nodes).
+viterbit(Goal,Prob,Nodes) => bp.prism_dyna_change_goal(Goal,NGoal),	bp.viterbit(NGoal,Prob,Nodes0), trans_expls(Nodes0,Nodes). 
+
+get_samples_aux(N,G,Gs) =>           % G assumed to never fail
+    bp.'$pp_require_positive_integer'(N,$'$msg'(1203),$(get_samples/3)),
+    bp.prism_dyna_change_goal(G,ProbG),
+    bp.'$pp_require_probabilistic_atom'(ProbG,$'$msg'(1201),$(get_samples/3)),	
+    picat_get_samples(N,G,Gs).
+
+picat_get_samples(0,_,Gs) => Gs=[].
+picat_get_samples(N,G,Gs) =>
+    Gs = [G1|GsR],
+    copy_term(G) = G1,
+    sample(G1),
+    N1 is N - 1,
+    picat_get_samples(N1,G,GsR).
+
+get_samples_c_aux(N,G,C,Gs,NSFs) =>
+    bp.prism_dyna_change_goal(G,ProbG),
+    bp.get_samples_c(N,ProbG,C,Gs0,NSFs),
+    trans_expls(Gs0,Gs).
+
+chindsight_agg_aux(Goal,Agg) =>
+    bp.prism_dyna_change_goal(Goal,NGoal), 
+	bp.prism_dyna_change_goal(Agg,NAgg), 
+	bp.chindsight_agg(NGoal,NAgg).
+
+trans_expls(Nodes,NNodes) => 
+    NNodes = [trans_root(Node) : Node in Nodes].
+
+trans_root(node(L,Paths)) = $node(NL,NPaths) =>
+    bp.'$picat_strip_module'(L,_,_,NL),
+    NPaths = [trans_path(Path) : Path in Paths].
+trans_root(List@[_|_]) = [trans_path(Path) : Path in List].
+trans_root(Label) = Label, atomic(Label) => true.
+trans_root(Label) = NLabel =>
+    bp.'$picat_strip_module'(Label,_,_,NLabel).      
+
+trans_path(path(TNodes,SNodes)) = $path(NTNodes,NSNodes) =>
+    NTNodes = [trans_node(TNode) : TNode in TNodes],
+    NSNodes = [trans_node(SNode) : SNode in SNodes].
+trans_path(List@[_|_]) = [trans_node(Node) : Node in List].
+trans_path(Label) = Label, atomic(Label) => true.
+trans_path(Label) = NLabel =>
+    bp.'$picat_strip_module'(Label,_,_,NLabel).      
+
+trans_node(gnode(Label,Value)) = $gnode(NLabel,Value) =>
+    bp.'$picat_strip_module'(Label,_,_,NLabel).   
+trans_node(snode(Label,Value)) = $snode(NLabel,Value) =>
+    bp.'$picat_strip_module'(Label,_,_,NLabel).   
+trans_node(List@[_|_]) = [trans_node(Node) : Node in List].
+trans_node(Label) = Label, atomic(Label) => true.
+trans_node(Label) = NLabel =>
+    bp.'$picat_strip_module'(Label,_,_,NLabel).   
+
+print_viterbif(Prob,Nodes) =>
+    nl,
+    bp.print_graph(Nodes,[$lr('<=')]),
+    bp.'$pp_print_viterbi_prob'(Prob).
+
+print_viterbit(Prob,Nodes) =>
+    nl,
+    bp.print_tree(Nodes),
+    bp.'$pp_print_viterbi_prob'(Prob).
+
+print_prob(Goal,P) =>
+    ( bp.'$pp_in_log_scale' -> Text = "Log-probability" ; Text = "Probability" ),
+    printf("%s of %w is: %15f%n",Text,Goal,P).
+
+print_hindsight([]) => bp.'$pp_raise_warning'($'$msg'(1404)).
+print_hindsight(HProbs) => 
+    printf("hindsight probabilities:%n"),
+	bp.'$pp_print_hindsight_probs'(HProbs).
+
+print_chindsight([]) => bp.'$pp_raise_warning'($'$msg'(1404)).
+print_chindsight(HProbs) => 
+    printf("conditional hindsight probabilities:%n"),
+	bp.'$pp_print_hindsight_probs'(HProbs).
