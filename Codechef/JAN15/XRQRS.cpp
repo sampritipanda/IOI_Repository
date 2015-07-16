@@ -1,9 +1,11 @@
 // Xor Queries
 
 #include <stdio.h>
+#include <iostream>
 #include <vector>
 #include <map>
 #include <set>
+#include <algorithm>
 
 using namespace std;
 
@@ -20,7 +22,7 @@ namespace XORQuery {
   };
 
   void insert_node(int num, int idx, TrieNode* curr){
-    for(int i = 18; i >= 0; i--){
+    for(int i = 19; i >= 0; i--){
       int bit = ((num & (1 << i)) != 0) ? 1 : 0;
       curr->indexes.insert(idx);
       if(curr->children[bit] == NULL) curr->children[bit] = new TrieNode;
@@ -31,10 +33,9 @@ namespace XORQuery {
 
   int query(int x, int L, int R, TrieNode* curr){
     int max = 0;
-    for(int i = 18; i >= 0; i--){
+    for(int i = 19; i >= 0; i--){
       int bit = ((x & (1 << i)) != 0) ? 0 : 1;
-      auto it = lower_bound(curr->indexes.begin(), curr->indexes.end(), L);
-      if(curr->children[bit] == NULL || it == curr->indexes.end() || !(*it <= R)){
+      if(curr->children[bit] == NULL || curr->children[bit]->indexes.lower_bound(L) == curr->children[bit]->indexes.upper_bound(R)) {
         bit = (bit == 1) ? 0 : 1;
       }
       max = max << 1;
@@ -46,7 +47,7 @@ namespace XORQuery {
   }
 
   bool delete_node(int x, int idx, TrieNode* curr){
-    for(int i = 18; i >= 0; i--){
+    for(int i = 19; i >= 0; i--){
       int bit = ((x & (1 << i)) != 0) ? 1 : 0;
       curr->indexes.erase(idx);
       if(curr->children[bit] == NULL) break;
@@ -57,24 +58,22 @@ namespace XORQuery {
 }
 
 int sort_query(vector<int>& arr, int L, int R, int x, int type){
-  map<int, int> count_map;
-  for(int i = L; i <= R; i++){
-    count_map[arr[i]]++;
-  }
 
   if(type == 3){
     int count = 0;
-    for(auto it: count_map){
-      if(it.first <= x) count += it.second;
+    for(int i = L; i <= R; i++) {
+      if(arr[i] <= x) count++;
     }
     return count;
   }
   else {
-    int curr = 0;
-    for(auto it: count_map){
-      if(curr + it.second >= x) return it.first;
-      else curr += it.second;
+    vector<int> range;
+    for(int i = L; i <= R; i++){
+      range.push_back(arr[i]);
     }
+    sort(range.begin(), range.end());
+
+    return range[x - 1];
   }
 }
 

@@ -1,0 +1,7 @@
+gcd(A, 0) = A.
+gcd(A, B) = gcd(B, A mod B).
+
+main =>
+  A = read_int(),
+  B = read_int(),
+  writef("%d%n", gcd(A, B))

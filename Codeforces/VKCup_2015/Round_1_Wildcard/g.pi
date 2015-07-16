@@ -1,0 +1,16 @@
+table
+edit(A, B, 0, 0) = 0.
+edit(A, B, 0, N) = N.
+edit(A, B, M, 0) = M.
+edit(A, B, M, N) =>
+  X = min(edit(A, B, M - 1, N) + (ord(A[M]) - ord('a') + 1), edit(A, B, M, N - 1) + (ord(A[N]) - ord('a') + 1)),
+  if A[M] != A[N] then
+    X := min(X, edit(A, B, M - 1, N - 1) + abs(ord(A[M]) - ord(A[N])))
+  end,
+  X.
+
+main =>
+  A = read_line(stdin),
+  B = read_line(stdin),
+
+  println(edit(A, B, A.length(), B.length()))
