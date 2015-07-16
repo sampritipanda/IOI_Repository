@@ -1,0 +1,108 @@
+label(('$damon_load',0)).
+label(('$damon_load',0,-1)).
+    allocate_det(0,4,([],0),4).
+label(('$damon_load',0,1)).
+    return_det.
+label(('$damon_load',0,2)).
+    fail.
+label(('$damon_load',0,3)).
+    fail0.
+label(('$damon_load',0,4)).
+    cut_fail.
+label(('e$$glb$$main',0)).
+label(('e$$glb$$main',0,-1)).
+    allocate_det(0,8,([],0),4).
+label(('e$$glb$$main',0,1)).
+    para_vv(-4,-5).
+    para_v(-6).
+    call0(('e$$glb$$max_chain',3),7).
+    move_comp_list(-7,23,c('N'),c(=),c('%'),c(w),c('\n'),c('L'),c(e),c(n),c(=),c('%'),c(w),c('%'),c(n),c('C'),c(h),c(a),c(i),c(n),c(=),c('%'),c(w),c('%'),c(n)).
+    last_call(17185,(picat_writef,4),u(-7),u(-4),u(-6),u(-5),8).
+    return_det.
+label(('e$$glb$$main',0,3)).
+    fail.
+label(('e$$glb$$main',0,4)).
+    fail0.
+label(('e$$glb$$main',0,5)).
+    cut_fail.
+label(('e$$glb$$max_chain',3)).
+label(('e$$glb$$max_chain',3,-1)).
+    table_allocate(3,13,('e$$glb$$max_chain',3),13).
+    table_mode(7,196608,1).
+label(('e$$glb$$max_chain',3,0)).
+label(('e$$glb$$max_chain',3,1)).
+    bp_fork(('e$$glb$$max_chain',3,999999)).
+    para_c(c(1)).
+    para_c(c(1000000)).
+    para_u(3).
+    call0((bp_between,3),13).
+    para_uuu(3,2,1).
+    call0(('e$$glb$$gen',3),13).
+    table_produce.
+    noop1(13).
+    noop1(13).
+label(('e$$glb$$max_chain',3,999999)).
+    table_check_completion(('e$$glb$$max_chain',3,0)).
+label(('e$$glb$$max_chain',3,3)).
+    fail.
+label(('e$$glb$$max_chain',3,4)).
+    fail0.
+label(('e$$glb$$max_chain',3,5)).
+    cut_fail.
+label(('e$$glb$$gen',3)).
+label(('e$$glb$$gen',3,-1)).
+    table_allocate(3,23,('e$$glb$$gen',3),13).
+    table_mode(6,0,1).
+label(('e$$glb$$gen',3,0)).
+label(('e$$glb$$gen',3,1)).
+    jmpn_eq_constant(3,c(1),('e$$glb$$gen',3,2),('e$$glb$$gen',3,2)).
+    fork_unify_cons_cc(('e$$glb$$gen',3,999999),2,c(1),c([])).
+    unify_constant(1,c(1)).
+    table_produce.
+    noop1(13).
+label(('e$$glb$$gen',3,2)).
+    mod(u(3),c(2),-13).
+    move_value(-14,-13).
+    jmpn_id_uc(-14,c(0),('e$$glb$$gen',3,3)).
+    bp_fork(('e$$glb$$gen',3,999999)).
+    move_struct0(-15,(div,2)).
+    build_arg_u(3).
+    build_arg_c(c(2)).
+    add_uiv(-15,0,-16).
+    move_value(-17,-16).
+    move_value(-18,-17).
+    para_uv(-18,-19).
+    para_v(-20).
+    call0(('e$$glb$$gen',3),21).
+    unify_cons_uu(2,3,-19).
+    unify_arg_read_u(-19).
+    add_u1v(-20,-21).
+    move_value(-22,-21).
+    unify_value(1,-22).
+    table_produce.
+    noop1(23).
+label(('e$$glb$$gen',3,3)).
+    bp_fork(('e$$glb$$gen',3,999999)).
+    mul_iuv(3,3,-13).
+    move_value(-14,-13).
+    add_u1v(-14,-15).
+    move_value(-16,-15).
+    para_uv(-16,-17).
+    para_v(-18).
+    call0(('e$$glb$$gen',3),19).
+    unify_cons_uu(2,3,-17).
+    unify_arg_read_u(-17).
+    add_u1v(-18,-19).
+    move_value(-20,-19).
+    unify_value(1,-20).
+    table_produce.
+    noop1(21).
+    noop1(13).
+label(('e$$glb$$gen',3,999999)).
+    table_check_completion(('e$$glb$$gen',3,0)).
+label(('e$$glb$$gen',3,4)).
+    fail.
+label(('e$$glb$$gen',3,5)).
+    fail0.
+label(('e$$glb$$gen',3,6)).
+    cut_fail.

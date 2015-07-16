@@ -1,0 +1,9 @@
+https://github.com/schulzchristian/KaHIP
+https://github.com/li3939108/Partitioning
+https://github.com/JuliaSparse/Metis.jl
+https://github.com/masa16/rbmetis
+https://github.com/dtak1114/grid_partition
+https://github.com/tinkerpop/blueprints
+https://github.com/alidasdan/graph-partitioning-algorithms
+https://github.com/pollo/graph-partitioning
+http://glaros.dtc.umn.edu/gkhome/metis/metis/overview

@@ -1,0 +1,18 @@
+import math.
+
+main =>
+  A = read_int(),
+  B = read_int(),
+  C = read_int(),
+  D = B*B - 4*A*C,
+  S_D = sqrt(D),
+  A_T = 2 * A,
+  X = (-B + S_D)/A_T,
+  Y = (-B - S_D)/A_T,
+  if (X == Y) then
+    println(X)
+  elseif X > Y then
+    writef("%w %w%n", Y, X)
+  else
+    writef("%w %w%n", X, Y)
+  end.

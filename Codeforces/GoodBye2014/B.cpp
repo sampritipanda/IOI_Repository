@@ -6,9 +6,9 @@
 
 using namespace std;
 
-bool graph[300][300];
-int A[300];
-bool visited[300];
+bool graph[310][310];
+int A[310];
+bool visited[310];
 int N;
 
 void dfs(int curr, vector<int>& indexes, vector<int>& values){

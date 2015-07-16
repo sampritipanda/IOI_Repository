@@ -1,0 +1,36 @@
+main =>
+  A = read_int(),
+  B = read_int(),
+  C = read_int(),
+
+  X = 1,
+  Y = 1,
+  Count = 0,
+
+  while(X <= C)
+    Y := 1,
+    while(Y <= C)
+      R = A * X + B * Y,
+      if R == C then
+        Count := Count + 1
+      end,
+      Y := Y + 1
+    end,
+    X := X + 1
+  end,
+
+  println(Count),
+
+  X := 1,
+  Y := 1,
+  while(X <= C)
+    Y := 1,
+    while(Y <= C)
+      R = A * X + B * Y,
+      if R == C then
+        writef("%w %w%n", X, Y)
+      end,
+      Y := Y + 1
+    end,
+    X := X + 1
+  end.

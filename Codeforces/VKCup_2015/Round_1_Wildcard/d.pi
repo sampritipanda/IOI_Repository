@@ -1,0 +1,38 @@
+main =>
+  N = read_int(),
+  M = new_map(),
+
+  X = 1,
+  C = 1000,
+
+  while (X <= C)
+    M.put(X, 1),
+    X := X + 1
+  end,
+
+  while (N > 0)
+    A = read_int(),
+    B = read_int(),
+    foreach(I in A..B)
+      M.put(I, 0)
+    end,
+    N := N - 1
+  end,
+
+  Count = 0,
+
+  foreach(I in 1..1000)
+    if get(M, I) == 1 then
+      Count := Count + 1
+    end
+  end,
+
+  writef("%w ", Count),
+
+  foreach(I in 1..1000)
+    if get(M, I) == 1 then
+      writef("%w ", I)
+    end
+  end,
+
+  writef("%n").

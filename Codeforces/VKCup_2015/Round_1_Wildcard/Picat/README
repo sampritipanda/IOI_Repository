@@ -1,0 +1,76 @@
+
+Picat is a simple, and yet powerful, logic-based
+multi-paradigm programming language aimed for
+general-purpose applications. Picat is a rule-based
+language, in which predicates, functions, and actors are
+defined with pattern-matching rules. Picat incorporates
+many declarative language features for better productivity
+of software development, including explicit
+non-determinism, explicit unification, functions, list
+comprehensions, constraints, and tabling. Picat also
+provides imperative language constructs, such as
+assignments and loops, for programming everyday things. The
+Picat implementation, which is based on a well-designed
+virtual machine and incorporates a memory manager that
+garbage-collects and expands the stacks and data areas when
+needed, is efficient and scalable. Picat can be used for
+not only symbolic computations, which is a traditional
+application domain of declarative languages, but also for
+scripting and modeling tasks. 
+
+Compared with functional and scripting languages, the
+support of explicit unification, explicit non-determinism,
+tabling, and constraints makes Picat more suitable for
+symbolic computations. Compared with Prolog, Picat is
+arguably more expressive and scalable: it is not rare to
+find problems for which Picat requires an order of
+magnitude fewer lines of code to describe than Prolog and
+Picat can be significantly faster than Prolog because
+pattern-matching facilitates indexing of rules. 
+
+The Picat implementation is based on the B-Prolog engine.
+The Picat system is written in both C and Picat. The
+package has the following directories of files:
+
+ Picat/README      --       this file
+ Picat/picat       --       the executable for Linux
+ Picat/picat.exe   --       the executable for Windows
+ Picat/doc         --       documentation
+ Picat/lib         --       library modules 
+   basic.pi 
+   cp.pi 
+   io.pi 
+   math.pi 
+   os.pi 
+   planner.pi 
+   sat.pi
+   sys.pi
+   util.pi 
+
+Each library file gives the set of functions, predicates,
+and constraints provided by the module. The library modules
+are included in the executable and no setting of the
+environment variable PICATPATH is required. The modules
+"basic.pi", "io.pi", "math.pi", and "sys.pi" are imported
+by default, and the symbols defined in these modules are
+directly available to applications. The modules "cp.pi",
+"os.pi", "planner.pi", "sat.pi" and "util.pi" are not
+imported by default. Applications need to import them in
+order to access the functions, predicates, and constraints
+defined in the modules.
+
+This Picat system is distributed under the Mozilla Public
+License (http://mozilla.org/MPL/2.0/). The Picat system is
+provided free of charge for any fair application, including
+commercial applications. The C source code is available to
+registered users. Interested users can register at:
+
+http://picat-lang.org/download.html
+
+The folder "Picat/emu" contains the C source code needed to
+make Picat's standalone executable. It also contains the C
+source code of the MiniSAT and Lingeling SAT solvers. For
+Windows, MiniSAT should be used since Lingeling only
+compiles with GCC. This folder also contains make files for
+different platforms.
+

@@ -1,0 +1,10 @@
+main =>
+  L = read_line(stdin),
+  N_D = L.length(),
+  N = floor(N_D/2),
+  A = slice(L, 1, N),
+  B = slice(L, N + 1, N_D),
+  A_R = reverse(A),
+  B_R = reverse(B),
+  C = A_R ++ B_R,
+  println(C).
