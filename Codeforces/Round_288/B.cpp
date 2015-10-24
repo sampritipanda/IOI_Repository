@@ -5,28 +5,33 @@
 
 using namespace std;
 
-int main() {
-  string N; cin >> N;
-  int len = N.length();
-  string max = N;
-  bool first = true;
-  for(int i = 0; i < len - 1; i++){
-    int digit = N[i] - '0';
-    if(digit % 2 == 0){
-      string t = N;
-      char temp = t[i];
-      t[i] = t[len - 1];
-      t[len - 1] = temp;
-
-      if(t > max || first) {
-        max = t;
-        first = false;
-      }
+string solve(string S, int N) {
+  for(int i = 0; i < N; i++) {
+    if((S[i] - '0') % 2 == 0 && S[N - 1] > S[i]) {
+      swap(S[i], S[N - 1]);
+      return S;
     }
   }
 
-  if(N == max) cout << -1 << endl;
-  else {
-    cout << max << endl;
+  for(int i = 0; i < N; i++) {
+    if((S[i] - '0') % 2 == 0 && S[i] == S[N - 1]) {
+      swap(S[i], S[N - 1]);
+      return S;
+    }
   }
+
+  for(int i = N - 2; i >= 0; i--) {
+    if((S[i] - '0') % 2 == 0) {
+      swap(S[i], S[N - 1]);
+      return S;
+    }
+  }
+
+  return "-1";
+}
+
+int main() {
+  string N; cin >> N;
+
+  cout << solve(N, N.length()) << endl;
 }

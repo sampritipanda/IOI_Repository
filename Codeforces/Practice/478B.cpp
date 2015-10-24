@@ -1,8 +1,11 @@
 // Random Teams
 
 #include <iostream>
+#include <algorithm>
 
-using namespace std;
+using std::cin;
+using std::cout;
+using std::endl;
 
 unsigned long long pairs(int N){
   if(N == 0) return 0;
@@ -13,11 +16,11 @@ unsigned long long pairs(int N){
 }
 
 int main() {
-  int n, m; cin >> n >> m;
+  unsigned long long n, m; cin >> n >> m;
 
   if(m == 1) cout << pairs(n) << " " << pairs(n) << endl;
   else {
-    unsigned long long min = n/2;
+    unsigned long long min = pairs(n/m) * (m - (n % m)) + pairs(n/m + 1) * (n % m);
     unsigned long long max = pairs(n - (m - 1));
     cout << min << " " << max << endl;
   }

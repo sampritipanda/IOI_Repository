@@ -41,6 +41,14 @@ int search(trie_node* curr_node, string key) {
     return length;
 }
 
+void free_trie(trie_node* node) {
+  for(int i = 0; i < 26; i++) {
+    if(node->children[i] != NULL) free_trie(node->children[i]);
+  }
+
+  delete node;
+}
+
 int main() {
   int T; cin >> T;
 
@@ -57,5 +65,7 @@ int main() {
     }
 
     cout << "Case #" << i << ": " << count << endl;
+
+    free_trie(trie);
   }
 }
