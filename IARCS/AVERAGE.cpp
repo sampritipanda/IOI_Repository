@@ -1,27 +1,35 @@
 // Average
 
 #include <stdio.h>
-#include <map>
+#include <algorithm>
+
+using namespace std;
+
+int A[10000];
 
 int main() {
   int N; scanf("%d", &N);
-  int A[N];
-  std::map<int, bool> hashmap;
-  int average_count = 0;
+  for(int i = 0; i < N; i++) scanf("%d", A + i);
 
-  for(int i = 0; i < N; i++){
-    scanf("%d", &A[i]);
-  }
+  sort(A, A + N);
 
-  for(int i = 0; i < N; i++){
-    int sum = A[i] * 2;
-    for(int j = 0; j < N; j++){
-      int temp = sum - A[j];
-      if(hashmap[temp] == 1) average_count++;
-      hashmap[A[j]] = 1;
+  int ans = 0;
+  for(int k = 0; k < N; k++) {
+    int i = 0, j = N - 1;
+    int sum = 2*A[k];
+    while(i < j) {
+      if(A[i] + A[j] < sum) {
+        i++;
+      }
+      else if(A[i] + A[j] > sum) {
+        j--;
+      }
+      else {
+        ans++;
+        break;
+      }
     }
-    hashmap.clear();
   }
 
-  printf("%d\n", average_count);
+  printf("%d\n", ans);
 }
