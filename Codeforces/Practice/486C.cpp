@@ -12,10 +12,15 @@ int main() {
   string S, T, temps; cin >> S;
   T = S; temps = S; reverse(T.begin(), T.end());
 
+  if(S == T) {
+    cout << 0 << endl;
+    return 0;
+  }
+
   int ans = 0;
 
   if(N % 2 == 0) {
-    if(P > N/2) P = N - P + 1;;
+    if(P > N/2) P = N - P + 1;
   }
   else {
     if(P == N/2 + 1) P--, ans++;
@@ -27,7 +32,7 @@ int main() {
     if(S[x - 1] != T[x - 1]) break;
   }
   for(y = (N + 1)/2; y >= P; y--) {
-    if(S[x - 1] != T[x - 1]) break;
+    if(S[y - 1] != T[y - 1]) break;
   }
 
   int temp = P;
@@ -40,7 +45,7 @@ int main() {
     }
     build_up++;
   }
-  P++;
+  if(x <= temp) P++;
   build_up = 0;
   for(; P <= y; P++) {
     if(S[P - 1] != T[P - 1]) {
@@ -61,9 +66,9 @@ int main() {
       try2 += min(abs(S[P - 1] - T[P - 1]), min(S[P - 1], T[P - 1]) + 26 - max(S[P - 1], T[P - 1]));
       S[P - 1] = T[P - 1];
     }
-   build_up++;
+    build_up++;
   }
-  P--;
+  if(y >= temp) P--;
   build_up = 0;
   for(; P >= x; P--) {
     if(S[P - 1] != T[P - 1]) {
@@ -74,6 +79,5 @@ int main() {
     build_up++;
   }
 
-  cout << try1 << " " << try2 << endl;
   cout << ans + min(try1, try2) << endl;
 }

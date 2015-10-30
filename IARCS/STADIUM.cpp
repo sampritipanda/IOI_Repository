@@ -1,26 +1,31 @@
 // The Siruseri Sports Stadium
 
 #include <stdio.h>
-#include <utility>
+#include <vector>
 #include <algorithm>
+
+using namespace std;
+
+vector<pair<int, int> > events, sort_arr;
 
 int main(){
   int N; scanf("%d", &N);
 
-  std::pair<int, int> events[N];
-
   for(int i = 0; i < N; i++){
     int a, b;
     scanf("%d %d", &a, &b);
-    events[i] = std::make_pair(a, b);
+    events.push_back({a, b});
+    sort_arr.push_back({a + b, i});
   }
 
-  std::sort(events, events + N);
+  sort(sort_arr.begin(), sort_arr.end());
 
   int curr_end = 0, count = 0;
+
   for(int i = 0; i < N; i++){
-    if(events[i].first >= curr_end){
-      curr_end = events[i].first + events[i].second;
+    int j = sort_arr[i].second;
+    if(events[j].first > curr_end){
+      curr_end = events[j].first + events[j].second;
       count++;
     }
   }
