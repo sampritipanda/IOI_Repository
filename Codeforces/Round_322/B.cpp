@@ -12,7 +12,7 @@ int main() {
   int N; cin >> N;
   for(int i = 0; i < N; i++) cin >> A[i];
   S[N - 1] = A[N - 1];
-  for(int i = N - 1; i >= 0; i--) S[i] = max(S[i + 1], A[i]);
+  for(int i = N - 2; i >= 0; i--) S[i] = max(S[i + 1], A[i]);
   ans.push_back(0);
   for(int i = N - 2; i >= 0; i--) {
     if(A[i] > S[i + 1]) ans.push_back(0);

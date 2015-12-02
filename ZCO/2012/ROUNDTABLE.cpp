@@ -1,29 +1,41 @@
-#include <stdio.h>
+#include <iostream>
+#include <algorithm>
 
 using namespace std;
 
-inline int min(int a, int b){
-  return (a < b ? a : b);
+int N;
+int A[1000001], dp[1000001][2], dp2[1000001][2];
+
+int solve(int i, int j) {
+  if(i >= N) return A[N];
+  if(dp[i][j] != -1) return dp[i][j];
+
+  if(j == 0) {
+    return dp[i][j] = solve(i + 1, 1);
+  }
+  else {
+    return dp[i][j] = A[i] + min(solve(i + 1, 0), solve(i + 1, 1));
+  }
+}
+
+int solve2(int i, int j) {
+  if(i > N) return A[1];
+  if(dp2[i][j] != -1) return dp2[i][j];
+
+  if(j == 0) {
+    return dp2[i][j] = solve2(i + 1, 1);
+  }
+  else {
+    return dp2[i][j] = A[i] + min(solve2(i + 1, 0), solve2(i + 1, 1));
+  }
 }
 
 int main() {
-  int N; scanf("%d", &N);
-  int desserts[N], dp[N];
+  cin >> N;
 
-  for(int i = 0; i < N; i++){
-    scanf("%d", &desserts[i]);
-  }
+  for(int i = 0; i <= N; i++) dp[i][0] = dp[i][1] = dp2[i][0] = dp2[i][1] = -1;
+  for(int i = 1; i <= N; i++) cin >> A[i];
 
-  if(N == 1){
-    printf("%d\n", desserts[0]);
-  }
-  else {
-    dp[0] = desserts[0];
-    dp[1] = dp[0] + desserts[1];
-
-    for(int i = 2; i < N; i++){
-      dp[i] = min(dp[i - 1], dp[i - 2]) + desserts[i];
-    }
-    printf("%d\n", min(min(dp[0], dp[N - 1]), dp[N - 2]));
-  }
+  if(N == 1) cout << A[1] << endl;
+  else cout << min(min(solve(1, 0), solve(1, 1)), min(solve2(2, 0), solve2(2, 1))) << endl;
 }

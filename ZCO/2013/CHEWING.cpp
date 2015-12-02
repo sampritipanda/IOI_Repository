@@ -7,25 +7,25 @@ using namespace std;
 int K = 0;
 
 int main() {
-	// Input
-	int N, K;
-	cin >> N >> K;
+	int N, K; cin >> N >> K;
 	vector<int> gum (N);
+
 	for(int i = 0; i < N; i++) {
 		cin >> gum[i];
 	}
-	
+
 	sort(gum.begin(), gum.end());
-	
-	long long combs = 0;
-	
+
+	long long ans = 0;
+
   for(int i = 0; i < N; i++){
-    long long index = lower_bound(gum.begin(), gum.end(), K - gum[i]) - gum.begin() - 1;
-    if(index < i) break;
-    combs += index - i;
+    if(gum[i] >= K) break;
+
+    int j = lower_bound(gum.begin() + i, gum.end(), K - gum[i]) - (gum.begin() + i); j--;
+    if(j > 0) ans += j;
   }
-	
-	cout << combs << endl;
-	
+
+	cout << ans << endl;
+
 	return 0;
 }

@@ -1,32 +1,23 @@
-// SUPW
- 
-#include <stdio.h>
 #include <iostream>
-#include <vector>
- 
+
 using namespace std;
- 
+
+long long A[200001], dp[200001];
+
+int N;
+
+long long solve(int i) {
+  if(i > N) return 0;
+  if(dp[i] != -1) return dp[i];
+
+  long long ans = A[i] + min(solve(i + 1), min(solve(i + 2), solve(i + 3)));
+  return dp[i] = ans;
+}
+
 int main() {
-        int N;
-        cin >> N;
-        int limit = 2147483646;
-        int size = N/3 + 1;
-        if(N%3 == 0) size -= 1;
-        vector<vector<int> > data(size, std::vector<int>(3));;
-        if(N%3 != 0){
-                data[N/3][0] = limit;
-                data[N/3][1] = limit;
-                data[N/3][2] = limit;
-        }
-        long long sum = 0;
-        for(int i = 0; i < N; i++){
-                cin >> data[i/3][i%3];
-        }
-        
-        for(int i = 0; i < size; i++){
-                sum += min(data[i][0], min(data[i][1], data[i][2]));
-        }
-        
-        cout << sum;
-        cout << endl;
+  cin >> N;
+  for(int i = 1; i <= N; i++) cin >> A[i];
+  for(int i = 0; i <= N; i++) dp[i] = -1;
+
+  cout << min(solve(1), min(solve(2), solve(3))) << endl;
 }
