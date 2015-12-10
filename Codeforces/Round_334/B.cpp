@@ -1,26 +1,29 @@
 #include <iostream>
 #include <algorithm>
+#include <vector>
 
 using namespace std;
 
-int A[100001];
+vector<int> A;
 
 int main() {
   ios::sync_with_stdio(false);
 
   int N, K; cin >> N >> K;
-  for(int i = 1; i <= N; i++) cin >> A[i];
+  A.resize(N);
+  for(int i = 0; i < N; i++) cin >> A[i];
   K = min(K, N);
 
-  int ans = 0, i = 1;
-  while(true) {
-    if(K == 0) break;
-    if(N - i + 1 == K) break;
-    ans = max(ans, A[i] + A[i + 1]);
-    i += 1;
+  int ans = 0;
+  for(int i = 0; i < 2*K - N; i++) {
+    ans = max(ans, *A.rbegin());
+    A.pop_back();
   }
 
-  for(; i <= N; i++) ans = max(ans, A[i]);
-
+  N = A.size();
+  for(int i = 0, j = N - 1; i <= j; i++, j--) {
+    if(i == j) ans = max(ans, A[i]);
+    else ans = max(ans, A[i] + A[j]);
+  }
   cout << ans << endl;
 }
