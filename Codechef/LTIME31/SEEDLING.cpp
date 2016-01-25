@@ -1,14 +1,13 @@
 #include <iostream>
 #include <algorithm>
-#include <climits>
-#include <unordered_map>
+#include <cstring>
 
 #define MOD 1000000007
 
 using namespace std;
 
-unordered_map<long long, long long> ways[101][101]; // ways[i][j][k] = number of ways to make sum i with first j land plots and profit k
-long long A[101], B[101], C[101];
+int ways[101][101][20001]; // ways[i][j][k] = number of ways to make sum i with first j land plots and profit k
+int A[101], B[101], C[101];
 
 int main() {
   ios::sync_with_stdio(false);
@@ -20,40 +19,35 @@ int main() {
 
     for(int i = 0; i <= S; i++)
       for(int j = 0; j <= N; j++)
-        ways[i][j].clear();
+        for(int k = 0; k <= 20000; k++)
+          ways[i][j][k] = 0;
 
     for(int i = 1; i <= N; i++) cin >> A[i] >> B[i] >> C[i];
 
-    for(int i = 0; i <= N; i++) ways[0][i][0] = 1;
+    ways[0][0][10000] = 1;
+    A[0] = 10000;
 
-    for(int i = 1; i <= S; i++) {
-      for(int j = 1; j <= N; j++) {
-        if(i - A[j] >= 0) {
-          for(auto p: ways[i - A[j]][j]) {
-            ways[i][j][p.first + (C[j] - B[j])] += p.second;
-            ways[i][j][p.first + (C[j] - B[j])] %= MOD;
+    for(int i = 0; i <= S; i++) {
+      for(int j = 0; j <= N; j++) {
+        for(int k = -10000; k <= 9901; k++) {
+          if(ways[i][j][k + 10000] == 0) continue;
+
+          if(i + A[j] <= S) {
+            int new_prof = k + (C[j] - B[j]);
+            if(new_prof > 9900) new_prof = 9901;
+            ways[i + A[j]][j][new_prof + 10000] = (((long long)ways[i][j][k + 10000]) + ways[i + A[j]][j][new_prof + 10000]) % MOD;
           }
-        }
-
-        for(auto p: ways[i][j - 1]) {
-          ways[i][j][p.first + (C[j] - B[j])] += p.second;
-          ways[i][j][p.first + (C[j] - B[j])] %= MOD;
+          if(j < N) {
+            ways[i][j + 1][k + 10000] = (((long long)ways[i][j][k + 10000]) + ways[i][j + 1][k + 10000]) % MOD;
+          }
         }
       }
     }
 
-    // for(int i = 0; i <= S; i++) {
-    //   for(int j = 0; j <= N; j++) {
-    //     for(auto p: ways[i][j]) {
-    //       cout << i << " " << j << ": " << p.first << " " << p.second << endl;
-    //     }
-    //   }
-    // }
-
     long long ans = 0;
     for(int i = 1; i <= S; i++) {
-      for(auto p: ways[i][N]) {
-        if(p.first > 0) ans += p.second;
+      for(int k = 1; k <= 9901; k++) {
+        ans += ways[i][N][k + 10000];
         ans %= MOD;
       }
     }

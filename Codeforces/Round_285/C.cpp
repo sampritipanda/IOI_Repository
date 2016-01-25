@@ -1,24 +1,39 @@
 // Misha and Forest
 
 #include <iostream>
-#include <vector>
-#include <set>
-#include <utility>
 #include <algorithm>
+#include <queue>
+#include <vector>
 
 using namespace std;
 
+int D[100000], S[100000];
+
 int main() {
   int N; cin >> N;
-  vector<set<int> > graph(N);
-  vector<pair<int, int> > vertices;
-  set<pair<int, int> > edges;
 
-  for(int i = 0; i < N; i++){
-    int deg, s; cin >> deg >> s;
-    vertices.push_back({deg, s});
+  queue<int> Q;
+  for(int i = 0; i < N; i++) {
+    cin >> D[i] >> S[i];
+    if(D[i] == 1) {
+      Q.push(i);
+    }
   }
 
-  sort(vertices.begin(), vertices.end());
+  vector<pair<int, int> > edges;
+  while(!Q.empty()) {
+    int i = Q.front(); Q.pop();
 
+    if(D[i] != 1) continue;
+
+    int v = S[i];
+    edges.push_back({i, v});
+    D[i]--; D[v]--;
+    S[i] ^= v; S[v] ^= i;
+
+    if(D[v] == 1) Q.push(v);
+  }
+
+  cout << edges.size() << endl;
+  for(auto it: edges) cout << it.first << " " << it.second << endl;
 }

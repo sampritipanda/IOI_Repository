@@ -1,52 +1,72 @@
-/* Sampriti Panda, 2500003, Problem 1 */
-
-#include <stdio.h>
+#include <iostream>
 #include <vector>
+#include <climits>
 #include <algorithm>
 
 using namespace std;
 
-long long range_sum(long long B[], int i, int j){
-	if(i == 0) return B[j];
-	else return B[j] - B[i - 1];
+vector<long long> A, B;
+vector<long long> P, P2;
+vector<long long> segtree;
+int N;
+
+inline long long pref(int i, int j) {
+  if(i > j) return 0;
+  else if(i == 0) return P[j];
+  else return P[j] - P[i - 1];
+}
+
+void build_tree(int L, int R, int i) {
+  if(L == R) {
+    segtree[i] = P2[L];
+    return;
+  }
+
+  int mid = (L + R) >> 1;
+  build_tree(L, mid, 2*i + 1); build_tree(mid + 1, R, 2*i + 2);
+  segtree[i] = max(segtree[2*i + 1], segtree[2*i + 2]);
+}
+
+long long query(int L, int R, int A, int B, int i) {
+  if(L > R) return LLONG_MIN;
+  if(L > B || R < A) return LLONG_MIN;
+
+  if(A <= L && R <= B) return segtree[i];
+
+  int mid = (L + R) >> 1;
+  return max(query(L, mid, A, B, 2*i + 1), query(mid + 1, R, A, B, 2*i + 2));
 }
 
 int main() {
-	int N; scanf("%d", &N);
-	int A[N], B[N];
+  cin >> N;
 
-	for(int i = 0; i < N; i++) {
-		scanf("%d", &A[i]); 
-	}
-	for(int i = 0; i < N; i++) {
-		scanf("%d", &B[i]);
-	}
+  A.resize(2 * N);
+  B.resize(2 * N);
+  P.resize(2 * N);
+  P2.resize(2 * N);
+  segtree.resize(8 * N);
 
-	bool sub_2 = false;
-	if(A[0] == B[0]) sub_2 = true;
+  for(int i = 0; i < N; i++) cin >> A[i];
+  for(int i = 0; i < N; i++) cin >> B[i];
+  for(int i = 0; i < N; i++) A[i + N] = A[i], B[i + N] = B[i];
 
-	long long sums_B[N];
-	sums_B[0] = B[0];
-	for(int i = 1; i < N; i++){
-		sums_B[i] = sums_B[i - 1] + B[i];
-		if(A[i] != B[i]) sub_2 = false;
-	}
+  P[0] = B[0];
+  for(int i = 1; i < 2*N; i++) P[i] = P[i - 1] + B[i];
 
-	long long max_sum = 0;
-	for(int i = 0; i < N; i++){
-		max_sum = max(max_sum, (long long)A[i]);
-		for(int j = i + 1; j < N; j++){
-			if(j == i + 1) max_sum = max(max_sum, (long long)(A[i] + A[j]));
-			else max_sum = max(max_sum, A[i] + range_sum(sums_B, i + 1, j - 1) + A[j]);
-		}
-		for(int j = 0; j < i; j++){
-			long long curr_sum = A[i] + A[j];
-			if(i < N - 1) curr_sum += range_sum(sums_B, i + 1, N - 1);
-			if(j > 0) curr_sum += range_sum(sums_B, 0, j - 1);
+  P2[0] = A[0];
+  for(int i = 1; i < 2*N; i++) P2[i] = P[i - 1] + A[i];
 
-			max_sum = max(max_sum, curr_sum);
-		}
-	}
+  build_tree(0, 2 * N - 1, 0);
 
-	printf("%lld\n", max_sum);
+  int a = 0;
+  long long best = LLONG_MIN;
+  long long sum = 0;
+
+  for(int i = 0; i < N; i++) {
+    sum += B[i];
+    best = max(best, A[i]);
+    best = max(best, A[i] + query(0, 2 * N - 1, i + 1, i + N - 1, 0) - sum);
+  }
+
+  cout << best << endl;
 }
