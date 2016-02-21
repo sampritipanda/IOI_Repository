@@ -1,72 +1,48 @@
-// Microscope
-
-#include <stdio.h>
-#include <cmath>
-#include <utility>
+#include <iostream>
+#include <algorithm>
 
 using namespace std;
 
-struct point {
-    int x, y;
-};
-
-struct rect {
-    point a, b, c, d;
-    /*
-      a ------- b
-        |     |
-        |     |
-      d ------- c
-    */
-};
-
-bool point_inside_rec(point p, rect r){
-    return ((p.x >= r.a.x && p.x <= r.b.x) && (p.y >= r.a.y && p.y <= r.d.y));
-}
-
 int main() {
-    //freopen("data", "r", stdin);
+  ios::sync_with_stdio(false); cin.tie(0);
 
-    int M, N; scanf("%d %d", &M, &N);
-    int R, C; scanf("%d %d", &R, &C);
-    int K; scanf("%d", &K);
+  int M, N; scanf("%d %d", &M, &N);
+  int R, C; scanf("%d %d", &R, &C);
 
-    rect curr;
-    curr.a.x = curr.a.y = 0;
-    curr.b.x = C - 1; curr.b.y = 0;
-    curr.c.x = C - 1; curr.b.y = R - 1;
-    curr.d.x = 0; curr.d.y = R - 1;
+  int K; scanf("%d", &K);
 
-    long long count = 0;
-    for(int i = 0; i < K; i++){
-        point p; int x, y; scanf("%d %d", &p.y, &p.x);
-        if(point_inside_rec(p, curr)) continue;
-        else {
-            point a = curr.a, b = curr.b, c = curr.c, d = curr.d;
-            if(p.x > b.x){
-                int change = p.x - b.x;
-                count += change;
-                a.x += change; b.x += change; c.x += change; d.x += change;
-            }
-            else if(p.x < a.x){
-                int change = a.x - p.x;
-                count += change;
-                a.x -= change; b.x -= change; c.x -= change; d.x -= change;
-            }
+  int x0 = 0, y0 = 0;
+  int x1 = R - 1, y1 = C - 1;
 
-            if(p.y > d.y){
-                int change = p.y - d.y;
-                count += change;
-                a.y += change; b.y += change; c.y += change; d.y += change;
-            }
-            else if(p.y < a.y){
-                int change = a.y - p.y;
-                count += change;
-                a.y -= change; b.y -= change; c.y -= change; d.y -= change;
-            }
+  long long ans = 0;
 
-            curr.a = a, curr.b = b, curr.c = c, curr.d = d;
-        }
+  while(K--) {
+    int x, y; scanf("%d %d", &x, &y);
+
+    if(x >= x0 && x <= x1 && y >= y0 && y <= y1) continue;
+
+    if(x > x1) {
+      int dx = x - x1;
+      ans += dx;
+      x1 += dx; x0 += dx;
     }
-    printf("%lld\n", count);
+    else if(x < x0) {
+      int dx = x0 - x;
+      ans += dx;
+      x1 -= dx; x0 -= dx;
+    }
+
+    if(y > y1) {
+      int dy = y - y1;
+      ans += dy;
+      y1 += dy; y0 += dy;
+    }
+    else if(y < y0) {
+      int dy = y0 - y;
+      ans += dy;
+      y1 -= dy; y0 -= dy;
+    }
+  }
+
+  printf("%lld\n", ans);
 }
