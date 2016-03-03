@@ -4,18 +4,18 @@
 using namespace std;
 
 // dp[i][j] = Number of BSTs with nodes == bitmask i and root = j
-long long dp[1 << 20][20];
-long long sum[1 << 20];
+int dp[1 << 20][20];
+int sum[1 << 20];
 int N;
 string ans = "";
 
-void solve(long long x, int mask) {
+void solve(int x, int mask) {
   if(mask == 0) return;
 
   for(int i = 0; i < N; i++) {
     if(!(mask & (1 << i))) continue;;
 
-    if(x > dp[mask][i]) x -= dp[mask][i];
+    if(x >= dp[mask][i]) x -= dp[mask][i];
     else {
       ans += char('a' + i);
 
@@ -27,12 +27,12 @@ void solve(long long x, int mask) {
         }
       }
 
-      if(x < sum[left_mask]) {
+      if(sum[right_mask] == 0) {
         solve(x, left_mask);
       }
       else {
-        solve(sum[left_mask], left_mask);
-        solve(x - sum[left_mask], right_mask);
+        solve(x/sum[right_mask], left_mask);
+        solve(x % sum[right_mask], right_mask);
       }
 
       return;
@@ -41,7 +41,8 @@ void solve(long long x, int mask) {
 }
 
 int main() {
-  long long K; cin >> N >> K;
+  int K; cin >> N >> K;
+  K--;
 
   sum[0] = 1;
 
@@ -65,6 +66,9 @@ int main() {
 
   sum[0] = 0;
 
-  solve(K, (1 << N) - 1);
-  cout << ans << endl;
+  if(K >= sum[(1 << N) - 1]) cout << -1 << endl;
+  else {
+    solve(K, (1 << N) - 1);
+    cout << ans << endl;
+  }
 }
