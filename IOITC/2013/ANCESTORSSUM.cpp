@@ -1,120 +1,93 @@
-// Ancestors Sum
-
 #include <iostream>
-#include <set>
-#include <vector>
-#include <queue>
-#include <map>
+#include <algorithm>
 
 using namespace std;
 
-long long parent[100005];
-set<int> tree[100005];
-bool visited[100005];
-bool leaf[100005];
-int chain_head[100005];
-map<int, vector<int> > chains;
-int path_index[100005];
-map<int, vector<long long> > bi_trees;
+vector<vector<int> > G;
+int start_time[100000], end_time[100000];
+int timer = 0;
+long long segtree[400001], lazy[400001];
 
-void dfs_parent(int i){
-  visited[i] = true;
+void propagate(int L, int R, int i) {
+  if(lazy[i] != 0) {
+    segtree[i] += (R - L + 1) * lazy[i];
 
-  int out_degree = 0;
-  for(auto v: tree[i]){
-    if(!visited[v]) {
-      parent[v] = i;
-      out_degree++;
-      dfs_parent(v);
+    if(L != R) {
+      lazy[2*i + 1] += lazy[i];
+      lazy[2*i + 2] += lazy[i];
+    }
+    lazy[i] = 0;
+  }
+}
+
+void update(int L, int R, int i, int qL, int qR, long long inc) {
+  propagate(L, R, i);
+
+  if(L > R) return;
+  if(L > qR || R < qL) return;
+
+  if(qL <= L && R <= qR) {
+    lazy[i] += inc;
+    propagate(L, R, i);
+    return;
+  }
+
+  int mid = (L + R)/2;
+  update(L, mid, 2*i + 1, qL, qR, inc);
+  update(mid + 1, R, 2*i + 2, qL, qR, inc);
+  segtree[i] = segtree[2*i + 1] + segtree[2*i + 2];
+}
+
+long long query(int L, int R, int i, int qL, int qR) {
+  propagate(L, R, i);
+
+  if(L > R) return 0;
+  if(L > qR || R < qL) return 0;
+
+  if(qL <= L && R <= qR) return segtree[i];
+
+  int mid = (L + R)/2;
+  return query(L, mid, 2*i + 1, qL, qR) + query(mid + 1, R, 2*i + 2, qL, qR);
+}
+
+void dfs(int i, int p) {
+  start_time[i] = ++timer;
+
+  for(auto v: G[i]) {
+    if(v != p) {
+      dfs(v, i);
     }
   }
 
-  if(out_degree == 0) leaf[i] = true;
-}
-
-void update(vector<long long>& bit, int pos, int val){
-  pos++;
-  for(; pos < bit.size(); pos += pos & -pos){
-    bit[pos] += val;
-  }
-}
-
-long long query(vector<long long>& bit, int R){
-  R++;
-  long long sum = 0;
-  for(; R > 0; R -= R & -R){
-    sum += bit[R];
-  }
-  return sum;
+  end_time[i] = timer;
 }
 
 int main() {
+  ios::sync_with_stdio(false); cin.tie(0);
+
   int N; cin >> N;
+  G.resize(N);
 
-  for(int i = 0; i < N; i++) {
-    visited[i] = false;
-    leaf[i] = false;
-    tree[i].clear();
-  }
-  for(int i = 0; i < N - 1; i++){
+  for(int i = 0; i < N - 1; i++) {
     int u, v; cin >> u >> v;
-    tree[u].insert(v);
-    tree[v].insert(u);
+    G[u].push_back(v);
+    G[v].push_back(u);
   }
 
-  parent[0] = -1;
-  dfs_parent(0);
-
-  for(int i = 0; i < N; i++){
-    tree[i].erase(parent[i]);
-  }
-
-  for(int i = 0; i < N; i++){
-    visited[i] = false;
-    chain_head[i] = i;
-  }
-
-  vector<int> path;
-  for(int i = 0; i < N; i++){
-    if(!leaf[i]) continue;
-
-    path.clear();
-    int l = i;
-    while(l != -1 && !visited[l]){
-      path.push_back(l);
-      visited[l] = true;
-      l = parent[l];
-    }
-    for(auto it: path){
-      chain_head[it] = path.back();
-    }
-    int index = 0;
-    for(auto it = path.rbegin(); it != path.rend(); it++){
-      chains[chain_head[*it]].push_back(*it);
-      path_index[*it] = index++;
-    }
-  }
-
-  for(auto it: chains){
-    bi_trees[it.first].resize(it.second.size() + 1);
-  }
+  dfs(0, -1);
 
   int Q; cin >> Q;
-  while(Q--){
+
+  while(Q--) {
     char type; cin >> type;
 
-    if(type == 'A'){
-      int v, inc; cin >> v >> inc;
-      update(bi_trees[chain_head[v]], path_index[v], inc);
+    if(type == 'A') {
+      int v; long long inc; cin >> v >> inc;
+      update(1, N, 0, start_time[v], end_time[v], inc);
     }
     else {
-      int l; cin >> l;
-      long long ans = 0;
-      while(l != -1){
-        ans += query(bi_trees[chain_head[l]], path_index[l]);
-        l = parent[chain_head[l]];
-      }
-      cout << ans << endl;
+      int v; cin >> v;
+      cout << query(1, N, 0, start_time[v], start_time[v]) << endl;
     }
   }
 }

@@ -6,6 +6,23 @@
 
 using namespace std;
 
+long long find_sq(long long t) {
+  long long L = 1, R = 1000000000LL;
+  while(L < R) {
+    long long mid = (L + R + 1)/2;
+    if(mid * mid < t) {
+      L = mid;
+    }
+    else if(mid * mid > t) {
+      R = mid - 1;
+    }
+    else {
+      return mid;
+    }
+  }
+  return L;
+}
+
 int main() {
   int Q; cin >> Q;
 
@@ -19,7 +36,7 @@ int main() {
         cout << "0 0" << endl;
         continue;
       }
-      long long sq = floor(sqrt(double(t)));
+      long long sq = find_sq(t);
       if(sq % 2 == 1) {
         t -= sq*sq;
         long long line = sq + 1;
@@ -60,9 +77,54 @@ int main() {
     else {
       long long x, y; cin >> x >> y;
 
+      if(x == 0 && y == 0) { cout << 0 << endl; continue; }
+
+      long long t;
+
       if(abs(x) > abs(y)) {
+        if(x > 0) {
+          long long sq = x * 2 - 1;
+          long long y_start = -(x - 1);
+          t = sq * sq + (y - y_start);
+        }
+        else if(x < 0) {
+          long long sq = -x * 2;
+          long long y_start = -x;
+          t = sq * sq + abs(y - y_start);
+        }
       }
-      else if()
+      else if(abs(x) < abs(y)) {
+        if(y > 0) {
+          long long sq = y * 2 - 1;
+          long long x_start = y;
+          t = sq * sq + sq + abs(x - x_start);
+        }
+        else {
+          long long sq = -y * 2;
+          long long x_start = y;
+          t = sq * sq + sq + x - x_start;
+        }
+      }
+      else {
+        if(x > 0 && y > 0) {
+          long long sq = x * 2 - 1;
+          t = sq * sq + sq;
+        }
+        else if(x > 0 && y < 0) {
+          long long sq = x * 2 + 1;
+          t = sq * sq - 1;
+        }
+        else if(x < 0 && y > 0) {
+          long long sq = y * 2;
+          t = sq * sq;
+        }
+        else {
+          long long sq = -x * 2;
+          t = sq * sq + sq;
+        }
+      }
+
+      cout << t << endl;
     }
   }
 }
