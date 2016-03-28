@@ -1,29 +1,31 @@
 (1..1).each do |i|
   File.open('data2', 'w') do |f|
-    n = 1000#rand(5) + 1
-    m = 1000#rand(5) + 1
-    o = 1000000#rand(5) + 1
-    f.puts("#{n} #{m} #{o}")
+    t = 5
+    f.puts(t)
 
-    n.times do
-      str = m.times.map { rand(10**9 + 1) }.join(" ")
+    t.times do
+      n = 10000#rand(5) + 1
+      q = 50000#rand(5) + 1
+      f.puts(n)
+
+      str = n.times.map { rand(1000) + 1 }.join(" ")
       f.puts(str)
-    end
 
-    j = 0
-    while j < o do
-      type = rand(2)
-      x1 = rand(n) + 1
-      x2 = rand(n) + 1
-      y1 = rand(m) + 1
-      y2 = rand(m) + 1
-      k = rand(1000 + 1)
-      v = rand(10**9 + 1)
-      if(x1 <= x2 and y1 <= y2) then
-        str = "#{type} #{x1} #{y1} #{x2} #{y2} #{k}"
-        str += " #{v}" if type == 0
-        f.puts(str)
-        j += 1
+      f.puts(q)
+
+      q.times do
+        type = 0#rand(2)
+
+        if type == 1
+          x = rand(n) + 1
+          k = rand(1000) + 1
+          f.puts("1 #{x} #{k}")
+        else
+          x = rand(n) + 1
+          y = rand(n - x).to_i + x
+          k = rand(y - x + 1) + 1
+          f.puts("0 #{x} #{y} #{k}")
+        end
       end
     end
   end

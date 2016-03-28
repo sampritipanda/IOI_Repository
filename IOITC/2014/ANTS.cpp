@@ -45,7 +45,9 @@ int main() {
 
   M = combine(M, stepsPerSecond);
 
-  if(M[2][2] < 0) M[2][2] = 0;
+  for(int i = 1; i <= n; i++) {
+    if(M[i][i] < 0) M[i][i] = 0;
+  }
 
   M = combine(M, timeLimit);
   if(M[1][2] == LLONG_MIN) cout << "IMPOSSIBLE" << endl;

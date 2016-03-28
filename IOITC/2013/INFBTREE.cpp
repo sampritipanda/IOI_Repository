@@ -1,4 +1,5 @@
-#include <iostream>
+#include <cstdio>
+#include <cstring>
 #include <algorithm>
 
 using namespace std;
@@ -57,17 +58,17 @@ inline bool unequal() {
 }
 
 int main() {
-  ios::sync_with_stdio(false); cin.tie(0);
-
-  int Q; cin >> Q;
+  int Q; scanf("%d", &Q);
 
   while(Q--) {
     for(int i = 0; i < 40; i++) A[i] = B[i] = C[i] = 0;
 
-    string u, v; cin >> u >> v;
+    char u[50], v[50]; scanf(" %s %s", u, v);
+    int u_size = strlen(u);
+    int v_size = strlen(v);
 
-    for(int i = u.size() - 1, j = 39; i >= 0; i--, j--) A[j] = u[i] - '0';
-    for(int i = v.size() - 1, j = 39; i >= 0; i--, j--) B[j] = v[i] - '0';
+    for(int i = u_size - 1, j = 39; i >= 0; i--, j--) A[j] = u[i] - '0';
+    for(int i = v_size - 1, j = 39; i >= 0; i--, j--) B[j] = v[i] - '0';
 
     for(int i = 0; i < 40; i++) C[i] = A[i];
     int u_level = level();
@@ -95,6 +96,6 @@ int main() {
       halfA(); halfB();
     }
 
-    cout << ans << endl;
+    printf("%d\n", ans);
   }
 }

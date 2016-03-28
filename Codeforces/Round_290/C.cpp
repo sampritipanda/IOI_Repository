@@ -90,7 +90,12 @@ int main() {
     }
   }
 
-
+  for(int i = 0; i < N - 1; i++) {
+    if(names[i].size() >= names[i + 1].size() && names[i].substr(0, names[i + 1].size()) == names[i + 1]) {
+      flag = false;
+      break;
+    }
+  }
 
   if(flag) cout << permutation << endl;
   else cout << "Impossible" << endl;

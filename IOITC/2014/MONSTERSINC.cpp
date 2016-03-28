@@ -1,135 +1,99 @@
-// Monster’s Inc
-
 #include <stdio.h>
-#include <set>
 #include <algorithm>
+#include <vector>
 
 using namespace std;
 
-int grid[1001][1001];
-
 #define MOD 1000000007
 
-struct range_tree {
-  long long bit1[1002], bit2[1002];
-};
+vector<int> factors[1001];
+int segtree[1001][4001];
+int lazy[1001][4001];
 
-range_tree trees[1005];
+void propagate(int x, int L, int R, int i) {
+  if(lazy[x][i] > 0) {
+    segtree[x][i] += (1LL * lazy[x][i] * (R - L + 1)) % MOD;
+    segtree[x][i] %= MOD;
 
-int N, M;
+    if(L != R) {
+      lazy[x][2*i + 1] += lazy[x][i]; lazy[x][2*i + 1] %= MOD;
+      lazy[x][2*i + 2] += lazy[x][i]; lazy[x][2*i + 2] %= MOD;
+    }
 
-inline int scan(){
-    char c = getchar_unlocked();
-    int x = 0;
-    while(c<'0'||c>'9'){
-            c=getchar_unlocked();
-        }
-    while(c>='0'&&c<='9'){
-            x=(x<<1)+(x<<3)+c-'0';
-            c=getchar_unlocked();
-        }
-    return x;
-}
-
-void update(long long bit[], int idx, long long val){
-  for(int x = idx; x <= 1001; x += x & -x) {
-    bit[x] += val;
-    bit[x] %= MOD;
+    lazy[x][i] = 0;
   }
 }
 
-long long query(long long bit[], int idx){
-  long long ret = 0;
+int query(int x, int L, int R, int i, int qL, int qR) {
+  propagate(x, L, R, i);
 
-  for(int x = idx; x > 0; x -= x & -x) {
-    ret += bit[x];
-    while(ret < 0) ret += MOD;
-    ret %= MOD;
-  }
+  if(L > R || L > qR || R < qL) return 0;
 
-  return ret;
+  if(qL <= L && R <= qR) return segtree[x][i];
+
+  int mid = (L + R)/2;
+  int ans = query(x, L, mid, 2*i + 1, qL, qR) + query(x, mid + 1, R, 2*i + 2, qL, qR);
+  return ans % MOD;
 }
 
-void range_update(range_tree* ST, int L, int R, int val){
-  update(ST->bit1, L, val);
-  update(ST->bit1, R + 1, -val);
-  update(ST->bit2, L, -(long long)val * (L - 1));
-  update(ST->bit2, R + 1, (long long)val * R);
-}
+void update(int x, int L, int R, int i, int qL, int qR, int v) {
+  propagate(x, L, R, i);
 
-long long range_query(range_tree* ST, int L, int R){
-  long long ans = 0;
-  ans += query(ST->bit1, R) * R;
-  ans += query(ST->bit2, R);
-  ans -= query(ST->bit1, L - 1) * (L - 1);
-  ans -= query(ST->bit2, L - 1);
-  while(ans < 0) ans += MOD;
-  ans %= MOD;
+  if(L > R || L > qR || R < qL) return;
 
-  return ans;
-}
-
-long long init_tree(range_tree* ST, int k){
-  for(int i = 0; i < 1002; i++) {
-    ST->bit1[i] = 0;
-    ST->bit2[i] = 0;
+  if(qL <= L && R <= qR) {
+    lazy[x][i] += v;
+    propagate(x, L, R, i);
+    return;
   }
 
-  for(int L = 1; L <= N; L++) {
-    if((k - L) >= 0 & (k - L) <= M) range_update(ST, L, L, grid[L][k - L]);
-  }
+  int mid = (L + R)/2;
+  update(x, L, mid, 2*i + 1, qL, qR, v);
+  update(x, mid + 1, R, 2*i + 2, qL, qR, v);
+
+  segtree[x][i] = (segtree[x][2*i + 1] + segtree[x][2*i + 2]) % MOD;
 }
 
 int main() {
-  set<int> factors[1001];
-  for(int k = 1; k <= 1000; k++){
-    for(int i = 1; i*i <= k; i++){
-      if(k % i != 0) continue;
-      factors[k].insert(i);
-      factors[k].insert(k/i);
-    }
-  }
-
-  // int O; scanf("%d %d %d", &N, &M, &O);
-  int O;
-  N = scan(); M = scan(); O = scan();
-  for(int i = 1; i <= N; i++){
-    for(int j = 1; j <= M; j++){
-      // scanf("%d", &grid[i][j]);
-      grid[i][j] = scan();
-    }
-  }
-
-  for(int i = 0; i <= 1000; i++){
-    init_tree(trees + i, i);
-  }
-
-  while(O--){
-    // int type, x1, y1, x2, y2, k; scanf("%d %d %d %d %d %d", &type, &x1, &y1, &x2, &y2, &k);
-    int type, x1, y1, x2, y2, k;
-    type = scan(); x1 = scan(); y1 = scan(); x2 = scan(); y2 = scan(); k = scan();
-
-    if(type == 0){
-      // int v; scanf("%d", &v);
-      int v = scan();
-      for(auto f: factors[k]){
-        int l = max(f - y2, x1);
-        int r = min(f - y1, x2);
-        if(l > r) continue;
-        range_update(trees + f, l, r, v);
+  for(int i = 1; i <= 1000; i++) {
+    for(int j = 1; j <= 1000; j++) {
+      if(i % j == 0) {
+        factors[i].push_back(j);
       }
     }
-    else {
-      long long sum = 0;
-      for(auto f: factors[k]){
-        int l = max(f - y2, x1);
-        int r = min(f - y1, x2);
-        if(l > r) continue;
-        sum += range_query(trees + f, l, r);
-        while(sum < 0) sum += MOD;
-        sum %= MOD;
-      }
-      printf("%lld\n", sum);
+  }
+
+  int N, M, O; scanf("%d %d %d", &N, &M, &O);
+
+  for(int i = 1; i <= N; i++) {
+    for(int j = 1; j <= M; j++) {
+      int x; scanf("%d", &x);
+      int s = i + j;
+      if(s > 1000) continue;
+      update(s, 1, N, 0, i, i, x);
     }
+  }
+
+  while(O--) {
+    int t, x1, y1, x2, y2, k; scanf("%d %d %d %d %d %d", &t, &x1, &y1, &x2, &y2, &k);
+    int v; if(t == 0) scanf("%d", &v);
+    int ans = 0;
+
+    for(auto x: factors[k]) {
+      if(x < x1 + y1 || x > x2 + y2) continue;
+
+      int L = max(x - y2, x1);
+      int R = min(x - y1, x2);
+
+      if(t == 0) {
+        update(x, 1, N, 0, L, R, v);
+      }
+      else {
+        ans += query(x, 1, N, 0, L, R);
+        ans %= MOD;
+      }
+    }
+
+    if(t == 1) printf("%d\n", ans);
   }
 }
