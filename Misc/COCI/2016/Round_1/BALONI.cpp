@@ -1,12 +1,12 @@
 #include <cstdio>
 #include <algorithm>
 #include <vector>
-#include <unordered_map>
+#include <map>
 #include <set>
 
 using namespace std;
 
-unordered_map<int, set<int> > I;
+map<int, set<int> > I;
 vector<int> keys;
 
 int main() {
