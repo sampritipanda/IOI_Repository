@@ -8,11 +8,12 @@ using namespace std;
 
 struct node {
   // ways for L..R and i color paintings required
-  long long ans[21];
+  int ans[21];
+  int total = 0;
   int L, R;
 };
 
-long long A[100001], B[100001];
+int A[100001], B[100001];
 node segtree[400001];
 int C;
 
@@ -22,18 +23,24 @@ node merge(node L, node R) {
 
   for(int i = 0; i <= 20; i++) N.ans[i] = 0;
 
-  N.ans[0] = L.ans[0] * R.ans[0];
-  for(int i = 1; i <= C; i++) {
+  for(int i = 0; i <= C; i++) {
+    for(int j = 0; j <= i; j++) {
+      N.ans[i] += (L.ans[j] * R.ans[i - j]) % MOD;
+      N.ans[i] %= MOD;
+    }
   }
+
+  N.total = (L.total * R.total) % MOD;
 
   return N;
 }
 
 void build_tree(int L, int R, int i) {
   if(L == R) {
-    segtree[i].ans[0] = (A[L] + B[L]) % MOD;
+    segtree[i].ans[0] = B[L] % MOD;
     segtree[i].ans[1] = A[L] % MOD;
     segtree[i].L = L, segtree[i].R = R;
+    segtree[i].total = (A[L] + B[L]) % MOD;
 
     return;
   }
@@ -47,9 +54,10 @@ void build_tree(int L, int R, int i) {
 
 void update(int L, int R, int i, int x) {
   if(L == R) {
-    segtree[i].ans[0] = (A[L] + B[L]) % MOD;
+    segtree[i].ans[0] = B[L] % MOD;
     segtree[i].ans[1] = A[L] % MOD;
     segtree[i].L = L, segtree[i].R = R;
+    segtree[i].total = (A[L] + B[L]) % MOD;
 
     return;
   }
@@ -72,17 +80,27 @@ int main() {
   for(int i = 1; i <= N; i++) cin >> A[i];
   for(int i = 1; i <= N; i++) cin >> B[i];
 
+  for(int i = 1; i <= N; i++) {
+    A[i] %= MOD;
+    B[i] %= MOD;
+  }
+
   build_tree(1, N, 0);
 
   int Q; cin >> Q;
   while(Q--) {
     int P, a, b; cin >> P >> a >> b;
 
-    // A[P] = a;
-    // B[P] = b;
-    //
-    // update(1, N, 0, P);
+    A[P] = a % MOD;
+    B[P] = b % MOD;
+    update(1, N, 0, P);
 
-    cout << segtree[0].ans[C] << endl;
+    int total = segtree[0].total;
+    for(int i = 0; i < C; i++) {
+      total -= segtree[0].ans[i];
+      while(total < 0) total += MOD;
+      total %= MOD;
+    }
+    cout << total << endl;
   }
 }

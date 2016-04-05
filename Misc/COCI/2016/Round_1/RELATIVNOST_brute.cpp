@@ -7,7 +7,7 @@ using namespace std;
 #define MOD 10007
 
 long long A[100001], B[100001];
-// dp[i][j] = number of ways for 1..i and j color painting required
+// dp[i][j] = number of ways for 1..i and exactly j color painting
 long long dp[100001][21];
 
 int main() {
@@ -26,6 +26,7 @@ int main() {
 
     memset(dp, 0, sizeof dp);
     dp[0][0] = 1;
+    long long total = 1;
     for(int i = 1; i <= N; i++) {
       dp[i][0] = (B[i] * dp[i - 1][0]) % MOD;
       for(int j = 1; j <= C; j++) {
@@ -33,8 +34,18 @@ int main() {
         dp[i][j] += (B[i] * dp[i - 1][j]) % MOD;
         dp[i][j] %= MOD;
       }
+
+      total *= (A[i] + B[i]);
+      total %= MOD;
     }
-    cout << dp[N][C] << endl;
+
+    long long ans = 0;
+    for(int i = 0; i < C; i++) {
+      total -= dp[N][i];
+      while(total < 0) total += MOD;
+      total %= MOD;
+    }
+    cout << total << endl;
   }
 }
 
