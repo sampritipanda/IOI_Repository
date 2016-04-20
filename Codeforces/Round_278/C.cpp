@@ -1,32 +1,58 @@
-// Fight the Monster
-
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
-inline int max(int a, int b){
-  return (a > b ? a : b);
+/*
+
+   prefix_seq = ->(a) { a.size.times.map { |i| a[0..i].reduce(1, :*) % a.size} }
+   a = (1..n).to_a.permutation.select { |x| prefix_seq.(x).sort == (0...n).to_a }
+
+*/
+
+long long modpow(long long base, long long exp, long long mod) {
+  long long res = 1;
+  while(exp > 0) {
+    if(exp & 1) res = (res * base) % mod;
+    base = (base * base) % mod;
+    exp >>= 1;
+  }
+  return res;
 }
 
-int main(){
-  int stats_Y[3], stats_M[3], price[3];
-  cin >> stats_Y[0] >> stats_Y[1] >> stats_Y[2];
-  cin >> stats_M[0] >> stats_M[1] >> stats_M[2];
-  cin >> price[0] >> price[1] >> price[2];
+int main() {
+  int N; cin >> N;
 
-  int m_decrease = max(0, stats_Y[1] - stats_M[2]);
-  int y_decrease = max(0, stats_M[1] - stats_Y[2]);
-
-  int steps_to_monster_death = 0;
-  if(stats_M[0] % m_decrease == 0) steps_to_monster_death = stats_M[0]/m_decrease;
-  else steps_to_monster_death = stats_M[0]/m_decrease + 1;
-
-  int diff = stats_Y[0] - steps_to_monster_death*y_decrease;
-  if(diff > 0) {
-    cout << 0 << endl;
+  if(N == 1) {
+    cout << "YES" << endl;
+    cout << 1 << endl;
+  }
+  else if(N == 4) {
+    cout << "YES" << endl;
+    cout << 1 << endl;
+    cout << 3 << endl;
+    cout << 2 << endl;
+    cout << 4 << endl;
   }
   else {
-    int hp_req = 1 - diff;
-    int price_hp = price[1] * hp_req;
+    bool prime = true;
+    for(int i = 2; i*i <= N; i++) {
+      if(N % i == 0) {
+        prime = false;
+        break;
+      }
+    }
+
+    if(prime) {
+      cout << "YES" << endl;
+      cout << 1 << endl;
+      for(int i = 2; i <= N - 1; i++) {
+        cout << (i * modpow(i - 1, N - 2, N)) % N << endl;
+      }
+      cout << N << endl;
+    }
+    else {
+      cout << "NO" << endl;
+    }
   }
 }

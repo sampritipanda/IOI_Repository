@@ -1,86 +1,82 @@
-// Transform
-
 #include <iostream>
+#include <algorithm>
 #include <vector>
-#include <tuple>
+#include <cassert>
 
 using namespace std;
 
-vector<tuple<int, int, int> > steps;
+int A[501];
+vector<vector<int> > ops;
 
-inline int abs(int a) {
-	return (a < 0 ? -a : a);
-}
-
-void solve(int i, int j, int multiple){
-	for(int k = 0; k <= 30; k++){
-		if(multiple & (1 << k)){
-			steps.push_back(make_tuple(i, j, k));
-		}
-	}
-}
-
-int reduce(int a, int b, int i, int j) {
-	while(a % b != 0){
-		int a_sign = a/abs(a), b_sign = b/abs(b);
-		a = abs(a); b = abs(b);
-		
-		if(a < b){
-			int d = b/a;
-			b %= a;
-			if(b == 0) {
-				b = a;
-				d--;
-			}
-			solve(j, i, d);
-		}
-		else {
-			int d = a/b;
-			a %= b;
-			solve(i, j, d);
-		}
-		
-		a *= a_sign;
-		b *= b_sign;
-	}
-	
-	solve(i, j, abs(a)/abs(b));
-	return b;
+// add j * d to i
+void update(int i, int j, int d) {
+  for(int bit = 30; bit >= 0; bit--) {
+    if(d & (1 << bit)) {
+      ops.push_back({i, j, bit});
+    }
+  }
 }
 
 int main() {
-  int N; cin >> N;
-  int A[N]; for(int i = 0; i < N; i++) cin >> A[i];
-  vector<int> positive, negative;
+  ios::sync_with_stdio(false); cin.tie(0);
 
-  int zero = 0;
-  for(int i = 0; i < N; i++){
-    if(A[i] < 0) negative.push_back(i);
-    else if(A[i] > 0) positive.push_back(i);
-    else zero++;
+  int N; cin >> N;
+  for(int i = 1; i <= N; i++) cin >> A[i];
+
+  vector<int> pos, neg;
+  for(int i = 1; i <= N; i++) {
+    if(A[i] > 0) pos.push_back(i);
+    else if(A[i] < 0) neg.push_back(i);
   }
 
-  if(zero == (N - 1)) cout << 1 << endl << 0 << endl;
-  else if(zero == N || positive.size() == 0 || negative.size() == 0) cout << 0 << endl;
+  if((pos.size() + neg.size() != 1) && (pos.size() == 0 || neg.size() == 0)) {
+    cout << 0 << endl;
+  }
   else {
-	cout << 1 << endl;
-	while(!positive.empty() && !negative.empty()){
-		// i = Number to be changed to 0. j = number to used.
-		int i = positive.back(), j = negative.back();
-		if(negative.size() > positive.size()) {
-			swap(i, j);
-			negative.pop_back();
-		}
-		else {
-			positive.pop_back();
-		}
-		A[j] = reduce(A[i], A[j], i + 1, j + 1);
-		A[i] = 0;
-	}
-	
-	cout << steps.size() << endl;
-	for(auto it: steps){
-		cout << get<0>(it) << " " << get<1>(it) << " " << get<2>(it) << endl;
-	}
+    while(true) {
+      if(pos.size() + neg.size() == 1) break;
+
+      // i = index to remove, j = number used
+      int i, j;
+      if(pos.size() > neg.size()) {
+        i = pos.back();
+        j = neg.back();
+        pos.pop_back();
+      }
+      else {
+        i = neg.back();
+        j = pos.back();
+        neg.pop_back();
+      }
+
+      int x = A[i], y = A[j];
+      while(true) {
+        if(x == 0) {
+          A[i] = 0;
+          A[j] = y;
+          break;
+        }
+        int a = abs(x), b = abs(y);
+
+        if(a < b) {
+          if(b % a == 0) {
+            update(j, i, (b/a) - 1);
+            y = -x;
+          }
+          else {
+            update(j, i, b/a);
+            y += x * (b/a);
+          }
+        }
+        else {
+          update(i, j, a/b);
+          x += y * (a/b);
+        }
+      }
+    }
+
+    cout << 1 << endl;
+    cout << ops.size() << endl;
+    for(auto it: ops) cout << it[0] << " " << it[1] << " " << it[2] << endl;
   }
 }

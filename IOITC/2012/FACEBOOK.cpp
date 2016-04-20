@@ -1,35 +1,55 @@
-// Facebook
-
 #include <iostream>
 #include <algorithm>
-#include <set>
+#include <vector>
 #include <map>
+#include <set>
 #include <climits>
+#include <cstring>
 
 using namespace std;
 
-vector<vector<pair<int, int> > > G, tree, tree2;
+vector<vector<pair<int, int> > > G;
+vector<vector<int> > tree;
 vector<pair<pair<int, int>, int> > edges;
-map<pair<int, int>, int> E_map;
-vector<int> visited, D, D2, P;
+vector<int> path, path_index;
+map<pair<int, int>, bool> tree_edge, path_edge;
+vector<int> D, D2, P;
 set<pair<int, int> > PQ;
+vector<int> ans;
+const int MAX_LOG = 12;
+int lca[7000][MAX_LOG + 1];
+int depth[7000];
 int N;
 
-bool dfs(int i, int p, int x, int y) {
-  if(i == N - 1) return true;
+int dfs(int i, int p, int d) {
+  depth[i] = d;
 
-  bool leaf = true;
-
-  for(auto it: tree[i]) {
-    int v = it.first, d = it.second;
+  for(auto v: tree[i]) {
     if(v == p) continue;
-    if((i == x && v == y) || (i == y && v == x)) continue;
 
-    leaf = false;
-    if(dfs(v, i, x, y)) return true;
+    dfs(v, i, d + 1);
+  }
+}
+
+int lca_query(int a, int b) {
+  if(depth[a] > depth[b]) swap(a, b);
+
+  for(int j = MAX_LOG; j >= 0; j--) {
+    if(lca[b][j] != -1 && depth[lca[b][j]] >= depth[a]) {
+      b = lca[b][j];
+    }
   }
 
-  return false;
+  if(a == b) return a;
+
+  for(int j = MAX_LOG; j >= 0; j--) {
+    if(lca[a][j] != -1 && lca[b][j] != -1 && lca[a][j] != lca[b][j]) {
+      a = lca[a][j];
+      b = lca[b][j];
+    }
+  }
+
+  return lca[a][0];
 }
 
 int main() {
@@ -37,19 +57,14 @@ int main() {
 
   int M, Q; cin >> N >> M >> Q;
 
-  G.resize(N); edges.resize(M); D.resize(N); D2.resize(N); P.resize(N);
+  G.resize(N); tree.resize(N); edges.resize(M); D.resize(N, INT_MAX/2); D2.resize(N, INT_MAX/2); P.resize(N, -1);
 
   for(int i = 0; i < M; i++) {
     int x, y, d; cin >> x >> y >> d;
     G[x].push_back({y, d}); G[y].push_back({x, d});
 
     edges[i] = {{x, y}, d};
-    E_map[{x, y}] = i;
-    E_map[{y, x}] = i;
   }
-
-  fill(D.begin(), D.end(), INT_MAX/2);
-  fill(P.begin(), P.end(), -1);
 
   D[0] = 0;
   PQ.insert({D[0], 0});
@@ -71,52 +86,107 @@ int main() {
     }
   }
 
-  tree.resize(N);
-  for(int i = 1; i < N; i++) {
-    tree[P[i]].push_back({i, edges[E_map[{P[i], i}]].second});
-    tree[i].push_back({P[i], edges[E_map[{i, P[i]}]].second});
+  if(D[N - 1] == INT_MAX/2) {
+    while(M--) cout << -1 << endl;
+    return 0;
+  }
+
+  D2[N - 1] = 0;
+  PQ.clear();
+  PQ.insert({D2[N - 1], N - 1});
+  while(!PQ.empty()) {
+    auto it = *PQ.begin(); PQ.erase(it);
+    int u = it.second, d = it.first;
+
+    for(auto it: G[u]) {
+      int v = it.first, cost = it.second;
+
+      if(D2[v] > D2[u] + cost) {
+        if(D2[v] != INT_MAX/2) {
+          PQ.erase({D2[v], v});
+        }
+        D2[v] = D2[u] + cost;
+        PQ.insert({D2[v], v});
+      }
+    }
+  }
+
+
+  for(int i = 0; i < N; i++) {
+    if(P[i] == -1) continue;
+
+    tree[P[i]].push_back(i);
+    tree[i].push_back(P[i]);
+
+    tree_edge[{P[i], i}] = true;
+    tree_edge[{i, P[i]}] = true;
+  }
+
+  memset(lca, -1, sizeof lca);
+
+  for(int i = 0; i < N; i++) {
+    lca[i][0] = P[i];
+  }
+
+  for(int j = 1; j <= MAX_LOG; j++) {
+    for(int i = 0; i < N; i++) {
+      if(lca[i][j - 1] != -1) {
+        lca[i][j] = lca[lca[i][j - 1]][j - 1];
+      }
+    }
+  }
+
+  dfs(0, -1, 0);
+
+  int node = N - 1;
+  while(node != -1) {
+    path.push_back(node);
+
+    if(P[node] != -1) {
+      path_edge[{P[node], node}] = true;
+      path_edge[{node, P[node]}] = true;
+    }
+    node = P[node];
+  }
+  reverse(path.begin(), path.end());
+  path_index.resize(N, -1);
+  for(int i = 0; i < path.size(); i++) path_index[path[i]] = i;
+
+  ans.resize(N, INT_MAX/2);
+  for(auto edge: edges) {
+    int u = edge.first.first, v = edge.first.second, d = edge.second;
+    if(tree_edge[{u, v}]) continue;
+
+    int l_u = lca_query(u, N - 1), l_v = lca_query(v, N - 1);
+    if(l_u == -1 || l_v == -1) continue;
+
+    int p_u = path_index[l_u], p_v = path_index[l_v];
+
+    if(p_u > p_v) {
+      swap(p_u, p_v);
+      swap(u, v);
+    }
+
+    for(int i = p_u; i <= p_v - 1; i++) {
+      ans[i] = min(ans[i], D[u] + d + D2[v]);
+    }
+  }
+
+  for(int i = 0; i < N; i++) {
+    if(ans[i] == INT_MAX/2) ans[i] = -1;
   }
 
   while(Q--) {
-    int id; cin >> id;
-    int x = edges[id].first.first, y = edges[id].first.second;
+    int i; cin >> i;
+    int u = edges[i].first.first, v = edges[i].first.second;
 
-    tree2.clear(); tree2.resize(N);
-
-    bool result = dfs(0, P[0], x, y);
-
-    if(D[N - 1] == INT_MAX/2) {  // Disconnected
-      cout << -1 << endl;
-    }
-    else if(result) {   // Node exists in new dijsktra tree
-      cout << D[N - 1] << endl;
+    if(path_edge[{u, v}]) {
+      if(depth[u] > depth[v]) swap(u, v);
+      cout << ans[path_index[u]] << endl;
     }
     else {
-      fill(D2.begin(), D2.end(), INT_MAX/2); PQ.clear();
-
-      D2[0] = 0;
-      PQ.insert({D2[0], 0});
-      while(!PQ.empty()) {
-        auto it = *PQ.begin(); PQ.erase(it);
-        int u = it.second, d = it.first;
-
-        for(auto it: G[u]) {
-          int v = it.first, cost = it.second;
-
-          if((u == x && v == y) || (u == y && v == x)) continue;
-
-          if(D2[v] > D2[u] + cost) {
-            if(D2[v] != INT_MAX/2) {
-              PQ.erase({D2[v], v});
-            }
-            D2[v] = D2[u] + cost;
-            PQ.insert({D2[v], v});
-          }
-        }
-      }
-
-      if(D2[N - 1] == INT_MAX/2) cout << -1 << endl;
-      else cout << D2[N - 1] << endl;
+      cout << D[N - 1] << endl;
     }
   }
 }
+
