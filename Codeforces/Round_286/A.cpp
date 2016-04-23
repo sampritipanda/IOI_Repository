@@ -1,47 +1,47 @@
-// Mr. Kitayuta's Gift (Div. 2 version)
+// Mr. Kitayuta, the Treasure Hunter
 
 #include <iostream>
-#include <string>
+#include <algorithm>
+#include <map>
 
 using namespace std;
 
-bool is_palin(string input){
-  return (input == string(input.rbegin(), input.rend()));
+int islands[30001] = {0};
+bool calculated[30001][500] = {0};
+int memo[30001][500] = {0};
+int N, d, last_island = 0;
+
+long long solve(int curr, int l){
+  int jump = d + l;
+  if(curr > last_island || jump == 0) return 0;
+  if(curr == last_island) return islands[curr];
+
+  if(calculated[curr][l + 250]) return memo[curr][l + 250];
+
+  calculated[curr][l + 250] = true;
+  long long ans1 = 0, ans2 = 0, ans3 = 0;
+  if(curr + jump - 1 <= last_island && jump > 1){
+    ans1 = solve(curr + jump - 1, l - 1);
+  }
+  if(curr + l){
+    ans2 = solve(curr + jump, l);
+  }
+  if(curr + l + 1 <= last_island){
+    ans3 = solve(curr + jump + 1, l + 1);
+  }
+  long long ans = islands[curr] + max(ans1, max(ans2, ans3));
+  memo[curr][l + 250] = ans;
+  return ans;
 }
 
 int main() {
-  string s; cin >> s;
-  int N = s.length();
+  cin >> N >> d;
 
-  if(is_palin(s)){
-    if(N % 2 == 0) s.insert(N/2, 1, 'a');
-    else s.insert(N/2, 1, s[N/2]);
+  for(int i = 0; i < N; i++){
+    int p; cin >> p;
+    islands[p]++;
+    if(p > last_island) last_island = p;
+  }
 
-    cout << s << endl;
-  }
-  else {
-    bool flag = false;
-    for(int i = 0; i < N; i++){ // revive
-      for(int j = 0; j < N; j++){
-        string temp = s;
-        temp.insert(i, 1, s[j]);
-        if(is_palin(temp)){
-          s = temp;
-          flag = true;
-          break;
-        }
-      }
-      if(flag) break;
-    }
-    if(!flag){
-      string temp = s;
-      temp += s[0];
-      if(is_palin(temp)) {
-        flag = true;
-        s = temp;
-      }
-    }
-    if(!flag) cout << "NA" << endl;
-    else cout << s << endl;
-  }
+  cout << solve(d, 0) << endl;
 }
