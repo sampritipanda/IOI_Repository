@@ -1,34 +1,56 @@
-(1..25).each do |i|
-  t = rand(1) + 1
+(1..10).each do |testcase|
   File.open('data2', 'w') do |f|
-    f.puts(t)
-    t.times do
-      n = rand(1000) + 1
-      q = rand(10000) + 1
-      f.puts(n)
+    n = 100000
+    f.puts(n)
 
-      str = n.times.map { rand(20000 + 1) - 10000 }.join(' ')
-      f.puts(str)
+    a = n.times.map { rand(2*10000 + 1) - 10000 }.join(' ')
+    f.puts(a)
 
-      f.puts(n)
+    q = 100000
+    f.puts(q)
 
-      q.times do
-        x1 = rand(n) + 1
-        y1 = rand(n - x1).to_i + x1
-        x2 = rand(n - y1).to_i + y1
-        y2 = rand(n - x2).to_i + x2
-        f.puts("#{x1} #{y1} #{x2} #{y2}")
+    q.times do
+      t = ''
+      loop do
+        t = ['Q'].shuffle[0]
+        if t == 'D' && n == 1
+          next
+        else
+          break
+        end
+      end
+
+      if t == 'I'
+        i = rand(n + 1) + 1
+        x = rand(2*10000 + 1) - 10000
+        n += 1
+        f.puts("#{t} #{i} #{x}")
+      elsif t == 'D'
+        i = rand(n) + 1
+        n -= 1
+        f.puts("#{t} #{i}")
+      elsif t == 'R'
+        i = rand(n) + 1
+        x = rand(2*10000 + 1) - 10000
+        f.puts("#{t} #{i} #{x}")
+      else
+        l = rand(n) + 1
+        r = rand(n) + 1
+        l,r = r,l if l > r
+
+        f.puts("#{t} #{l} #{r}")
       end
     end
   end
+
   puts "Generated"
-  correct = `./brute < data2`
-  test = `./clever < data2`
+  correct = `time ./correct < data2`
+  test = `time ./clever < data2`
 
   if test == correct
-    puts "Testcase #{i}: Success"
+    puts "Testcase #{testcase}: Success"
   else
-    puts "Testcase #{i}: Failure"
+    puts "Testcase #{testcase}: Failure"
     break
   end
 end

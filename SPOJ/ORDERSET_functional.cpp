@@ -14,10 +14,6 @@ struct node {
     left = _left;
     right = _right;
 
-    upd();
-  }
-
-  void upd() {
     cnt = 1;
     if(left != NULL) cnt += left->cnt;
     if(right != NULL) cnt += right->cnt;
@@ -28,70 +24,66 @@ inline int cnt(node* root) {
   return (root == NULL ? 0 : root->cnt);
 }
 
-void rotate_right(node*& root) {
-  root->left->right = new node(root->p, root->key, root->left->right, root->right);
-  root = root->left;
+node* rotate_right(node* root) {
+  node* new_right = new node(root->p, root->key, root->left->right, root->right);
+  return new node(root->left->p, root->left->key, root->left->left, new_right);
 }
 
-void rotate_left(node*& root) {
-  root->right->left = new node(root->p, root->key, root->left, root->right->left);
-  root = root->right;
+node* rotate_left(node* root) {
+  node* new_left = new node(root->p, root->key, root->left, root->right->left);
+  return new node(root->right->p, root->right->key, new_left, root->right->right);
 }
 
-void insert(node*& root, int X, int p) {
+node* insert(node* root, int X, int p) {
   if(root == NULL) {
-    root = new node(p, X);
-    return;
+    return new node(p, X);
   }
 
   if(X < root->key) {
-    insert(root->left, X, p);
-    if(root->left->p < root->p) rotate_right(root);
+    node* new_node = new node(root->p, root->key, insert(root->left, X, p), root->right);
+    if(new_node->left->p < new_node->p) return rotate_right(new_node);
+    return new_node;
   }
   else if(X > root->key){
-    insert(root->right, X, p);
-    if(root->right->p < root->p) rotate_left(root);
+    node* new_node = new node(root->p, root->key, root->left, insert(root->right, X, p));
+    if(new_node->right->p < new_node->p) return rotate_left(new_node);
+    return new_node;
   }
-
-  root->upd();
+  else {
+    return root;
+  }
 }
 
-void merge(node*& root, node* L, node* R) {
-  if(L == NULL) {
-    root = R;
-    return;
-  }
-  if(R == NULL) {
-    root = L;
-    return;
-  }
+node* merge(node* L, node* R) {
+  if(L == NULL) return R;
+  if(R == NULL) return L;
 
   if(L->p <= R->p) {
-    merge(L->right, L->right, R);
-    root = L;
+    return new node(L->p, L->key, L->left, merge(L->right, R));
   }
   else {
-    merge(R->left, L, R->left);
-    root = R;
+    return new node(R->p, R->key, merge(L, R->left), R->right);
   }
-
-  root->upd();
 }
 
-void delete_node(node*& root, int X) {
-  if(root == NULL) return;
+node* split(node* root, int X) {
+  return insert(root, X, -1);
+}
+
+node* delete_node(node* root, int X) {
+  if(root == NULL) {
+    return NULL;
+  }
 
   if(X < root->key) {
-    delete_node(root->left, X);
+    return new node(root->p, root->key, delete_node(root->left, X), root->right);
   }
   else if(X > root->key) {
-    delete_node(root->right, X);
+    return new node(root->p, root->key, root->left, delete_node(root->right, X));
   }
   else {
-    merge(root, root->left, root->right);
+    return merge(root->left, root->right);
   }
-
-  if(root != NULL) root->upd();
 }
 
 node* kth_min(node* root, int K) {
@@ -120,7 +112,7 @@ int count_less(node* root, int X) {
 }
 
 int main() {
-  srand(0);
+  srand(time(NULL));
 
   node* root = NULL;
 
@@ -130,13 +122,10 @@ int main() {
 
     if(t == 'I') {
       int p = rand();
-      if(root == NULL) {
-        root = new node(p, x);
-      }
-      else insert(root, x, p);
+      root = insert(root, x, p);
     }
     else if(t == 'D') {
-      delete_node(root, x);
+      root = delete_node(root, x);
     }
     else if(t == 'K') {
       node* req = kth_min(root, x);
