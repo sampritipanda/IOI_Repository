@@ -31,7 +31,7 @@ void divide_and_conquer(int j, int L, int R, int search_start, int search_end) {
   DP[mid][j] = 1000000007;
 
   int best_index = -1;
-  for(int i = search_start; i <= search_end; i++) {
+  for(int i = search_start; i <= min(mid - 1, search_end); i++) {
     int curr = DP[i][j - 1] + C[i + 1][mid];
     if(curr < DP[mid][j]) {
       best_index = i;
