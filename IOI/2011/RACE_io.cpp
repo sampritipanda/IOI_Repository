@@ -15,7 +15,7 @@ int label[200000];
 int sz[200000];
 int currComp;
 // C_pre[x][y] = list of nodes in centroid subtree of x at a distance of y, {edge count}
-map<int, set<int> > C_pre[200000];
+map<int, int> C_pre[200000];
 
 void dfs_size(int i, int p) {
   currComp++;
@@ -35,7 +35,7 @@ int find_centroid(int i, int p) {
     int v = it.first;
     if(v == p || label[v] != -1) continue;
 
-    if(sz[v] > currComp/2) return find_centroid(v, i);
+    if(sz[v] >= currComp/2) return find_centroid(v, i);
   }
   return i;
 }
@@ -66,9 +66,7 @@ void solve_dfs(int root, int i, int p, int d, int ed) {
     ans = min(ans, ed);
   }
   else if(d < K && C_pre[root].count(K - d)) {
-    for(int ed2: C_pre[root][K - d]) {
-      ans = min(ans, ed + ed2);
-    }
+    ans = min(ans, ed + C_pre[root][K - d]);
   }
 
   for(auto it: G[i]) {
@@ -77,8 +75,18 @@ void solve_dfs(int root, int i, int p, int d, int ed) {
 
     solve_dfs(root, u, i, d + d2, ed + 1);
   }
+}
 
-  C_pre[root][d].insert(ed);
+void mark_dfs(int root, int i, int p, int d, int ed) {
+  if(C_pre[root].count(d) == 0) C_pre[root][d] = ed;
+  else C_pre[root][d] = min(C_pre[root][d], ed);
+
+  for(auto it: G[i]) {
+    int u = it.first, d2 = it.second;
+    if(u == p || vis[u]) continue;
+
+    mark_dfs(root, u, i, d + d2, ed + 1);
+  }
 }
 
 void solve(int root) {
@@ -86,8 +94,8 @@ void solve(int root) {
   for(auto it: G[root]) {
     int u = it.first, d = it.second;
     if(vis[u]) continue;
-
     solve_dfs(root, u, root, d, 1);
+    mark_dfs(root, u, root, d, 1);
   }
 
   for(int nextRoot: C[root]) {
@@ -96,9 +104,9 @@ void solve(int root) {
 }
 
 int main() {
-  cin >> N >> K;
+  ios::sync_with_stdio(false); cin.tie(0);
 
-  assert(K > 0);
+  cin >> N >> K;
 
   for(int i = 0; i < N - 1; i++) {
     int a, b, d; cin >> a >> b >> d;
