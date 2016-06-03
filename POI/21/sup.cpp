@@ -1,30 +1,23 @@
 #include <cstdio>
+#include <iostream>
 #include <algorithm>
 #include <vector>
-#include <queue>
+#include <set>
 
 using namespace std;
 
-int D[1000001];
-int sz[1000001];
 int Q_K[1000001];
 vector<int> G[1000001];
-queue<pair<int, int> > DQ;
+int L[1000001];
+int ans[1000001];
 
-void dfs(int i) {
-  D[i] = 1;
-  sz[i] = 1;
+void dfs(int i, int h) {
+  L[h]++;
 
   for(int j = 0; j < G[i].size(); j++) {
     int u = G[i][j];
-    dfs(u);
-    D[i] = max(D[i], 1 + D[u]);
-    sz[i] += sz[u];
+    dfs(u, h + 1);
   }
-}
-
-bool compare(int L, int R) {
-  return D[L] > D[R];
 }
 
 int main() {
@@ -37,42 +30,31 @@ int main() {
     G[p].push_back(i);
   }
 
-  dfs(1);
+  dfs(1, 0);
 
-  for(int i = 1; i <= N; i++) {
-    sort(G[i].begin(), G[i].end(), compare);
+  int M;
+  int width = 0;
+  for(M = 0; M <= N; M++) {
+    if(!L[M]) break;
+    width = max(width, L[M]);
   }
+  M--;
 
   for(int q = 1; q <= Q; q++) {
     int K = Q_K[q];
-    int cnt = 1;
-    DQ.push(make_pair(1, 1));
-    int time = 1;
+    if(width <= K) ans[K] = M + 1;
 
-    while(!DQ.empty()) {
-      pair<int, int> it = DQ.front(); DQ.pop();
-      int curr_time = it.second, u = it.first;
-
-      if(curr_time == time) {
-        time++;
-        cnt = 0;
+    if(ans[K] == 0) {
+      int rem = 0;
+      for(int i = 0; i <= M; i++) {
+        ans[K]++;
+        rem += L[i] - K;
+        if(rem < 0) rem = 0;
       }
-
-      for(int j = 0; j < G[u].size(); j++) {
-        int v = G[u][j];
-        DQ.push(make_pair(v, time));
-        cnt++;
-
-        if(cnt == K) {
-          cnt = 0;
-          time++;
-        }
-      }
+      ans[K] += (rem + K - 1)/K;
     }
 
-    if(cnt == 0) time--;
-
-    printf("%d", time);
+    printf("%d", ans[K]);
     if(q == Q) printf("\n");
     else printf(" ");
   }
