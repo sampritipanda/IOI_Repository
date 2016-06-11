@@ -56,6 +56,6 @@ int main() {
 
     printf("%d", ans[K]);
     if(q == Q) printf("\n");
-    else printf(" ");
+    else printf("\n");
   }
 }

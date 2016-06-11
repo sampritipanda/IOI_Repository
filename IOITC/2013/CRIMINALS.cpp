@@ -1,67 +1,63 @@
 #include <iostream>
 #include <algorithm>
-#include <vector>
+#include <climits>
+#include <cassert>
 
 using namespace std;
 
-bool valid[2001]; // Does Police not contain any other police inside
-vector<int> vis[2001];   // Police who visit this Hideout
-bool uniq[2001];  // Does Policeman have point not visited by anyone else
-bool processed[2001];
-vector<int> r_vis[2001];
+const int MAX_N = 200000;
+int prv[MAX_N + 2];
+int prv2[MAX_N + 2];
+int nxt[MAX_N + 2];
+int dp[MAX_N + 2];
+bool start[MAX_N + 1];
 
 long long criminalEstimate(int N, int M, int* A, int* B) {
-  for(int i = 0; i <= 2000; i++) {
-    valid[i] = true;
-    vis[i].clear();
-    r_vis[i].clear();
-    uniq[i] = false;
+  for(int i = 0; i <= N + 1; i++) {
+    prv[i] = INT_MAX/2;
+    prv2[i] = 0;
+    nxt[i] = INT_MAX/2;
+    dp[i] = 0;
   }
 
   for(int i = 0; i < M; i++) {
-    for(int j = A[i]; j <= B[i]; j++) {
-      vis[j].push_back(i);
-    }
+    prv[B[i]] = min(prv[B[i]], A[i]);
+  }
+  for(int i = N; i >= 1; i--) {
+    prv[i] = min(prv[i], prv[i + 1]);
   }
 
   for(int i = 0; i < M; i++) {
-    for(int j = 0; j < M; j++) {
-      if(j == i) continue;
-
-      if(A[i] <= A[j] && B[j] <= B[i]) {
-        valid[i] = false;
-        break;
-      }
-    }
+    prv2[B[i]] = max(prv2[B[i]], A[i]);
   }
+  for(int i = 1; i <= N; i++) {
+    prv2[i] = max(prv2[i], prv2[i - 1]);
+  }
+
+  for(int i = 0; i < M; i++) {
+    nxt[A[i]] = min(nxt[A[i]], B[i]);
+    start[A[i]] = true;
+  }
+  for(int i = N; i >= 1; i--) {
+    nxt[i] = min(nxt[i], nxt[i + 1]);
+  }
+
+  dp[0] = 0;
 
   for(int i = 1; i <= N; i++) {
-    r_vis[vis[i].size()].push_back(i);
-  }
-
-  int ans = 0;
-  for(int cnt = 0; cnt <= N; cnt++) {
-    for(int i: r_vis[cnt]) {
-      bool pos = true, valid_exist = false;
-      for(int j: vis[i]) {
-        if(valid[j]) valid_exist = true;
-        if(valid[j] && processed[j]) {
-          pos = false;
-          break;
-        }
-      }
-      if(pos && valid_exist) {
-        ans++;
-        for(int j: vis[i]) {
-          processed[j] = true;
-        }
+    dp[i] = -1;
+    prv[i] = min(prv[i], i);
+    for(int j = prv2[prv[i] - 1]; j < prv[i]; j++) {
+      if(dp[j] != -1 && 1 + dp[j] > dp[i] && nxt[j + 1] >= i) {
+        dp[i] = 1 + dp[j];
       }
     }
   }
 
-  for(int i = 0; i < M; i++) {
-    if(valid[i] && !processed[i]) return -1;
+  int ans = -1;
+  for(int i = N; i >= 1; i--) {
+    ans = max(ans, dp[i]);
+    if(start[i]) break;
   }
-
   return ans;
 }

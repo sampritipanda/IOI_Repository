@@ -1,19 +1,21 @@
 (1..2500).each do |i|
   File.open('data2', 'w') do |f|
-    n = rand(50) + 1
-    str1 = n.times.map { rand < 0.2 ? -1 : rand(10 + 1) }
-
-    m = ((str1.count(-1))..15).to_a.shuffle.first
+    n = rand(200000) + 1
+    m = rand(100000) + 1
 
     f.puts("#{n} #{m}")
-    str2 = m.times.map { rand(10 + 1) }
 
-    f.puts(str1.join(' '))
-    f.puts(str2.join(' '))
+    m.times do
+      l = rand(n) + 1
+      r = rand(n) + 1
+      l,r = r,l if l > r
+      f.puts("#{l} #{r}")
+    end
   end
+
   puts "Generated"
-  correct = `./brute < data2`
-  test = `./clever < data2`
+  correct = `time ./correct < data2`
+  test = `time ./clever < data2`
 
   if test == correct
     puts "Testcase #{i}: Success"

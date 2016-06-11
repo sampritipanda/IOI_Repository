@@ -112,11 +112,11 @@ int main() {
     }
 
     if(ind_1 < ind_2) {
-      ans[i] = true;
-      cnt++;
+      ans[i] = false;
     }
     else {
-      ans[i] = false;
+      ans[i] = true;
+      cnt++;
     }
   }
 
