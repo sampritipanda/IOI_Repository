@@ -1,0 +1,27 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Dumb clicking - hard</title>
+</head>
+
+<body>
+  <div style="max-width:600px;margin: 10px auto;">
+    <div id="command" style="height: 10em">
+      <b>Level 1:</b> Click anywhere on the image. Then click on the <b>Next</b> button.
+    </div>
+    <div id="imagecont">
+    </div>
+
+    <div style="text-align: center"><button onclick="next();" style="font-size:200%">Next</button></div>
+    <br/><br/>
+
+    Action log:<br/>
+    <textarea id="log" rows="10" cols="70"></textarea>
+  </div>
+  <script src="hard-data.js"></script>
+  <script src="hard.min.js"></script>
+</body>
+</html>
