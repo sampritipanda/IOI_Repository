@@ -66,8 +66,8 @@ void dfs2(int i) {
   if(vis[i]) return;
   vis[i] = true;
 
-  for(int j = 0; j < G[i].size(); j++) {
-    int u = G[i][j];
+  for(int j = 0; j < G2[i].size(); j++) {
+    int u = G2[i][j];
     dfs2(u);
   }
 
@@ -120,7 +120,7 @@ int main() {
   }
   reverse(topo.begin(), topo.end());
 
-  for(int i = 0; i < 2*N; i++) {
+  for(int i = 0; i < topo.size(); i++) {
     R_topo[topo[i]] = i;
   }
 
@@ -128,7 +128,7 @@ int main() {
   for(int i = 0; i < N; i++) {
     assert(scc[2 * i] != scc[2 * i ^ 1]);
 
-    if(R_topo[2 * i] < R_topo[2 * i ^ 1]) {
+    if(R_topo[scc[2 * i]] < R_topo[scc[2 * i ^ 1]]) {
       ans[i] = false;
     }
     else {
