@@ -8,15 +8,15 @@
     o = m.times.map { rand(n) + 1 }.join(' ')
     f.puts(o)
 
-    p = 100000
     p = n.times.map { rand(10**9) + 1 }.join(' ')
     f.puts(p)
 
     k = 300000
+    f.puts(k)
 
     k.times do
-      l = rand(n) + 1
-      r = rand(n) + 1
+      l = rand(m) + 1
+      r = rand(m) + 1
       a = rand(10**9) + 1
 
       f.puts("#{l} #{r} #{a}")

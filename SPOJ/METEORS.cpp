@@ -5,26 +5,13 @@
 using namespace std;
 
 struct tree {
-  int val;
+  long long val;
   tree *left, *right;
 
-  tree(int _val = 0, tree* _left = NULL, tree* _right = NULL) {
+  tree(long long _val = 0, tree* _left = NULL, tree* _right = NULL) {
     val = _val;
     left = _left;
     right = _right;
-  }
-
-  void propagate(int L, int R) {
-    if(L == R) return;
-    if(val == 0) return;
-
-    left = new tree(left->val, left->left, left->right);
-    right = new tree(right->val, right->left, right->right);
-
-    left->val += val;
-    right->val += val;
-
-    val = 0;
   }
 
   void build_tree(int L, int R) {
@@ -35,16 +22,14 @@ struct tree {
     right = new tree; right->build_tree(mid + 1, R);
   }
 
-  tree* update(int L, int R, int qL, int qR, int v) {
+  tree* update(int L, int R, int qL, int qR, long long v) {
+    if(L > qR || R < qL) return this;
+
     if(qL <= L && R <= qR) {
       tree* new_node = new tree(val, left, right);
       new_node->val += v;
-      new_node->propagate(L, R);
       return new_node;
     }
-
-    propagate(L, R);
-    if(L > qR || R < qL) return this;
 
     tree* new_node = new tree(val);
     int mid = (L + R)/2;
@@ -54,22 +39,20 @@ struct tree {
     return new_node;
   }
 
-  int query(int L, int R, int x) {
-    propagate(L, R);
-
+  long long query(int L, int R, int x) {
     if(L == R) return val;
 
     int mid = (L + R)/2;
     if(x <= mid) {
-      return left->query(L, mid, x);
+      return val + left->query(L, mid, x);
     }
     else {
-      return right->query(mid + 1, R, x);
+      return val + right->query(mid + 1, R, x);
     }
   }
 };
 
-int P[300001];
+long long P[300001];
 tree* root[300001];
 vector<int> I[300001];
 
@@ -81,7 +64,7 @@ int main() {
     I[t].push_back(i);
   }
 
-  for(int i = 1; i <= N; i++) scanf("%d", &P[i]);
+  for(int i = 1; i <= N; i++) scanf("%lld", &P[i]);
 
   root[0] = new tree; root[0]->build_tree(1, M);
 
@@ -102,9 +85,10 @@ int main() {
     while(L < R) {
       int mid = (L + R)/2;
 
-      int samples = 0;
+      long long samples = 0;
       for(int j = 0; j < I[i].size(); j++) {
         samples += root[mid]->query(1, M, I[i][j]);
+        if(samples >= P[i]) break;
       }
       if(samples >= P[i]) {
         R = mid;
