@@ -4,60 +4,60 @@
 
 using namespace std;
 
-int N;
-int vis[1 << 25];
-int timer = 0;
-
-inline int encode(int i, int j) {
-  return i * N + j;
-}
-
-void print(int mask) {
-  for(int i = 0; i < N; i++) {
-    for(int j = 0; j < N; j++) {
-      if(mask & (1 << encode(i, j))) cout << 'R';
-      else cout << 'W';
-    }
-    cout << endl;
-  }
-}
-
-void dfs(int mask) {
-  if(vis[mask]) return;
-  vis[mask] = timer;
-
-  for(int i = 0; i < N; i++) {
-    if(i + 2 > N) break;
-    for(int j = 0; j < N; j++) {
-      if(j + 2 > N) break;
-      int new_mask = mask;
-      new_mask ^= (1 << encode(i, j));
-      new_mask ^= (1 << encode(i + 1, j));
-      new_mask ^= (1 << encode(i, j + 1));
-      new_mask ^= (1 << encode(i + 1, j + 1));
-      dfs(new_mask);
-    }
-  }
-}
+char grid[10000][10][10];
+int vis[10000];
 
 int main() {
-  cin >> N;
+  int N; cin >> N;
+  int G; cin >> G;
 
-  for(int i = 0; i < (1 << (N * N)); i++) {
-    if(vis[i]) continue;
-
-    ++timer;
-    dfs(i);
-  }
-
-  for(int j = 1; j <= timer; j++) {
-    cout << "\n" << j << "\n=========\n";
-
-    for(int i = 0; i < (1 << (N * N)); i++) {
-      if(vis[i] == j) {
-        print(i);
-        cout << endl;
+  for(int i = 0; i < G; i++) {
+    for(int j = 0; j < N; j++) {
+      for(int k = 0; k < N; k++) {
+        cin >> grid[i][j][k];
       }
     }
   }
+
+  int ans = 0;
+
+  for(int i = 0; i < G; i++) {
+    if(vis[i]) continue;
+    vis[i] = true;
+    int size = 1;
+    for(int j = i + 1; j < G; j++) {
+      if(vis[j]) continue;
+      bool valid = true;
+      for(int k = 0; k < N; k++) {
+        int cnt = 0;
+        for(int l = 0; l < N; l++) {
+          if(grid[i][k][l] != grid[j][k][l]) cnt++;
+        }
+        if(cnt % 2 != 0) {
+          valid = false;
+          break;
+        }
+      }
+      if(valid) {
+        for(int l = 0; l < N; l++) {
+          int cnt = 0;
+          for(int k = 0; k < N; k++) {
+            if(grid[i][k][l] != grid[j][k][l]) cnt++;
+          }
+          if(cnt % 2 != 0) {
+            valid = false;
+            break;
+          }
+        }
+      }
+
+      if(valid) {
+        size++;
+        vis[j] = true;
+      }
+    }
+    ans += (size * (size - 1))/2;
+  }
+
+  cout << ans << endl;
 }
