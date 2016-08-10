@@ -103,11 +103,13 @@ void solve(int root) {
   }
 }
 
-int best_path(int _N, int _K, int H[][2], int L[]) {
-  N = _N; K = _K;
+int main() {
+  ios::sync_with_stdio(false); cin.tie(0);
+
+  cin >> N >> K;
 
   for(int i = 0; i < N - 1; i++) {
-    int a = H[i][0], b = H[i][1], d = L[i];
+    int a, b, d; cin >> a >> b >> d;
     G[a].push_back({b, d});
     G[b].push_back({a, d});
   }
@@ -122,5 +124,5 @@ int best_path(int _N, int _K, int H[][2], int L[]) {
   solve(root);
 
   if(ans == INT_MAX/2) ans = -1;
-  return ans;
+  cout << ans << endl;
 }
