@@ -6,24 +6,16 @@ require "../../Tools/random.rb"
     n = rand(5) + 1
     f.puts("#{n}")
 
-    a = n.times.map { [rand(n) + 1, rand(n) + 1].join(' ') }
-    f.puts(a)
+    a = n.times.map { rand(10) + 1 }
+    f.puts(a.join ' ')
 
-    m = rand(1) + 1
-    f.puts("#{m}")
-
-    m.times do
-      l = rand(n) + 1
-      r = rand(n) + 1
-      l,r = r,l if l > r
-
-      f.puts("#{l} #{r}")
-    end
+    tree = gen_random_tree(n)
+    f.puts(tree.map { |x| x.join ' '})
   end
 
   puts "Generated"
   test = `./clever < data2`
-  correct = `./brute < data2`
+  correct = `./wrong < data2`
 
   if test == correct
     puts "Testcase #{i}: Success"
