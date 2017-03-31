@@ -1,15 +1,12 @@
 // Around the world
 
 #include <cstdio>
+#include <cassert>
 #include <algorithm>
-#include <cstring>
-#include <vector>
 
 using namespace std;
 
 int A[1000000];
-bool vis[1000000];
-vector<int> cand;
 
 int main() {
   int N, S; scanf("%d %d", &N, &S);
@@ -28,39 +25,37 @@ int main() {
       continue;
     }
 
-    cand.clear();
-    memset(vis, false, sizeof vis);
+    int ans = N + 1;
 
-    int max_len = 0, j = 0, sum = 0;
-    for(int i = 0; i < N; i++) {
-      while(sum + A[j] <= D) {
-        sum += A[j];
-        j = (j + 1) % N;
-        if(j == i) break;
-      }
-      int len = 0;
-      if(i < j) len = j - i;
-      else len = N - i + j;
-      if(len > max_len) {
-        cand.clear();
-        cand.push_back(i);
-        max_len = len;
-      }
-      else if(len == max_len) {
-        cand.push_back(i);
-      }
+    int L = 0, R = N + 1;
+    int i = 0;
+    while(true) {
+      int start = i;
+      int sum = 0;
+      while(true) {
+        if(sum + A[i] <= D) {
+          sum += A[i];
+          i = (i + 1) % N;
+        }
+        else break;
 
-      sum -= A[i];
+        if(i == 0) {
+          i = N;
+          break;
+        }
+      }
+      if((i - start) < (R - L)) {
+        L = start;
+        R = i;
+      }
+      if(i == N) break;
     }
-    int ans = N;
-    for(int ind = 0; ind < cand.size(); ind++) {
-      if(vis[cand[ind]]) continue;
 
-      int i = cand[ind];
+    for(int start = L; start < R; start++) {
+      int i = start;
       int curr = 0;
       while(true) {
         int sum = 0;
-        vis[i] = true;
         while(true) {
           if(sum + A[i] <= D) {
             sum += A[i];
@@ -68,12 +63,16 @@ int main() {
           }
           else break;
 
-          if(i == cand[ind]) break;
+          if(i == start) break;
         }
         curr++;
-        if(i == cand[ind]) break;
+        if(i == start) break;
       }
-      ans = min(ans, curr);
+      if(ans == N + 1) ans = curr;
+      else if(curr < ans) {
+        ans = curr;
+        break;
+      }
     }
 
     printf("%d\n", ans);

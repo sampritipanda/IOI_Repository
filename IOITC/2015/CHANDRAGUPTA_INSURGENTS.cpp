@@ -43,6 +43,18 @@ struct block {
     int N = size();
     for(int i = 0; i < N; i++) A[i] += lazy_add;
   }
+
+  int calc_freq(int i) {
+    if(lazy_add == 0) return freq[i];
+
+    if(lazy_add > 0) {
+      if(i >= lazy_add) return freq[i - lazy_add];
+      else return 0;
+    }
+    else if(lazy_add < 0) {
+      return freq[i - lazy_add];
+    }
+  }
 };
 
 vector<block> blocks;
@@ -118,8 +130,7 @@ inline int query(int L, int R) {
     }
 
     if(L <= X && Y <= R) {
-      blocks[i].propagate();
-      ans += blocks[i].freq[0];
+      ans += blocks[i].calc_freq(0);
     }
     else {
       blocks[i].propagate();
