@@ -1,189 +1,96 @@
 #include <cstdio>
 #include <algorithm>
-#include <vector>
-#include <cstring>
-#include <cmath>
+#include <climits>
 
 using namespace std;
 
-struct block {
-  int A[301];
-  int freq[301];
-  int lazy_add;
-  int L, R;
+namespace SegmentTree {
+  pair<int, int> segtree[400004];
+  int lazy[400004];
 
-  void clear() {
-    memset(freq, 0, sizeof freq);
-    memset(A, 0, sizeof A);
-    lazy_add = 0;
+  pair<int, int> merge(pair<int, int> L, pair<int, int> R) {
+    if(L.first == R.first) return {L.first, L.second + R.second};
+    if(L.first < R.first) return L;
+    return R;
   }
 
-  block(int _L, int _R) {
-    clear();
-    L = _L;
-    R = _R;
-    freq[0] = size();
+  void propagate(int L, int R, int i) {
+    if(lazy[i] == 0) return;
+
+    segtree[i].first += lazy[i];
+
+    if(L != R) {
+      lazy[2*i + 1] += lazy[i];
+      lazy[2*i + 2] += lazy[i];
+    }
+    lazy[i] = 0;
   }
 
-  int size() {
-    return R - L + 1;
+  void build(int L, int R, int i) {
+    lazy[i] = 0;
+    if(L == R) {
+      segtree[i] = {0, 1};
+      return;
+    }
+
+    int mid = (L + R)/2;
+    build(L, mid, 2*i + 1);
+    build(mid + 1, R, 2*i + 2);
+    segtree[i] = merge(segtree[2*i + 1], segtree[2*i + 2]);
   }
 
-  void propagate() {
-    if(lazy_add == 0) return;
-
-    if(lazy_add > 0) {
-      for(int i = 300; i >= lazy_add; i--) freq[i] = freq[i - lazy_add];
-      for(int i = 0; i < lazy_add; i++) freq[i] = 0;
-    }
-    else if(lazy_add < 0) {
-      for(int i = 0; i <= 300; i++) freq[i] = freq[i - lazy_add];
+  void update(int L, int R, int i, int qL, int qR, int v) {
+    propagate(L, R, i);
+    if(L > qR || R < qL) return;
+    if(qL <= L && R <= qR) {
+      lazy[i] += v;
+      propagate(L, R, i);
+      return;
     }
 
-    int N = size();
-    for(int i = 0; i < N; i++) A[i] += lazy_add;
+    int mid = (L + R)/2;
+    update(L, mid, 2*i + 1, qL, qR, v);
+    update(mid + 1, R, 2*i + 2, qL, qR, v);
+    segtree[i] = merge(segtree[2*i + 1], segtree[2*i + 2]);
   }
 
-  int calc_freq(int i) {
-    if(lazy_add == 0) return freq[i];
+  pair<int, int> query(int L, int R, int i, int qL, int qR) {
+    propagate(L, R, i);
+    if(L > qR || R < qL) return {INT_MAX/2, 0};
+    if(qL <= L && R <= qR) return segtree[i];
 
-    if(lazy_add > 0) {
-      if(i >= lazy_add) return freq[i - lazy_add];
-      else return 0;
-    }
-    else if(lazy_add < 0) {
-      return freq[i - lazy_add];
-    }
+    int mid = (L + R)/2;
+    return merge(query(L, mid, 2*i + 1, qL, qR), query(mid + 1, R, 2*i + 2, qL, qR));
   }
 };
 
-vector<block> blocks;
-int BLOCK_SIZE;
-int B;
-
-inline void increment(int L, int R) {
-  int X = L/BLOCK_SIZE * BLOCK_SIZE;
-  for(int i = L/BLOCK_SIZE; i < B; i++) {
-    int Y = X + BLOCK_SIZE - 1;
-    if(X > R) break;
-    if(Y < L) {
-      X += BLOCK_SIZE;
-      continue;
-    }
-
-    if(L <= X && Y <= R) {
-      blocks[i].lazy_add += 1;
-    }
-    else {
-      blocks[i].propagate();
-      for(int j = 0; j < BLOCK_SIZE; j++) {
-        if(j + X >= L && j + X <= R) {
-          blocks[i].freq[blocks[i].A[j]]--;
-          blocks[i].A[j]++;
-          blocks[i].freq[blocks[i].A[j]]++;
-        }
-      }
-    }
-
-    X += BLOCK_SIZE;
-  }
-}
-
-inline void decrement(int L, int R) {
-  int X = L/BLOCK_SIZE * BLOCK_SIZE;
-  for(int i = L/BLOCK_SIZE; i < B; i++) {
-    int Y = X + BLOCK_SIZE - 1;
-    if(X > R) break;
-    if(Y < L) {
-      X += BLOCK_SIZE;
-      continue;
-    }
-
-    if(L <= X && Y <= R) {
-      blocks[i].lazy_add -= 1;
-    }
-    else {
-      blocks[i].propagate();
-      for(int j = 0; j < BLOCK_SIZE; j++) {
-        if(j + X >= L && j + X <= R) {
-          blocks[i].freq[blocks[i].A[j]]--;
-          blocks[i].A[j]--;
-          blocks[i].freq[blocks[i].A[j]]++;
-        }
-      }
-    }
-
-    X += BLOCK_SIZE;
-  }
-}
-
-// count number of 0 in range
-inline int query(int L, int R) {
-  int ans = 0;
-  int X = L/BLOCK_SIZE * BLOCK_SIZE;
-  for(int i = L/BLOCK_SIZE; i < B; i++) {
-    int Y = X + BLOCK_SIZE - 1;
-    if(X > R) break;
-    if(Y < L) {
-      X += BLOCK_SIZE;
-      continue;
-    }
-
-    if(L <= X && Y <= R) {
-      ans += blocks[i].calc_freq(0);
-    }
-    else {
-      blocks[i].propagate();
-      for(int j = 0; j < BLOCK_SIZE; j++) {
-        if(j + X >= L && j + X <= R) {
-          if(blocks[i].A[j] == 0) ans++;
-        }
-      }
-    }
-
-    X += BLOCK_SIZE;
-  }
-
-  return ans;
-}
 
 int main() {
   int N, M, Q; scanf("%d %d %d", &N, &M, &Q);
-  BLOCK_SIZE = 300;//int(sqrt(N));
 
-  int L = 0;
-  while(L < N) {
-    blocks.push_back(block(L, L + BLOCK_SIZE - 1));
-    L += BLOCK_SIZE;
-  }
-  B = blocks.size();
+  SegmentTree::build(1, N, 0);
 
   while(M--) {
-    int u, v; scanf("%d %d", &u, &v); u--; v--;
-    if(u == v) continue;
-
+    int u, v; scanf("%d %d", &u, &v);
     if(u > v) swap(u, v);
     v--;
-
-    increment(u, v);
+    SegmentTree::update(1, N, 0, u, v, 1);
   }
 
   while(Q--) {
-    int t, u, v; scanf("%d %d %d", &t, &u, &v); u--; v--;
+    int t, u, v; scanf("%d %d %d", &t, &u, &v);
     if(u > v) swap(u, v);
-    if((t == 1 || t == 2) && u == v) continue;
+    v--;
 
     if(t == 0) {
-      v--;
-      increment(u, v);
+      SegmentTree::update(1, N, 0, u, v, 1);
     }
     else if(t == 1) {
-      v--;
-      decrement(u, v);
+      SegmentTree::update(1, N, 0, u, v, -1);
     }
     else {
-      if(u == v) printf("0\n");
-      else printf("%d\n", query(u, v - 1));
+      pair<int, int> query_ans = SegmentTree::query(1, N, 0, u, v);
+      printf("%d\n", (query_ans.first == 0 ? query_ans.second : 0));
     }
   }
 }

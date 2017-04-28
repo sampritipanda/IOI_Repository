@@ -1,39 +1,27 @@
-require "../../Tools/random.rb"
-
 (1..1).each do |i|
   arr = []
   File.open('data2', 'w') do |f|
-    t = 10
+    n = 200000
+    q = 50000
 
-    f.puts(t)
+    f.puts("#{n} #{q}")
 
-    t.times do
-      n = 100000
-      f.puts(n)
-
-      edges = gen_random_tree(n)
-      f.puts(edges.map { |x| x.join(' ')})
-
-      m = 100000
-      f.puts(m)
-      m.times do
-        t = 2#rand(2) + 1
-        if t == 1 
-          u = rand(n) + 1
-          v = rand(n) + 1
-          f.puts("#{t} #{u} #{v}")
-        else
-          v = rand(n) + 1
-          f.puts("#{t} #{v}")
-        end
+    q.times do
+      l = 0
+      r = 0
+      while l == r
+        l = rand(n) + 1
+        r = rand(n) + 1
       end
+      f.puts("#{l} #{r}")
     end
   end
 
   puts "Generated"
-  test = `time ./clever < data2`
+  test = `/usr/bin/time ./clever < data2`
+  correct = `./correct < data2`
 
-  if test != ""
+  if test == correct
     puts "Testcase #{i}: Success"
   else
     puts "Testcase #{i}: Failure"
