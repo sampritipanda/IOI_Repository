@@ -75,11 +75,11 @@ int main() {
 		int curr_L = it.first, curr_R = it.second;
 		while(R < curr_R) {
 			++R;
-			ans += query(100000) - query(A[R]);
+			ans += (R - L) - query(A[R]);
 			update(A[R], 1);
 		}
 		while(R > curr_R) {
-			ans -= query(100000) - query(A[R]);
+			ans -= (R - L + 1) - query(A[R]);
 			update(A[R], -1);
 			R--;
 		}
